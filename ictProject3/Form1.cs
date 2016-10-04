@@ -42,5 +42,22 @@ namespace ictProject3
         {
 
         }
+
+        private void saveFile(byte[] tempBytes, string fileName)
+        {
+            string filePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\" + fileName;
+            string fileNameOnly = Path.GetFileNameWithoutExtension(filePath);
+            string extension = Path.GetExtension(filePath);
+            string path = Path.GetDirectoryName(filePath);
+            string newFullPath = filePath;
+            int count = 1;
+            while (File.Exists(newFullPath))
+            {
+                string tempFileName = string.Format("{0}({1})", fileNameOnly, count++);
+                newFullPath = Path.Combine(path, tempFileName + extension);
+            }
+            File.WriteAllBytes(newFullPath, tempBytes);
+        }
+
     }
 }
