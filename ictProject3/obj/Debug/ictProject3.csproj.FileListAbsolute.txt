@@ -2,3 +2,4 @@ c:\users\mark\documents\visual studio 2015\Projects\ictProject3\ictProject3\bin\
 F:\KHLim\3e jaar\ictProject3\ictProject3\ictProject3\bin\Debug\ictProject3.exe.config
 D:\Users\student Elo Ict\Documents\IctProject3Client\ictProject3\bin\Debug\ictProject3.exe.config
 C:\Users\Gebruiker\Documents\IctProject3Client\ictProject3\bin\Debug\ictProject3.exe.config
+C:\Users\bergm_000\Documents\IctProject3Client\ictProject3\bin\Debug\ictProject3.exe.config

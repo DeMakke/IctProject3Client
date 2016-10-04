@@ -37,7 +37,8 @@ namespace ictProject3
             string encodedData = bytes.Length + ":" + Convert.ToBase64String(bytes, 0, bytes.Length, Base64FormattingOptions.None);
             return encodedData;
         }
-        public void Test()
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
