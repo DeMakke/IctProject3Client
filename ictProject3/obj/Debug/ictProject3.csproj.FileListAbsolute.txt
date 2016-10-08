@@ -3,3 +3,4 @@ F:\KHLim\3e jaar\ictProject3\ictProject3\ictProject3\bin\Debug\ictProject3.exe.c
 D:\Users\student Elo Ict\Documents\IctProject3Client\ictProject3\bin\Debug\ictProject3.exe.config
 C:\Users\Gebruiker\Documents\IctProject3Client\ictProject3\bin\Debug\ictProject3.exe.config
 C:\Users\bergm_000\Documents\IctProject3Client\ictProject3\bin\Debug\ictProject3.exe.config
+D:\PROJECT 3\GitHub\Client\ictProject3\bin\Debug\ictProject3.exe.config
