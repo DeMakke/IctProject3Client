@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,9 +20,17 @@ namespace ictProject3
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
+        public WebCom servercom = new WebCom();
+        private CancellationTokenSource cts;
 
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            var progressindicator = new Progress<int>(ReportProgress);
+            cts = new CancellationTokenSource();
+
+            string result = "";
+            result = await servercom.ReceiveDataAsync("Default/test", "{\"Username\":\"test3\",\"Email\":\"test3email@gmail.com\",\"Password\":\"test\"}", progressindicator, cts.Token);
+            MessageBox.Show(result);
         }
 
         public static string SerializeBase64(object o)
@@ -36,6 +45,20 @@ namespace ictProject3
             bytes = ws.GetBuffer();
             string encodedData = bytes.Length + ":" + Convert.ToBase64String(bytes, 0, bytes.Length, Base64FormattingOptions.None);
             return encodedData;
+        }
+
+        private Tuple<byte[], string> DeSerializeBase64(Data o)
+        {
+            string naam = "";
+
+            byte[] bitarray = Convert.FromBase64String(o.base64);
+
+            return Tuple.Create(bitarray, naam);
+        }
+
+        private void ReportProgress(int value)
+        {
+            //progressreport
         }
 
         private void Form1_Load(object sender, EventArgs e)
