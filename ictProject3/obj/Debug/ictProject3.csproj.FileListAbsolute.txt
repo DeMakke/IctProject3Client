@@ -26,3 +26,5 @@ C:\Users\bergm_000\Documents\IctProject3Client\ictProject3\bin\Debug\ictProject3
 C:\Users\bergm_000\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.exe
 C:\Users\bergm_000\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.pdb
 >>>>>>> Maxim
+D:\PROJECT 3\GitHub\Client\ictProject3\obj\Debug\ictProject3.exe
+D:\PROJECT 3\GitHub\Client\ictProject3\obj\Debug\ictProject3.pdb
