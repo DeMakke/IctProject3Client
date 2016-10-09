@@ -20,6 +20,7 @@ namespace ictProject3
             InitializeComponent();
         }
 
+<<<<<<< HEAD
         public WebCom servercom = new WebCom();
         private CancellationTokenSource cts;
 
@@ -32,6 +33,9 @@ namespace ictProject3
             result = await servercom.ReceiveDataAsync("Default/test", "{\"Username\":\"test3\",\"Email\":\"test3email@gmail.com\",\"Password\":\"test\"}", progressindicator, cts.Token);
             MessageBox.Show(result);
         }
+=======
+
+>>>>>>> Maxim
 
         public static string SerializeBase64(object o)
         {
@@ -63,7 +67,26 @@ namespace ictProject3
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            List<Item> itemList = Item.GetItems();
+            lstFiles.Items.Clear();
 
+            foreach (Item item in itemList)
+            {
+                lstFiles.Items.Add((Convert.ToString(item.Id)).PadRight(15) + (Convert.ToString(item.Naam)));
+            }
+        }
+
+        private void btnDownloadFile_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUpdateList_Click(object sender, EventArgs e)
+        {
+            //kijk welke geselecteerd is
+            //maak een object van het geselecteerde item
+
+            var selectedFromListBox = lstFiles.SelectedItem;
         }
     }
 }

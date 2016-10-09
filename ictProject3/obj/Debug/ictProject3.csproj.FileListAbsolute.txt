@@ -3,6 +3,7 @@ F:\KHLim\3e jaar\ictProject3\ictProject3\ictProject3\bin\Debug\ictProject3.exe.c
 D:\Users\student Elo Ict\Documents\IctProject3Client\ictProject3\bin\Debug\ictProject3.exe.config
 C:\Users\Gebruiker\Documents\IctProject3Client\ictProject3\bin\Debug\ictProject3.exe.config
 C:\Users\bergm_000\Documents\IctProject3Client\ictProject3\bin\Debug\ictProject3.exe.config
+<<<<<<< HEAD
 D:\PROJECT 3\GitHub\Client\ictProject3\bin\Debug\ictProject3.exe.config
 C:\Users\Dries\Documents\IctProject3Client\ictProject3\bin\Debug\ictProject3.exe.config
 C:\Users\Dries\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.csprojResolveAssemblyReference.cache
@@ -15,3 +16,13 @@ C:\Users\Dries\Documents\IctProject3Client\ictProject3\bin\Debug\Newtonsoft.Json
 C:\Users\Dries\Documents\IctProject3Client\ictProject3\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Dries\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.exe
 C:\Users\Dries\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.pdb
+=======
+C:\Users\bergm_000\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.csprojResolveAssemblyReference.cache
+C:\Users\bergm_000\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.Form1.resources
+C:\Users\bergm_000\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.Properties.Resources.resources
+C:\Users\bergm_000\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.csproj.GenerateResource.Cache
+C:\Users\bergm_000\Documents\IctProject3Client\ictProject3\bin\Debug\ictProject3.exe
+C:\Users\bergm_000\Documents\IctProject3Client\ictProject3\bin\Debug\ictProject3.pdb
+C:\Users\bergm_000\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.exe
+C:\Users\bergm_000\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.pdb
+>>>>>>> Maxim
