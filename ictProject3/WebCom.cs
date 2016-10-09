@@ -24,7 +24,7 @@ namespace ictProject3
                 prevresult = "";
                 newresult = "";
                 //Debug.WriteLine(json);
-                Uri defury = new Uri("http://localhost:8000/RestServiceImpl.svc/Json/" + connectionstring);
+                Uri defury = new Uri("http://localhost:8000/WebService.svc/Json/" + connectionstring);
                 HttpWebRequest defRequest = (HttpWebRequest)HttpWebRequest.Create(defury);
                 defRequest.Method = "POST";
                 IAsyncResult resultOverUsed = (IAsyncResult)defRequest.BeginGetRequestStream(new AsyncCallback(GetRequestStreamCallback), defRequest); // hier json meegeven ?

@@ -20,22 +20,14 @@ namespace ictProject3
             InitializeComponent();
         }
 
-<<<<<<< HEAD
         public WebCom servercom = new WebCom();
         private CancellationTokenSource cts;
 
-        private async void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            var progressindicator = new Progress<int>(ReportProgress);
-            cts = new CancellationTokenSource();
 
-            string result = "";
-            result = await servercom.ReceiveDataAsync("Default/test", "{\"Username\":\"test3\",\"Email\":\"test3email@gmail.com\",\"Password\":\"test\"}", progressindicator, cts.Token);
-            MessageBox.Show(result);
         }
-=======
 
->>>>>>> Maxim
 
         public static string SerializeBase64(object o)
         {
@@ -76,9 +68,14 @@ namespace ictProject3
             }
         }
 
-        private void btnDownloadFile_Click(object sender, EventArgs e)
+        private async void btnDownloadFile_Click(object sender, EventArgs e)
         {
+            var progressindicator = new Progress<int>(ReportProgress);
+            cts = new CancellationTokenSource();
 
+            string result = "";
+            result = await servercom.ReceiveDataAsync("Default", "{\"Username\":\"test3\",\"Email\":\"test3email@gmail.com\",\"Password\":\"test\"}", progressindicator, cts.Token);
+            MessageBox.Show(result);
         }
 
         private void btnUpdateList_Click(object sender, EventArgs e)
