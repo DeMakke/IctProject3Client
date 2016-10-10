@@ -9,6 +9,7 @@ namespace ictProject3
 {
     public class Data
     {
+
         [JsonProperty("id")]
         public int id { get; set; }
         [JsonProperty("name")]

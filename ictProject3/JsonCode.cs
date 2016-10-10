@@ -12,7 +12,6 @@ namespace ictProject3
 {
     public class JsonCode
     {
-        Data data = new Data();
         CRespons rp;
         public Data JsonDeCoding(String json)
         {

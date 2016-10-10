@@ -23,6 +23,9 @@ namespace ictProject3
         public WebCom servercom = new WebCom();
         private CancellationTokenSource cts;
 
+        JsonCode jsoncode = new JsonCode();
+        Base64Code base64code = new Base64Code();
+
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -46,12 +49,17 @@ namespace ictProject3
 
         private async void btnDownloadFile_Click(object sender, EventArgs e)
         {
+
             var progressindicator = new Progress<int>(ReportProgress);
             cts = new CancellationTokenSource();
 
             string result = "";
-            result = await servercom.ReceiveDataAsync("Default", "{\"Username\":\"test3\",\"Email\":\"test3email@gmail.com\",\"Password\":\"test\"}", progressindicator, cts.Token);
-            MessageBox.Show(result);
+            result = await servercom.ReceiveDataAsync("GetFile", Convert.ToString(lstFiles.SelectedItem), progressindicator, cts.Token);
+
+            MessageBox.Show(result); //achteraf hier nog een try catch aan toevoegen zodat het prog nie crashed in geval van foute response;
+            Data response = jsoncode.JsonDeCoding(result); // vult data object niet
+            Tuple<byte[], string> file = base64code.DeSerializeBase64(response);
+            base64code.saveFile(file.Item1, file.Item2);
         }
 
         private void btnUpdateList_Click(object sender, EventArgs e)
@@ -61,8 +69,6 @@ namespace ictProject3
 
             var selectedFromListBox = lstFiles.SelectedItem;
         }
-
-
 
     }
 }
