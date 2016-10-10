@@ -56,7 +56,10 @@ namespace ictProject3
             string result = "";
             result = await servercom.ReceiveDataAsync("GetFile", Convert.ToString(lstFiles.SelectedItem), progressindicator, cts.Token);
 
+            result = jsoncode.cropString(result);
             MessageBox.Show(result); //achteraf hier nog een try catch aan toevoegen zodat het prog nie crashed in geval van foute response;
+
+            
             Data response = jsoncode.JsonDeCoding(result); // vult data object niet
             Tuple<byte[], string> file = base64code.DeSerializeBase64(response);
             base64code.saveFile(file.Item1, file.Item2);
@@ -69,6 +72,8 @@ namespace ictProject3
 
             var selectedFromListBox = lstFiles.SelectedItem;
         }
+
+        
 
     }
 }

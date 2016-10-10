@@ -25,6 +25,14 @@ namespace ictProject3
             return json;
         }
 
+        public string cropString(string input)
+        {
+            string output;
+            input = input.Remove(0,18);
+            output = input.Remove(input.Length-2);
+            return output;
+        }
+
         public CRespons DecodeClientJson(string json)
         {
             JsonCode jc = new JsonCode();
