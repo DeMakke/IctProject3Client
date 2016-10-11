@@ -28,3 +28,5 @@ C:\Users\bergm_000\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3
 >>>>>>> Maxim
 D:\PROJECT 3\GitHub\Client\ictProject3\obj\Debug\ictProject3.exe
 D:\PROJECT 3\GitHub\Client\ictProject3\obj\Debug\ictProject3.pdb
+D:\Users\student Elo Ict\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.exe
+D:\Users\student Elo Ict\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.pdb
