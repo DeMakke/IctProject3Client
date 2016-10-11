@@ -74,7 +74,9 @@ namespace ictProject3
             var selectedFromListBox = lstFiles.SelectedItem;
         }
 
-        
+        private void btnUpload_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
