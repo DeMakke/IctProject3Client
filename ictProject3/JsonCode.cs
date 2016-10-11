@@ -28,8 +28,9 @@ namespace ictProject3
         public string cropString(string input)
         {
             string output;
-            input = input.Remove(0,18);
-            output = input.Remove(input.Length-2);
+            input = input.Remove(0,1);
+            output = input.Remove(input.Length-1);
+            output = output.Replace("\\\"", "\"");
             return output;
         }
 

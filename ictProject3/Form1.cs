@@ -57,7 +57,7 @@ namespace ictProject3
             result = await servercom.ReceiveDataAsync("GetFile", Convert.ToString(lstFiles.SelectedItem), progressindicator, cts.Token);
 
             result = jsoncode.cropString(result);
-            MessageBox.Show(result); //achteraf hier nog een try catch aan toevoegen zodat het prog nie crashed in geval van foute response;
+            //MessageBox.Show(result); //achteraf hier nog een try catch aan toevoegen zodat het prog nie crashed in geval van foute response;
 
             
             Data response = jsoncode.JsonDeCoding(result); // vult data object niet
