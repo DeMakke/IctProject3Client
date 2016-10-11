@@ -31,7 +31,7 @@
             this.btnDownloadFile = new System.Windows.Forms.Button();
             this.lstFiles = new System.Windows.Forms.ListBox();
             this.btnUpdateList = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnUpload = new System.Windows.Forms.Button();
             this.lblFilename = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -63,15 +63,15 @@
             this.btnUpdateList.UseVisualStyleBackColor = true;
             this.btnUpdateList.Click += new System.EventHandler(this.btnUpdateList_Click);
             // 
-            // button1
+            // btnUpload
             // 
-            this.button1.Location = new System.Drawing.Point(12, 180);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Upload a file";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnUpload.Location = new System.Drawing.Point(12, 180);
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.Size = new System.Drawing.Size(75, 23);
+            this.btnUpload.TabIndex = 3;
+            this.btnUpload.Text = "Upload a file";
+            this.btnUpload.UseVisualStyleBackColor = true;
+            this.btnUpload.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // lblFilename
             // 
@@ -88,7 +88,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(340, 313);
             this.Controls.Add(this.lblFilename);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnUpload);
             this.Controls.Add(this.btnUpdateList);
             this.Controls.Add(this.lstFiles);
             this.Controls.Add(this.btnDownloadFile);
@@ -105,7 +105,7 @@
         private System.Windows.Forms.Button btnDownloadFile;
         private System.Windows.Forms.ListBox lstFiles;
         private System.Windows.Forms.Button btnUpdateList;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnUpload;
         private System.Windows.Forms.Label lblFilename;
     }
 }
