@@ -27,6 +27,7 @@ namespace ictProject3
         JsonCode jsoncode = new JsonCode();
         Base64Code base64code = new Base64Code();
         Data data = new Data();
+        public FileHandling fileHandler = new FileHandling();
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -77,6 +78,18 @@ namespace ictProject3
 
         private async void btnUpload_Click(object sender, EventArgs e)
         {
+
+            DialogResult resultaat = OpenFileDialog.ShowDialog();
+            if (resultaat != DialogResult.Cancel)
+            {
+                string filePath = OpenFileDialog.FileName;
+                string name = OpenFileDialog.SafeFileName;
+                data = fileHandler.UploadFile(name, filePath);
+                lblFilename.Text += name;
+            }
+
+            data.base64 = base64code.SerializeBase64(base64code.GetFile(data.path));
+
             var progressindicator = new Progress<int>(ReportProgress);
             cts = new CancellationTokenSource();
             string json = "";
@@ -85,8 +98,6 @@ namespace ictProject3
             json = jsoncode.JsonCoding(data);
             json = jsoncode.cropString(json);
             result = await servercom.ReceiveDataAsync("SaveFile", json, progressindicator, cts.Token);
-
-            
             
         }
     }

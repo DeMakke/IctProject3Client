@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Base64Code.cs" />
     <Compile Include="Data.cs" />
+    <Compile Include="FileHandling.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

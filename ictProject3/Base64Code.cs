@@ -11,14 +11,14 @@ namespace ictProject3
 {
     public class Base64Code
     {
-        public string SerializeBase64(object o) //geen static van maken ~M.V.G. Dries
+        public string SerializeBase64(byte[] file) //geen static van maken ~M.V.G. Dries
         {
             // Serialize to a base 64 string
             byte[] bytes;
             long length = 0;
             MemoryStream ws = new MemoryStream();
             BinaryFormatter sf = new BinaryFormatter();
-            sf.Serialize(ws, o);
+            sf.Serialize(ws, file);
             length = ws.Length;
             bytes = ws.GetBuffer();
             string encodedData = bytes.Length + ":" + Convert.ToBase64String(bytes, 0, bytes.Length, Base64FormattingOptions.None);
@@ -50,6 +50,11 @@ namespace ictProject3
             }
             MessageBox.Show(newFullPath);
             File.WriteAllBytes(newFullPath, tempBytes);
+        }
+        public byte[] GetFile(string path)
+        {
+            byte[] file = File.ReadAllBytes(path);
+            return file;
         }
     }
 }
