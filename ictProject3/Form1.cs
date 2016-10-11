@@ -15,7 +15,7 @@ namespace ictProject3
 {
     public partial class Form1 : Form
     {
-
+        
         public Form1()
         {
             InitializeComponent();
@@ -26,6 +26,7 @@ namespace ictProject3
 
         JsonCode jsoncode = new JsonCode();
         Base64Code base64code = new Base64Code();
+        Data data = new Data();
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -61,7 +62,7 @@ namespace ictProject3
             //MessageBox.Show(result); //achteraf hier nog een try catch aan toevoegen zodat het prog nie crashed in geval van foute response;
 
             
-            Data response = jsoncode.JsonDeCoding(result); // vult data object niet
+            Data response = jsoncode.JsonDeCoding(result); 
             Tuple<byte[], string> file = base64code.DeSerializeBase64(response);
             base64code.saveFile(file.Item1, file.Item2);
         }
@@ -74,9 +75,19 @@ namespace ictProject3
             var selectedFromListBox = lstFiles.SelectedItem;
         }
 
-        private void btnUpload_Click(object sender, EventArgs e)
+        private async void btnUpload_Click(object sender, EventArgs e)
         {
+            var progressindicator = new Progress<int>(ReportProgress);
+            cts = new CancellationTokenSource();
+            string json = "";
+            string result = "";
+            //Get data object from object met base64 coded bestand inclusief.
+            json = jsoncode.JsonCoding(data);
+            json = jsoncode.cropString(json);
+            result = await servercom.ReceiveDataAsync("SaveFile", json, progressindicator, cts.Token);
 
+            
+            
         }
     }
 }

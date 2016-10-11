@@ -30,3 +30,11 @@ D:\PROJECT 3\GitHub\Client\ictProject3\obj\Debug\ictProject3.exe
 D:\PROJECT 3\GitHub\Client\ictProject3\obj\Debug\ictProject3.pdb
 D:\Users\student Elo Ict\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.exe
 D:\Users\student Elo Ict\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.pdb
+D:\PROJECT 3\GitHub\Client\ictProject3\bin\Debug\ictProject3.exe
+D:\PROJECT 3\GitHub\Client\ictProject3\bin\Debug\ictProject3.pdb
+D:\PROJECT 3\GitHub\Client\ictProject3\bin\Debug\Newtonsoft.Json.dll
+D:\PROJECT 3\GitHub\Client\ictProject3\bin\Debug\Newtonsoft.Json.xml
+D:\PROJECT 3\GitHub\Client\ictProject3\obj\Debug\ictProject3.csprojResolveAssemblyReference.cache
+D:\PROJECT 3\GitHub\Client\ictProject3\obj\Debug\ictProject3.Form1.resources
+D:\PROJECT 3\GitHub\Client\ictProject3\obj\Debug\ictProject3.Properties.Resources.resources
+D:\PROJECT 3\GitHub\Client\ictProject3\obj\Debug\ictProject3.csproj.GenerateResource.Cache
