@@ -25,6 +25,18 @@ namespace ictProject3
             return json;
         }
 
+        public Succes JsonDeCodingSucces(String json)
+        {
+            Succes succes = JsonConvert.DeserializeObject<Succes>(json);
+            return succes;
+        }
+
+        public String JsonCoding(Succes succes)
+        {
+            string json = JsonConvert.SerializeObject(succes);
+            return json;
+        }
+
         public string cropString(string input)
         {
             string output;
