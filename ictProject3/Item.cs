@@ -13,6 +13,7 @@ namespace ictProject3
 
         public static List<Item> GetItems()
         {
+
             List<Item> items = new List<Item>();
 
             string[] lijstItems = { "test1", "test2" };
