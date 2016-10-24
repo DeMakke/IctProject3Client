@@ -86,19 +86,20 @@ namespace ictProject3
                 string name = OpenFileDialog.SafeFileName;
                 data = fileHandler.UploadFile(name, filePath);
                 lblFilename.Text += name;
+
+
+                data.base64 = base64code.SerializeBase64(base64code.GetFile(data.path));
+
+                var progressindicator = new Progress<int>(ReportProgress);
+                cts = new CancellationTokenSource();
+                string json = "";
+                string result = "";
+                //Get data object from object met base64 coded bestand inclusief.
+                json = jsoncode.JsonCoding(data);
+                json = jsoncode.cropString(json);
+                result = await servercom.ReceiveDataAsync("SaveFile", json, progressindicator, cts.Token);
+
             }
-
-            data.base64 = base64code.SerializeBase64(base64code.GetFile(data.path));
-
-            var progressindicator = new Progress<int>(ReportProgress);
-            cts = new CancellationTokenSource();
-            string json = "";
-            string result = "";
-            //Get data object from object met base64 coded bestand inclusief.
-            json = jsoncode.JsonCoding(data);
-            json = jsoncode.cropString(json);
-            result = await servercom.ReceiveDataAsync("SaveFile", json, progressindicator, cts.Token);
-            
         }
     }
 }
