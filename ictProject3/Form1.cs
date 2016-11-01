@@ -101,5 +101,11 @@ namespace ictProject3
 
             }
         }
+
+        private void btnDeleteItem_Click(object sender, EventArgs e)
+        {
+            string item = Convert.ToString(lstFiles.SelectedItem);
+            data.name = (item.Substring(10,item.Length-10)).Trim();
+        }
     }
 }

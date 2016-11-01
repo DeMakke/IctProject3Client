@@ -48,3 +48,14 @@ C:\Users\Gebruiker\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3
 C:\Users\Gebruiker\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.Form1.resources
 C:\Users\Gebruiker\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.Properties.Resources.resources
 C:\Users\Gebruiker\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.csproj.GenerateResource.Cache
+C:\Users\Pieter-Jan\Desktop\School\IctProject3Client\ictProject3\bin\Debug\ictProject3.exe.config
+C:\Users\Pieter-Jan\Desktop\School\IctProject3Client\ictProject3\obj\Debug\ictProject3.exe
+C:\Users\Pieter-Jan\Desktop\School\IctProject3Client\ictProject3\obj\Debug\ictProject3.pdb
+C:\Users\Pieter-Jan\Desktop\School\IctProject3Client\ictProject3\bin\Debug\ictProject3.exe
+C:\Users\Pieter-Jan\Desktop\School\IctProject3Client\ictProject3\bin\Debug\ictProject3.pdb
+C:\Users\Pieter-Jan\Desktop\School\IctProject3Client\ictProject3\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Pieter-Jan\Desktop\School\IctProject3Client\ictProject3\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Pieter-Jan\Desktop\School\IctProject3Client\ictProject3\obj\Debug\ictProject3.csprojResolveAssemblyReference.cache
+C:\Users\Pieter-Jan\Desktop\School\IctProject3Client\ictProject3\obj\Debug\ictProject3.Form1.resources
+C:\Users\Pieter-Jan\Desktop\School\IctProject3Client\ictProject3\obj\Debug\ictProject3.Properties.Resources.resources
+C:\Users\Pieter-Jan\Desktop\School\IctProject3Client\ictProject3\obj\Debug\ictProject3.csproj.GenerateResource.Cache
