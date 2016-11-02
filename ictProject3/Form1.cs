@@ -106,6 +106,21 @@ namespace ictProject3
         {
             string item = Convert.ToString(lstFiles.SelectedItem);
             data.name = (item.Substring(10,item.Length-10)).Trim();
+            
+        }
+
+        private void BerichtVerwijderen()
+        {
+            Succes succes = new Succes();
+
+            if (succes.value)
+            {
+                MessageBox.Show("Het bestand is succesvol verwijderd.", "Bestand verwijderen");
+            }
+            else {
+                MessageBox.Show("Het bestand kan niet verwijderd worden!", "Bestand verwijderen");
+            }
+            
         }
     }
 }
