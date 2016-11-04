@@ -8,14 +8,20 @@ namespace ictProject3
 {
     public class FileHandling
     {
-        public Data data = new Data();
-
+        
         public Data UploadFile(string name, string path)
         {
+            Data data = new Data();
+
             data.path = path;
             data.name = name;
             data.id = 0;
             return data;
+        }
+
+        public int Filesize (string Json)
+        {
+            return Encoding.UTF8.GetByteCount(Json);
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -88,16 +89,47 @@ namespace ictProject3
                 lblFilename.Text += name;
 
 
-                data.base64 = base64code.SerializeBase64(base64code.GetFile(data.path));
-
+                
                 var progressindicator = new Progress<int>(ReportProgress);
                 cts = new CancellationTokenSource();
                 string json = "";
-                string result = "";
+                string resulta = "";
+                string resultb = "";
                 //Get data object from object met base64 coded bestand inclusief.
-                json = jsoncode.JsonCoding(data);
-                json = jsoncode.cropString(json);
-                result = await servercom.ReceiveDataAsync("SaveFile", json, progressindicator, cts.Token);
+                string tempfilebase64 = base64code.SerializeBase64(base64code.GetFile(data.path));
+                int filesize = fileHandler.Filesize(tempfilebase64);
+                data.size = filesize;
+                data.base64 = "";
+
+                
+                json = jsoncode.Serialize<Data>(data);
+                //json = jsoncode.cropString(json);
+                //json = jsoncode.cropString(json);
+                Data datatest = new Data();
+                //datatest = jsoncode.JsonDeCoding(json);
+
+
+                resulta = await servercom.ReceiveDataAsync("Checkdiv", json, progressindicator, cts.Token);
+                //resulta.Replace("\"", "");
+                resulta = jsoncode.cropStringMore(resulta);
+                string[] splitted = resulta.Split(':');
+
+                string jsontosend = "";
+
+                data.base64 = tempfilebase64;
+
+                Debug.WriteLine(data.base64.Length / (Convert.ToInt16(splitted[1])- 1));
+                Debug.WriteLine(data.base64.Length % (Convert.ToInt16(splitted[1]) - 1));
+
+                List<string> base64data = base64code.SplitEvery(data.base64, data.base64.Length / (Convert.ToInt16(splitted[1]) - 1));
+                
+                for (int i = 1; i <= Convert.ToInt16(splitted[1]) ; i++)
+                {
+                    resultb = await servercom.ReceiveDataAsync("SaveFile/" + splitted[0] + "/" + splitted[1] + "/" + Convert.ToString(i), base64data.ElementAt(i-1), progressindicator, cts.Token);
+                }
+                
+                MessageBox.Show(resultb);
+                Debug.WriteLine(resultb);
 
             }
         }

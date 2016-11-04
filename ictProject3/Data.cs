@@ -18,5 +18,7 @@ namespace ictProject3
         public string base64 { get; set; }
         [JsonProperty("path")]
         public string path { get; set; }
+        [JsonProperty("size")]
+        public int size { get; set; }
     }
 }

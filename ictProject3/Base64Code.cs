@@ -59,5 +59,12 @@ namespace ictProject3
             byte[] file = File.ReadAllBytes(path);
             return file;
         }
+
+        public List<string> SplitEvery(string s, int size)
+        {
+            return s.Select((x, i) => i)
+                .Where(i => i % size == 0)
+                .Select(i => String.Concat(s.Skip(i).Take(size))).ToList();
+        }
     }
 }

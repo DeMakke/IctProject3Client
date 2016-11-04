@@ -57,7 +57,14 @@ namespace ictProject3
             output = output.Replace("\\\"", "\"");
             return output;
         }
-
+        public string cropStringMore(string input)
+        {
+            string output;
+            input = input.Remove(0, 1);
+            output = input.Remove(input.Length - 1);
+            output = output.Replace("\\\"", "");
+            return output;
+        }
         public CRespons DecodeClientJson(string json)
         {
             JsonCode jc = new JsonCode();
@@ -73,6 +80,16 @@ namespace ictProject3
             }
         }
         //-----------------------------------------------//
+
+        public string Serialize<T>(T obj)
+        {
+            DataContractJsonSerializer serializer = new DataContractJsonSerializer(obj.GetType());
+            MemoryStream ms = new MemoryStream();
+            serializer.WriteObject(ms, obj);
+            string retVal = Encoding.UTF8.GetString(ms.ToArray());
+            return retVal;
+        }
+
 
         public T Deserialize<T>(string json)
         {
