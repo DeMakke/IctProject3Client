@@ -42,13 +42,25 @@ namespace ictProject3
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            List<Item> itemList = Item.GetItems();
-            lstFiles.Items.Clear();
+            getdata();
 
-            foreach (Item item in itemList)
-            {
-                lstFiles.Items.Add((Convert.ToString(item.Id)).PadRight(15) + (Convert.ToString(item.Naam)));
-            }
+        }
+        private void getdata()
+        {
+            string fileString = Task.Run(GetFiles).Result;
+
+            List<Item> itemList = new List<Item>();
+            fileString = fileString.Remove(0, 23);
+            fileString = fileString.Remove(fileString.Length - 2);
+            fileString = fileString.Replace("\\\"", "\"");
+            itemList = jsoncode.Deserialize<List<Item>>(fileString);
+
+            lstFiles.DataSource = itemList;
+            lstFiles.DisplayMember = "name";
+            lstFiles.ValueMember = "id";
+
+            lstFiles.Refresh();
+            lstFiles.Update();
         }
 
         private async void btnDownloadFile_Click(object sender, EventArgs e)
@@ -58,7 +70,7 @@ namespace ictProject3
             cts = new CancellationTokenSource();
 
             string result = "";
-            result = await servercom.ReceiveDataAsync("GetFile", Convert.ToString(lstFiles.SelectedItem), progressindicator, cts.Token);
+            result = await servercom.ReceiveDataAsync("GetFile", Convert.ToString(lstFiles.SelectedValue), progressindicator, cts.Token);
 
             result = jsoncode.cropString(result);
             //MessageBox.Show(result); //achteraf hier nog een try catch aan toevoegen zodat het prog nie crashed in geval van foute response;
@@ -71,10 +83,7 @@ namespace ictProject3
 
         private void btnUpdateList_Click(object sender, EventArgs e)
         {
-            //kijk welke geselecteerd is
-            //maak een object van het geselecteerde item
-
-            var selectedFromListBox = lstFiles.SelectedItem;
+            getdata();
         }
 
         private async void btnUpload_Click(object sender, EventArgs e)
@@ -121,15 +130,18 @@ namespace ictProject3
                 Debug.WriteLine(data.base64.Length / (Convert.ToInt16(splitted[1])- 1));
                 Debug.WriteLine(data.base64.Length % (Convert.ToInt16(splitted[1]) - 1));
 
-                List<string> base64data = base64code.SplitEvery(data.base64, data.base64.Length / (Convert.ToInt16(splitted[1]) - 1));
+                List<string> base64data = base64code.SplitEvery(data.base64, data.base64.Length / Convert.ToInt16(splitted[1]), Convert.ToInt16(splitted[1]));
                 
                 for (int i = 1; i <= Convert.ToInt16(splitted[1]) ; i++)
                 {
-                    resultb = await servercom.ReceiveDataAsync("SaveFile/" + splitted[0] + "/" + splitted[1] + "/" + Convert.ToString(i), base64data.ElementAt(i-1), progressindicator, cts.Token);
+
+                        resultb = await servercom.ReceiveDataAsync("SaveFile/" + splitted[0] + "/" + splitted[1] + "/" + Convert.ToString(i), base64data.ElementAt(i - 1), progressindicator, cts.Token);
+
                 }
-                
-                MessageBox.Show(resultb);
-                Debug.WriteLine(resultb);
+
+                //MessageBox.Show(resultb);
+                //Debug.WriteLine(resultb);
+                getdata();
 
             }
         }
@@ -153,6 +165,19 @@ namespace ictProject3
                 MessageBox.Show("Het bestand kan niet verwijderd worden!", "Bestand verwijderen");
             }
             
+        }
+
+        private async Task<string> GetFiles()
+        {
+
+            var progressindicator = new Progress<int>(ReportProgress);
+            cts = new CancellationTokenSource();
+            string json = "for later implementation of users";
+
+            string result = await servercom.ReceiveDataAsync("GetFileNames", json, progressindicator, cts.Token);
+            MessageBox.Show(result);
+
+            return result;
         }
     }
 }

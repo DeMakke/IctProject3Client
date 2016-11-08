@@ -60,11 +60,22 @@ namespace ictProject3
             return file;
         }
 
-        public List<string> SplitEvery(string s, int size)
+        public List<string> SplitEvery(string s, int size, int packetcount)
         {
-            return s.Select((x, i) => i)
-                .Where(i => i % size == 0)
-                .Select(i => String.Concat(s.Skip(i).Take(size))).ToList();
+            List<string> result = new List<string>();
+            for (int i = 0; i < packetcount; i++)
+            {
+                if (i == packetcount -1)
+                {
+                    result.Add(s.Substring(size * i));
+                }
+                else
+                {
+                    result.Add(s.Substring(size * i, size));
+                }
+                
+            }
+            return result;
         }
     }
 }
