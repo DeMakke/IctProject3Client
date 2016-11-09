@@ -10,6 +10,6 @@ namespace ictProject3
     public class FileList
     {
         [JsonProperty("files")]
-        public List<string> files { get; set; }
+        public List<Item> files { get; set; }
     }
 }
