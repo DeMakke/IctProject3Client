@@ -42,7 +42,7 @@ namespace ictProject3
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            getdata();
+            getdata(); 
 
         }
         private void getdata()
