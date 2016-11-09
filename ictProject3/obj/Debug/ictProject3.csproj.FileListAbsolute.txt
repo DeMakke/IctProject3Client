@@ -59,3 +59,6 @@ C:\Users\Pieter-Jan\Desktop\School\IctProject3Client\ictProject3\obj\Debug\ictPr
 C:\Users\Pieter-Jan\Desktop\School\IctProject3Client\ictProject3\obj\Debug\ictProject3.Form1.resources
 C:\Users\Pieter-Jan\Desktop\School\IctProject3Client\ictProject3\obj\Debug\ictProject3.Properties.Resources.resources
 C:\Users\Pieter-Jan\Desktop\School\IctProject3Client\ictProject3\obj\Debug\ictProject3.csproj.GenerateResource.Cache
+E:\ictproject3\IctProject3Client\ictProject3\bin\Debug\ictProject3.exe.config
+E:\ictproject3\IctProject3Client\ictProject3\obj\Debug\ictProject3.exe
+E:\ictproject3\IctProject3Client\ictProject3\obj\Debug\ictProject3.pdb

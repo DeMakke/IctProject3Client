@@ -146,16 +146,34 @@ namespace ictProject3
             }
         }
 
-        private void btnDeleteItem_Click(object sender, EventArgs e)
+        private async void btnDeleteItem_Click(object sender, EventArgs e)
         {
-            string item = Convert.ToString(lstFiles.SelectedItem);
-            data.name = (item.Substring(10,item.Length-10)).Trim();
+            try
+            {
+                string item = Convert.ToString(lstFiles.SelectedValue);
+                //data.name = (item.Substring(10,item.Length-10)).Trim();
+
+                var progressindicator = new Progress<int>(ReportProgress);
+                cts = new CancellationTokenSource();
+
+                string result = "";
+                result = await servercom.ReceiveDataAsync("DeleteFile", Convert.ToString(item), progressindicator, cts.Token);
+
+                result = jsoncode.cropString(result);
+                Succes succes = jsoncode.JsonDeCodingSucces(result);
+
+                BerichtVerwijderen(succes);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("system error");
+            }
             
+
         }
 
-        private void BerichtVerwijderen()
-        {
-            Succes succes = new Succes();
+        private void BerichtVerwijderen(Succes succes)
+        {           
 
             if (succes.value)
             {
