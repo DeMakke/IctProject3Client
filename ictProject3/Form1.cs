@@ -151,7 +151,6 @@ namespace ictProject3
             try
             {
                 string item = Convert.ToString(lstFiles.SelectedValue);
-                //data.name = (item.Substring(10,item.Length-10)).Trim();
 
                 var progressindicator = new Progress<int>(ReportProgress);
                 cts = new CancellationTokenSource();
@@ -161,33 +160,27 @@ namespace ictProject3
 
                 result = jsoncode.cropString(result);
                 Succes succes = jsoncode.JsonDeCodingSucces(result);
-
-                BerichtVerwijderen(succes);
+                if (succes.value)
+                {
+                    MessageBox.Show("Het bestand is succesvol verwijderd.", "Bestand verwijderen");
+                    getdata();
+                }
+                else
+                {
+                    MessageBox.Show("Het bestand kan niet verwijderd worden!", "Bestand verwijderen");
+                }
+                
             }
             catch (Exception)
             {
-                MessageBox.Show("system error");
+                MessageBox.Show("system error on function: Delete File");
             }
             
 
-        }
-
-        private void BerichtVerwijderen(Succes succes)
-        {           
-
-            if (succes.value)
-            {
-                MessageBox.Show("Het bestand is succesvol verwijderd.", "Bestand verwijderen");
-            }
-            else {
-                MessageBox.Show("Het bestand kan niet verwijderd worden!", "Bestand verwijderen");
-            }
-            
         }
 
         private async Task<string> GetFiles()
         {
-
             var progressindicator = new Progress<int>(ReportProgress);
             cts = new CancellationTokenSource();
             string json = "for later implementation of users";
