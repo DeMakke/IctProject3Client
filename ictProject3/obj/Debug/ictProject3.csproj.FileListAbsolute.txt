@@ -73,3 +73,4 @@ D:\PROJECT 3\WORKING FOLDER\GitHub\Client\ictProject3\obj\Debug\ictProject3.cspr
 D:\PROJECT 3\WORKING FOLDER\GitHub\Client\ictProject3\obj\Debug\ictProject3.Form1.resources
 D:\PROJECT 3\WORKING FOLDER\GitHub\Client\ictProject3\obj\Debug\ictProject3.Properties.Resources.resources
 D:\PROJECT 3\WORKING FOLDER\GitHub\Client\ictProject3\obj\Debug\ictProject3.csproj.GenerateResource.Cache
+D:\PROJECT 3\GitHub\Client\ictProject3\obj\Debug\ictProject3.LoginForm.resources
