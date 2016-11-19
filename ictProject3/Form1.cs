@@ -150,13 +150,17 @@ namespace ictProject3
         {
             try
             {
-                string item = Convert.ToString(lstFiles.SelectedValue);
+                Item item = new Item();                     //dit werkt dus wel integenstelling met wat er stond
+                var selectedItem = lstFiles.SelectedItem;
+                item.id = (System.Guid)lstFiles.SelectedValue;     
+                item.name = lstFiles.GetItemText(selectedItem);
+                string json = jsoncode.JsonCoding(item);
 
                 var progressindicator = new Progress<int>(ReportProgress);
                 cts = new CancellationTokenSource();
 
                 string result = "";
-                result = await servercom.ReceiveDataAsync("DeleteFile", Convert.ToString(item), progressindicator, cts.Token);
+                result = await servercom.ReceiveDataAsync("DeleteFile", json, progressindicator, cts.Token);
 
                 result = jsoncode.cropString(result);
                 Succes succes = jsoncode.JsonDeCodingSucces(result);
@@ -171,9 +175,9 @@ namespace ictProject3
                 }
                 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("system error on function: Delete File");
+                MessageBox.Show("system error on function: Delete File" + ex.ToString());
             }
             
 
