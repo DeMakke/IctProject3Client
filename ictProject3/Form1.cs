@@ -19,7 +19,7 @@ namespace ictProject3
         
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent(); //init
         }
 
         public WebCom servercom = new WebCom();
