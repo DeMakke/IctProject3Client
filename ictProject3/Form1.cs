@@ -23,7 +23,7 @@ namespace ictProject3
         }
 
         public WebCom servercom = new WebCom();
-        private CancellationTokenSource cts;
+        private CancellationTokenSource cts; 
 
         JsonCode jsoncode = new JsonCode();
         Base64Code base64code = new Base64Code();
@@ -45,7 +45,7 @@ namespace ictProject3
             getdata(); 
 
         }
-        private void getdata()
+        private void getdata() //
         {
             string fileString = Task.Run(GetFiles).Result;
 
