@@ -190,5 +190,10 @@ namespace ictProject3
 
             return result;
         }
+
+        private void btnDelen_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
