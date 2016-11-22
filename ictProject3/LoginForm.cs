@@ -58,6 +58,7 @@ namespace ictProject3
                 if (userResponse.token != 9999)
                 {
                     MessageBox.Show("De gebruiker is met succes ingelogd. ID= " + userResponse.token.ToString(), "Inloggen gebruiker");
+                    Properties.Settings.Default.Token = userResponse.token.ToString();
                 }
                 else
                 {

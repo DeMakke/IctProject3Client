@@ -53,14 +53,22 @@ namespace ictProject3
             fileString = fileString.Remove(0, 23);
             fileString = fileString.Remove(fileString.Length - 2);
             fileString = fileString.Replace("\\\"", "\"");
-            itemList = jsoncode.Deserialize<List<Item>>(fileString);
+            try
+            {
+                itemList = jsoncode.Deserialize<List<Item>>(fileString);
 
-            lstFiles.DataSource = itemList;
-            lstFiles.DisplayMember = "name";
-            lstFiles.ValueMember = "id";
+                lstFiles.DataSource = itemList;
+                lstFiles.DisplayMember = "name";
+                lstFiles.ValueMember = "id";
 
-            lstFiles.Refresh();
-            lstFiles.Update();
+                lstFiles.Refresh();
+                lstFiles.Update();
+            }
+            catch (Exception)
+            {
+
+            }
+            
         }
 
         private async void btnDownloadFile_Click(object sender, EventArgs e)
@@ -135,7 +143,7 @@ namespace ictProject3
                 for (int i = 1; i <= Convert.ToInt16(splitted[1]) ; i++)
                 {
 
-                        resultb = await servercom.ReceiveDataAsync("SaveFile/" + splitted[0] + "/" + splitted[1] + "/" + Convert.ToString(i), base64data.ElementAt(i - 1), progressindicator, cts.Token);
+                        resultb = await servercom.ReceiveDataAsync("SaveFile/" + splitted[0] + "/" + splitted[1] + "/" + Convert.ToString(i), base64data.ElementAt(i - 1) , progressindicator, cts.Token);
 
                 }
 

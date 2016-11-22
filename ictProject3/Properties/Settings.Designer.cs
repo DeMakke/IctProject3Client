@@ -22,5 +22,17 @@ namespace ictProject3.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("8500")]
+        public string Token {
+            get {
+                return ((string)(this["Token"]));
+            }
+            set {
+                this["Token"] = value;
+            }
+        }
     }
 }
