@@ -54,6 +54,12 @@
   <ItemGroup>
     <Compile Include="Base64Code.cs" />
     <Compile Include="Data.cs" />
+    <Compile Include="DeelVenster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeelVenster.Designer.cs">
+      <DependentUpon>DeelVenster.cs</DependentUpon>
+    </Compile>
     <Compile Include="FileHandling.cs" />
     <Compile Include="FileList.cs" />
     <Compile Include="Form1.cs">

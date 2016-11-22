@@ -193,7 +193,9 @@ namespace ictProject3
 
         private void btnDelen_Click(object sender, EventArgs e)
         {
+            DeelVenster delen = new DeelVenster();
 
+            delen.Show();
         }
     }
 }
