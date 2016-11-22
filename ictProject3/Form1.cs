@@ -42,7 +42,9 @@ namespace ictProject3
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            getdata(); 
+            //FIRST set the user-token to GUEST login aka 0000
+            //ONLY then load the files list for user GUEST (= alle openbare bestanden)
+            //getdata(); //loads the files list for the logged in user
 
         }
         private void getdata() //
