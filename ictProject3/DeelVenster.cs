@@ -16,5 +16,15 @@ namespace ictProject3
         {
             InitializeComponent();
         }
+
+        private void btnToevoegen_Click(object sender, EventArgs e)
+        {
+            lstGeselecteerdeGebruikers.Items.Add(lstGebruikers.SelectedItems);
+        }
+
+        private void btnVerwijderen_Click(object sender, EventArgs e)
+        {
+            lstGeselecteerdeGebruikers.SelectedItems.Clear();
+        }
     }
 }

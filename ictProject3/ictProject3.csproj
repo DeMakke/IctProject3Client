@@ -74,6 +74,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Succes.cs" />
     <Compile Include="WebCom.cs" />
+    <EmbeddedResource Include="DeelVenster.resx">
+      <DependentUpon>DeelVenster.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
