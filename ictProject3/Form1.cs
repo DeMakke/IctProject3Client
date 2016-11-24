@@ -191,10 +191,23 @@ namespace ictProject3
             return result;
         }
 
+        private static int _fileId;
+        public static int fileId
+        {
+            get // this makes you to access value in form2
+            {
+                return _fileId;
+            }
+            set // this makes you to change value in form2
+            {
+                _fileId = value;
+            }
+        }
+
         private void btnDelen_Click(object sender, EventArgs e)
         {
             DeelVenster delen = new DeelVenster();
-
+            fileId = lstFiles.SelectedIndex;
             delen.Show();
         }
     }

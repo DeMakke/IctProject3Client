@@ -10,7 +10,7 @@ namespace ictProject3
     public class Gebruiker
     {
         [JsonProperty("id")]
-        public int id { get; set; }
+        public Guid id { get; set; }
         [JsonProperty("name")]
         public string name { get; set; }
     }

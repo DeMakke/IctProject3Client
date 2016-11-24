@@ -56,8 +56,21 @@ namespace ictProject3
             lstGebruikers.DisplayMember = "name";
             lstGebruikers.ValueMember = "id";
             lstGebruikers.Refresh();
-            lstGebruikers.Update();
+            lstGebruikers.Update();           
         }
 
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            int id = Form1.fileId;
+            List<Gebruiker> SelectedUserList = new List<Gebruiker>();            
+            SelectedUserList = lstGeselecteerdeGebruikers.Items.Cast<Gebruiker>().ToList();//nog testen of dit werkt
+            //JsonCoding()
+            //lijst met gebruikers en de file id naar json omzetten en naar server sturen
+
+            //indien succesvol
+            this.Close();
+            //anders foutmelding
+
+        }
     }
 }
