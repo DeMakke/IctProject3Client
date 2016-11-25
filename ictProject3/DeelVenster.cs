@@ -59,18 +59,43 @@ namespace ictProject3
             lstGebruikers.Update();           
         }
 
-        private void btnOk_Click(object sender, EventArgs e)
+        private async void btnOk_Click(object sender, EventArgs e)
         {
             int id = Form1.fileId;
-            List<Gebruiker> SelectedUserList = new List<Gebruiker>();            
+            List<Gebruiker> SelectedUserList = new List<Gebruiker>();
             SelectedUserList = lstGeselecteerdeGebruikers.Items.Cast<Gebruiker>().ToList();//nog testen of dit werkt
             //JsonCoding()
             //lijst met gebruikers en de file id naar json omzetten en naar server sturen
 
+            try
+            {
+                var progressindicator = new Progress<int>(ReportProgress);
+                cts = new CancellationTokenSource();
+                string json = "choose who has access to file";
+                string result = "";
+                result = await servercom.ReceiveDataAsync("GetUsers/" + id + "/" + SelectedUserList, json, progressindicator, cts.Token);
+
+                result = jsoncode.cropString(result);
+                Succes succes = jsoncode.JsonDeCodingSucces(result);
+                if (succes.value)
+                {
+                    MessageBox.Show("Het bestand is succesvol verwijderd.", "Bestand verwijderen");
+                    getdata();
+                }
+                else
+                {
+                    MessageBox.Show("Het bestand kan niet verwijderd worden!", "Bestand verwijderen");
+                }
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("system error on function: Delete File");
+            }
+
             //indien succesvol
             this.Close();
             //anders foutmelding
-
         }
     }
 }
