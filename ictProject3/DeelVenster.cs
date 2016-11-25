@@ -61,30 +61,30 @@ namespace ictProject3
 
         private async void btnOk_Click(object sender, EventArgs e)
         {
-            int id = Form1.fileId;
-            List<Gebruiker> SelectedUserList = new List<Gebruiker>();
-            SelectedUserList = lstGeselecteerdeGebruikers.Items.Cast<Gebruiker>().ToList();//nog testen of dit werkt
-            //JsonCoding()
-            //lijst met gebruikers en de file id naar json omzetten en naar server sturen
-
             try
             {
+                int id = Form1.fileId;
+                List<Gebruiker> SelectedUserList = new List<Gebruiker>();
+                SelectedUserList = lstGeselecteerdeGebruikers.Items.Cast<Gebruiker>().ToList();//nog testen of dit werkt
+                
+                //JsonCoding()
+                //lijst met gebruikers en de file id naar json omzetten en naar server sturen
+
                 var progressindicator = new Progress<int>(ReportProgress);
                 cts = new CancellationTokenSource();
                 string json = "choose who has access to file";
                 string result = "";
-                result = await servercom.ReceiveDataAsync("GetUsers/" + id + "/" + SelectedUserList, json, progressindicator, cts.Token);
+                result = await servercom.ReceiveDataAsync("SetUsers/" + id + "/" + SelectedUserList, json, progressindicator, cts.Token);
 
                 result = jsoncode.cropString(result);
                 Succes succes = jsoncode.JsonDeCodingSucces(result);
                 if (succes.value)
                 {
-                    MessageBox.Show("Het bestand is succesvol verwijderd.", "Bestand verwijderen");
-                    getdata();
+                    MessageBox.Show("De gebruikers met toegang tot het bestand werden succesvol opgeslagen.", "Bestandsrechten");
                 }
                 else
                 {
-                    MessageBox.Show("Het bestand kan niet verwijderd worden!", "Bestand verwijderen");
+                    MessageBox.Show("De veranderingen konden niet opgeslagen worden!", "Bestandsrechten");
                 }
 
             }
@@ -93,9 +93,7 @@ namespace ictProject3
                 MessageBox.Show("system error on function: Delete File");
             }
 
-            //indien succesvol
             this.Close();
-            //anders foutmelding
         }
     }
 }
