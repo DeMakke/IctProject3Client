@@ -37,11 +37,14 @@ namespace ictProject3
         private void btnToevoegen_Click(object sender, EventArgs e)
         {
             lstGeselecteerdeGebruikers.Items.Add(lstGebruikers.SelectedItems);
+            lstGebruikers.SelectedItems.Clear();
         }
 
         private void btnVerwijderen_Click(object sender, EventArgs e)
         {
+            lstGebruikers.Items.Add(lstGeselecteerdeGebruikers.SelectedItems);
             lstGeselecteerdeGebruikers.SelectedItems.Clear();
+            
         }
 
         public async void getUsers()
@@ -64,17 +67,19 @@ namespace ictProject3
             try
             {
                 int id = Form1.fileId;
-                List<Gebruiker> SelectedUserList = new List<Gebruiker>();
-                SelectedUserList = lstGeselecteerdeGebruikers.Items.Cast<Gebruiker>().ToList();//nog testen of dit werkt
-                
-                //JsonCoding()
-                //lijst met gebruikers en de file id naar json omzetten en naar server sturen
+                List<Gebruiker> selectedUserList = new List<Gebruiker>();
+                selectedUserList = lstGeselecteerdeGebruikers.Items.Cast<Gebruiker>().ToList();//nog testen of dit werkt
+
+                FileList userList = new FileList();
+                JsonCode jsonCode = new JsonCode();
+
+                userList.users = selectedUserList;
+                string json = jsonCode.JsonCoding(userList);
 
                 var progressindicator = new Progress<int>(ReportProgress);
                 cts = new CancellationTokenSource();
-                string json = "choose who has access to file";
                 string result = "";
-                result = await servercom.ReceiveDataAsync("SetUsers/" + id + "/" + SelectedUserList, json, progressindicator, cts.Token);
+                result = await servercom.ReceiveDataAsync("SetUsers/", json, progressindicator, cts.Token);
 
                 result = jsoncode.cropString(result);
                 Succes succes = jsoncode.JsonDeCodingSucces(result);
