@@ -70,16 +70,16 @@ namespace ictProject3
                 List<Gebruiker> selectedUserList = new List<Gebruiker>();
                 selectedUserList = lstGeselecteerdeGebruikers.Items.Cast<Gebruiker>().ToList();//nog testen of dit werkt
 
-                FileList userList = new FileList();
+                UserList userList = new UserList();
                 JsonCode jsonCode = new JsonCode();
 
                 userList.users = selectedUserList;
-                string json = jsonCode.JsonCoding(userList);
+                string json = jsonCode.JsonCodingUserList(userList);
 
                 var progressindicator = new Progress<int>(ReportProgress);
                 cts = new CancellationTokenSource();
                 string result = "";
-                result = await servercom.ReceiveDataAsync("SetUsers/", json, progressindicator, cts.Token);
+                result = await servercom.ReceiveDataAsync("SetUsers", json, progressindicator, cts.Token);
 
                 result = jsoncode.cropString(result);
                 Succes succes = jsoncode.JsonDeCodingSucces(result);
