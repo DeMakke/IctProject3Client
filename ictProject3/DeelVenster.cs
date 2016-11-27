@@ -79,7 +79,7 @@ namespace ictProject3
                 var progressindicator = new Progress<int>(ReportProgress);
                 cts = new CancellationTokenSource();
                 string result = "";
-                result = await servercom.ReceiveDataAsync("SetUsers", json, progressindicator, cts.Token);
+                result = await servercom.ReceiveDataAsync("SetUsers/" + id, json, progressindicator, cts.Token);
 
                 result = jsoncode.cropString(result);
                 Succes succes = jsoncode.JsonDeCodingSucces(result);
