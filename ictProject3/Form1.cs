@@ -207,12 +207,13 @@ namespace ictProject3
             return result;
         }
 
-<<<<<<< HEAD
+
         private void loginButton_Click(object sender, EventArgs e)
         {
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
-=======
+        }
+
         private static int _fileId;
         public static int fileId
         {
@@ -231,7 +232,7 @@ namespace ictProject3
             DeelVenster delen = new DeelVenster();
             fileId = lstFiles.SelectedIndex;
             delen.Show();
->>>>>>> refs/remotes/origin/story-7
+
         }
     }
 }
