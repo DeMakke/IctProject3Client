@@ -98,3 +98,4 @@ E:\ictproject3\IctProject3Client\ictProject3\obj\Debug\ictProject3.Form1.resourc
 E:\ictproject3\IctProject3Client\ictProject3\obj\Debug\ictProject3.LoginForm.resources
 E:\ictproject3\IctProject3Client\ictProject3\obj\Debug\ictProject3.Properties.Resources.resources
 E:\ictproject3\IctProject3Client\ictProject3\obj\Debug\ictProject3.csproj.GenerateResource.Cache
+C:\Users\Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.LoginForm.resources

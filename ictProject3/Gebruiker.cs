@@ -4,14 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.Runtime.Serialization;
 
 namespace ictProject3
 {
+    [DataContract]
     public class Gebruiker
     {
-        [JsonProperty("id")]
+        [DataMember]
         public Guid id { get; set; }
-        [JsonProperty("name")]
+
+        [DataMember]
         public string name { get; set; }
     }
 }

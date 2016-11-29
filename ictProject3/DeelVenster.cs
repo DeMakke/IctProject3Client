@@ -36,18 +36,28 @@ namespace ictProject3
 
         private void btnToevoegen_Click(object sender, EventArgs e)
         {
-            foreach (string item in lstGebruikers.SelectedItems)
+            List<Gebruiker> templist = new List<Gebruiker>();
+            
+            foreach (Gebruiker item in lstGebruikers.SelectedItems)
             {
-                lstGeselecteerdeGebruikers.Items.Add(item);
+                templist.Add(item);
+
+                lstGeselecteerdeGebruikers.DataSource = templist;
+                lstGeselecteerdeGebruikers.DisplayMember = "name";
+                lstGeselecteerdeGebruikers.ValueMember = "id";
+                lstGeselecteerdeGebruikers.Refresh();
+                lstGeselecteerdeGebruikers.Update();
+                
+                
             }
             lstGebruikers.ClearSelected();
         }
 
         private void btnVerwijderen_Click(object sender, EventArgs e)
         {
-            foreach (string item in lstGeselecteerdeGebruikers.SelectedItems)
+            foreach (Gebruiker item in lstGeselecteerdeGebruikers.SelectedItems)
             {
-                lstGebruikers.Items.Add(item);
+                lstGebruikers.Items.Add(item.name);
             }
             lstGeselecteerdeGebruikers.ClearSelected();
         }
@@ -57,10 +67,15 @@ namespace ictProject3
             var progressindicator = new Progress<int>(ReportProgress);
             cts = new CancellationTokenSource();            
             string json = "for later implementation of users";
-            string result = await servercom.ReceiveDataAsync("users", json, progressindicator, cts.Token);
-            List<Gebruiker> UserList = new List<Gebruiker>();
-            UserList = jsoncode.Deserialize<List<Gebruiker>>(result);
-            lstGebruikers.DataSource = UserList;
+            string result = await servercom.ReceiveDataAsync("GetUsers", json, progressindicator, cts.Token);
+            List<Gebruiker> userList = new List<Gebruiker>();
+            result = result.Replace("\\\"", "");
+            userList = jsoncode.Deserialize<List<Gebruiker>>(result);
+            Gebruiker test = new Gebruiker();
+            test.id = new Guid("4EC5E708-5817-4DE1-B507-98A44301CDC1");
+            test.name = "joris";
+            userList.Add(test);
+            lstGebruikers.DataSource = userList;
             lstGebruikers.DisplayMember = "name";
             lstGebruikers.ValueMember = "id";
             lstGebruikers.Refresh();
