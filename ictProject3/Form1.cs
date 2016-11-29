@@ -64,7 +64,6 @@ namespace ictProject3
                 lstFiles.DataSource = itemList;
                 lstFiles.DisplayMember = "name";
                 lstFiles.ValueMember = "id";
-
                 lstFiles.Refresh();
                 lstFiles.Update();
             }
