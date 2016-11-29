@@ -73,6 +73,18 @@ namespace ictProject3
             return json;
         }
 
+        public FileList JsonDeCodingUserList(String json)
+        {
+            FileList fileList = JsonConvert.DeserializeObject<FileList>(json);
+            return fileList;
+        }
+
+        public String JsonCodingUserList(UserList userList)
+        {
+            string json = JsonConvert.SerializeObject(userList);
+            return json;
+        }
+
         public string cropString(string input)
         {
             string output;

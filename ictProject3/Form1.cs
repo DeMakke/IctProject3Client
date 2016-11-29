@@ -207,10 +207,31 @@ namespace ictProject3
             return result;
         }
 
+<<<<<<< HEAD
         private void loginButton_Click(object sender, EventArgs e)
         {
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
+=======
+        private static int _fileId;
+        public static int fileId
+        {
+            get // this makes you to access value in form2
+            {
+                return _fileId;
+            }
+            set // this makes you to change value in form2
+            {
+                _fileId = value;
+            }
+        }
+
+        private void btnDelen_Click(object sender, EventArgs e)
+        {
+            DeelVenster delen = new DeelVenster();
+            fileId = lstFiles.SelectedIndex;
+            delen.Show();
+>>>>>>> refs/remotes/origin/story-7
         }
     }
 }

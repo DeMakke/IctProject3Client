@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace ictProject3
 {
-    public class FileList
+    public class UserList
     {
-        [JsonProperty("files")]
-        public List<Item> files { get; set; }
-
         [JsonProperty("users")]
         public List<Gebruiker> users { get; set; }
     }

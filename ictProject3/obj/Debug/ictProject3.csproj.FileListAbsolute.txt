@@ -62,6 +62,7 @@ C:\Users\Pieter-Jan\Desktop\School\IctProject3Client\ictProject3\obj\Debug\ictPr
 E:\ictproject3\IctProject3Client\ictProject3\bin\Debug\ictProject3.exe.config
 E:\ictproject3\IctProject3Client\ictProject3\obj\Debug\ictProject3.exe
 E:\ictproject3\IctProject3Client\ictProject3\obj\Debug\ictProject3.pdb
+<<<<<<< HEAD
 D:\PROJECT 3\WORKING FOLDER\GitHub\Client\ictProject3\bin\Debug\ictProject3.exe.config
 D:\PROJECT 3\WORKING FOLDER\GitHub\Client\ictProject3\obj\Debug\ictProject3.exe
 D:\PROJECT 3\WORKING FOLDER\GitHub\Client\ictProject3\obj\Debug\ictProject3.pdb
@@ -75,3 +76,17 @@ D:\PROJECT 3\WORKING FOLDER\GitHub\Client\ictProject3\obj\Debug\ictProject3.Prop
 D:\PROJECT 3\WORKING FOLDER\GitHub\Client\ictProject3\obj\Debug\ictProject3.csproj.GenerateResource.Cache
 D:\PROJECT 3\GitHub\Client\ictProject3\obj\Debug\ictProject3.LoginForm.resources
 C:\Users\Dries\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.LoginForm.resources
+=======
+C:\Users\Jan\Documents\IctProject3Client\ictProject3\bin\Debug\ictProject3.exe.config
+C:\Users\Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.exe
+C:\Users\Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.pdb
+C:\Users\Jan\Documents\IctProject3Client\ictProject3\bin\Debug\ictProject3.exe
+C:\Users\Jan\Documents\IctProject3Client\ictProject3\bin\Debug\ictProject3.pdb
+C:\Users\Jan\Documents\IctProject3Client\ictProject3\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Jan\Documents\IctProject3Client\ictProject3\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.csprojResolveAssemblyReference.cache
+C:\Users\Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.DeelVenster.resources
+C:\Users\Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.Form1.resources
+C:\Users\Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.Properties.Resources.resources
+C:\Users\Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.csproj.GenerateResource.Cache
+>>>>>>> refs/remotes/origin/story-7
