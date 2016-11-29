@@ -88,3 +88,13 @@ C:\Users\Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.Form1
 C:\Users\Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.Properties.Resources.resources
 C:\Users\Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.csproj.GenerateResource.Cache
 >>>>>>> refs/remotes/origin/story-7
+E:\ictproject3\IctProject3Client\ictProject3\bin\Debug\ictProject3.exe
+E:\ictproject3\IctProject3Client\ictProject3\bin\Debug\ictProject3.pdb
+E:\ictproject3\IctProject3Client\ictProject3\bin\Debug\Newtonsoft.Json.dll
+E:\ictproject3\IctProject3Client\ictProject3\bin\Debug\Newtonsoft.Json.xml
+E:\ictproject3\IctProject3Client\ictProject3\obj\Debug\ictProject3.csprojResolveAssemblyReference.cache
+E:\ictproject3\IctProject3Client\ictProject3\obj\Debug\ictProject3.DeelVenster.resources
+E:\ictproject3\IctProject3Client\ictProject3\obj\Debug\ictProject3.Form1.resources
+E:\ictproject3\IctProject3Client\ictProject3\obj\Debug\ictProject3.LoginForm.resources
+E:\ictproject3\IctProject3Client\ictProject3\obj\Debug\ictProject3.Properties.Resources.resources
+E:\ictproject3\IctProject3Client\ictProject3\obj\Debug\ictProject3.csproj.GenerateResource.Cache
