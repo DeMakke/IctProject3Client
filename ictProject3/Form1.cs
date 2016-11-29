@@ -109,8 +109,6 @@ namespace ictProject3
                 data = fileHandler.UploadFile(name, filePath);
                 lblFilename.Text += name;
 
-
-                
                 var progressindicator = new Progress<int>(ReportProgress);
                 cts = new CancellationTokenSource();
                 string json = "";
@@ -139,8 +137,8 @@ namespace ictProject3
 
                 data.base64 = tempfilebase64;
 
-                Debug.WriteLine(data.base64.Length / (Convert.ToInt16(splitted[1])- 1));
-                Debug.WriteLine(data.base64.Length % (Convert.ToInt16(splitted[1]) - 1));
+                //Debug.WriteLine(data.base64.Length / (Convert.ToInt16(splitted[1])- 1));
+                //Debug.WriteLine(data.base64.Length % (Convert.ToInt16(splitted[1]) - 1));
 
                 List<string> base64data = base64code.SplitEvery(data.base64, data.base64.Length / Convert.ToInt16(splitted[1]), Convert.ToInt16(splitted[1]));
                 
@@ -214,8 +212,8 @@ namespace ictProject3
             loginForm.ShowDialog();
         }
 
-        private static int _fileId;
-        public static int fileId
+        private static string _fileId;
+        public static string fileId
         {
             get // this makes you to access value in form2
             {
@@ -230,7 +228,7 @@ namespace ictProject3
         private void btnDelen_Click(object sender, EventArgs e)
         {
             DeelVenster delen = new DeelVenster();
-            fileId = lstFiles.SelectedIndex;
+            fileId = (string)lstFiles.SelectedValue;
             delen.Show();
 
         }

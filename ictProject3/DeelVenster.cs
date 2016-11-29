@@ -86,7 +86,7 @@ namespace ictProject3
         {
             try
             {
-                int id = Form1.fileId;
+                string id = Form1.fileId;
                 List<Gebruiker> selectedUserList = new List<Gebruiker>();
                 selectedUserList = lstGeselecteerdeGebruikers.Items.Cast<Gebruiker>().ToList();//nog testen of dit werkt
 
