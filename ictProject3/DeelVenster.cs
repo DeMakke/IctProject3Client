@@ -36,15 +36,20 @@ namespace ictProject3
 
         private void btnToevoegen_Click(object sender, EventArgs e)
         {
-            lstGeselecteerdeGebruikers.Items.Add(lstGebruikers.SelectedItems);
-            lstGebruikers.SelectedItems.Clear();
+            foreach (string item in lstGebruikers.SelectedItems)
+            {
+                lstGeselecteerdeGebruikers.Items.Add(item);
+            }
+            lstGebruikers.ClearSelected();
         }
 
         private void btnVerwijderen_Click(object sender, EventArgs e)
         {
-            lstGebruikers.Items.Add(lstGeselecteerdeGebruikers.SelectedItems);
-            lstGeselecteerdeGebruikers.SelectedItems.Clear();
-            
+            foreach (string item in lstGeselecteerdeGebruikers.SelectedItems)
+            {
+                lstGebruikers.Items.Add(item);
+            }
+            lstGeselecteerdeGebruikers.ClearSelected();
         }
 
         public async void getUsers()
