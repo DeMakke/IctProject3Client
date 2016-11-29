@@ -37,12 +37,13 @@
             this.btnDeleteItem = new System.Windows.Forms.Button();
             this.loginButton = new System.Windows.Forms.Button();
             this.logoutButton = new System.Windows.Forms.Button();
+            this.btnDelen = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnDownloadFile
             // 
             this.btnDownloadFile.Location = new System.Drawing.Point(304, 15);
-            this.btnDownloadFile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDownloadFile.Margin = new System.Windows.Forms.Padding(4);
             this.btnDownloadFile.Name = "btnDownloadFile";
             this.btnDownloadFile.Size = new System.Drawing.Size(132, 52);
             this.btnDownloadFile.TabIndex = 0;
@@ -55,7 +56,7 @@
             this.lstFiles.FormattingEnabled = true;
             this.lstFiles.ItemHeight = 16;
             this.lstFiles.Location = new System.Drawing.Point(16, 15);
-            this.lstFiles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstFiles.Margin = new System.Windows.Forms.Padding(4);
             this.lstFiles.Name = "lstFiles";
             this.lstFiles.Size = new System.Drawing.Size(279, 180);
             this.lstFiles.TabIndex = 1;
@@ -63,7 +64,7 @@
             // btnUpdateList
             // 
             this.btnUpdateList.Location = new System.Drawing.Point(305, 75);
-            this.btnUpdateList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdateList.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdateList.Name = "btnUpdateList";
             this.btnUpdateList.Size = new System.Drawing.Size(131, 28);
             this.btnUpdateList.TabIndex = 2;
@@ -74,7 +75,7 @@
             // btnUpload
             // 
             this.btnUpload.Location = new System.Drawing.Point(17, 204);
-            this.btnUpload.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpload.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Size = new System.Drawing.Size(100, 28);
             this.btnUpload.TabIndex = 3;
@@ -99,7 +100,7 @@
             // btnDeleteItem
             // 
             this.btnDeleteItem.Location = new System.Drawing.Point(305, 111);
-            this.btnDeleteItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeleteItem.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteItem.Name = "btnDeleteItem";
             this.btnDeleteItem.Size = new System.Drawing.Size(131, 28);
             this.btnDeleteItem.TabIndex = 5;
@@ -128,11 +129,22 @@
             this.logoutButton.Text = "Logout";
             this.logoutButton.UseVisualStyleBackColor = false;
             // 
+            // btnDelen
+            // 
+            this.btnDelen.Location = new System.Drawing.Point(305, 146);
+            this.btnDelen.Name = "btnDelen";
+            this.btnDelen.Size = new System.Drawing.Size(131, 29);
+            this.btnDelen.TabIndex = 8;
+            this.btnDelen.Text = "Delen";
+            this.btnDelen.UseVisualStyleBackColor = true;
+            this.btnDelen.Click += new System.EventHandler(this.btnDelen_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(453, 385);
+            this.Controls.Add(this.btnDelen);
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.btnDeleteItem);
@@ -141,7 +153,7 @@
             this.Controls.Add(this.btnUpdateList);
             this.Controls.Add(this.lstFiles);
             this.Controls.Add(this.btnDownloadFile);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "ictProject3";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -161,6 +173,7 @@
         private System.Windows.Forms.Button btnDeleteItem;
         private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Button logoutButton;
+        private System.Windows.Forms.Button btnDelen;
     }
 }
 

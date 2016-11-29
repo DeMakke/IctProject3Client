@@ -210,5 +210,12 @@ namespace ictProject3
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
         }
+
+        private void btnDelen_Click(object sender, EventArgs e)
+        {
+            string item = Convert.ToString(lstFiles.SelectedValue);
+            DelenForm df = new DelenForm(item);
+            df.ShowDialog();
+        }
     }
 }
