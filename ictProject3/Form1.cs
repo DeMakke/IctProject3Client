@@ -227,8 +227,8 @@ namespace ictProject3
         private void btnDelen_Click(object sender, EventArgs e)
         {
             DeelVenster delen = new DeelVenster();
-            fileId = (string)lstFiles.SelectedValue;
-            delen.Show();
+            fileId = Convert.ToString(lstFiles.SelectedValue);
+            delen.ShowDialog();
 
         }
     }

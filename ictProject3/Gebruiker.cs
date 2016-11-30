@@ -12,7 +12,7 @@ namespace ictProject3
     public class Gebruiker
     {
         [DataMember]
-        public Guid id { get; set; }
+        public string id { get; set; }
 
         [DataMember]
         public string name { get; set; }

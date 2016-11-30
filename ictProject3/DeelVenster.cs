@@ -68,13 +68,13 @@ namespace ictProject3
             cts = new CancellationTokenSource();            
             string json = "for later implementation of users";
             string result = await servercom.ReceiveDataAsync("GetUsers", json, progressindicator, cts.Token);
-            List<Gebruiker> userList = new List<Gebruiker>();
+            UserList userList = new UserList();
             result = result.Replace("\\\"", "");
-            userList = jsoncode.Deserialize<List<Gebruiker>>(result);
-            Gebruiker test = new Gebruiker();
-            test.id = new Guid("4EC5E708-5817-4DE1-B507-98A44301CDC1");
-            test.name = "joris";
-            userList.Add(test);
+            userList = jsoncode.JsonDeCodingUserList(result);
+            //Gebruiker test = new Gebruiker();
+            //test.id = "4EC5E708-5817-4DE1-B507-98A44301CDC1";
+            //test.name = "joris";
+            //userList.Add(test);
             lstGebruikers.DataSource = userList;
             lstGebruikers.DisplayMember = "name";
             lstGebruikers.ValueMember = "id";
@@ -86,7 +86,7 @@ namespace ictProject3
         {
             try
             {
-                string id = Form1.fileId;
+                string fileid = Form1.fileId;
                 List<Gebruiker> selectedUserList = new List<Gebruiker>();
                 selectedUserList = lstGeselecteerdeGebruikers.Items.Cast<Gebruiker>().ToList();//nog testen of dit werkt
 
@@ -99,7 +99,7 @@ namespace ictProject3
                 var progressindicator = new Progress<int>(ReportProgress);
                 cts = new CancellationTokenSource();
                 string result = "";
-                result = await servercom.ReceiveDataAsync("SetUsers/" + id, json, progressindicator, cts.Token);
+                result = await servercom.ReceiveDataAsync("SetUsers/" + fileid, json, progressindicator, cts.Token);
 
                 result = jsoncode.cropString(result);
                 Succes succes = jsoncode.JsonDeCodingSucces(result);
@@ -115,7 +115,7 @@ namespace ictProject3
             }
             catch (Exception)
             {
-                MessageBox.Show("system error on function: Delete File");
+                MessageBox.Show("system error on function: Share file");
             }
 
             this.Close();
