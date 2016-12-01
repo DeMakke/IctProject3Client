@@ -13,5 +13,6 @@ namespace ictProject3
     {
         [DataMember]
         public List<Gebruiker> users { get; set; }
+        
     }
 }

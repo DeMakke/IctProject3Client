@@ -199,7 +199,7 @@ namespace ictProject3
             string json = "for later implementation of users";
 
             string result = await servercom.ReceiveDataAsync("GetFileNames", json, progressindicator, cts.Token);
-            MessageBox.Show(result);
+            //MessageBox.Show(result);
 
             return result;
         }

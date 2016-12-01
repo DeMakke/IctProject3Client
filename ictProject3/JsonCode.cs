@@ -75,8 +75,8 @@ namespace ictProject3
 
         public UserList JsonDeCodingUserList(String json)
         {
-            UserList userList = new UserList();
-            userList = JsonConvert.DeserializeObject<UserList>(json);
+            
+            UserList userList = JsonConvert.DeserializeObject<UserList>(json);
             return userList;
         }
 

@@ -68,13 +68,15 @@ namespace ictProject3
             cts = new CancellationTokenSource();            
             string json = "for later implementation of users";
             string result = await servercom.ReceiveDataAsync("GetUsers", json, progressindicator, cts.Token);
-            UserList userList = new UserList();
-            result = result.Replace("\\\"", "");
-            userList = jsoncode.JsonDeCodingUserList(result);
-            //Gebruiker test = new Gebruiker();
-            //test.id = "4EC5E708-5817-4DE1-B507-98A44301CDC1";
-            //test.name = "joris";
-            //userList.Add(test);
+            List<Gebruiker> userList = new List<Gebruiker>();
+            //GetUserResult userList = new GetUserResult();
+            //result = result.Replace("\\\"", "");
+            //userList = jsoncode.JsonDeCodingUserList(result);
+
+            Gebruiker test = new Gebruiker();
+            test.id = "4EC5E708-5817-4DE1-B507-98A44301CDC1";
+            test.name = "joris";
+            userList.Add(test);
             lstGebruikers.DataSource = userList;
             lstGebruikers.DisplayMember = "name";
             lstGebruikers.ValueMember = "id";
@@ -90,11 +92,9 @@ namespace ictProject3
                 List<Gebruiker> selectedUserList = new List<Gebruiker>();
                 selectedUserList = lstGeselecteerdeGebruikers.Items.Cast<Gebruiker>().ToList();//nog testen of dit werkt
 
-                UserList userList = new UserList();
                 JsonCode jsonCode = new JsonCode();
 
-                userList.users = selectedUserList;
-                string json = jsonCode.JsonCodingUserList(userList);
+                string json = jsonCode.Serialize(selectedUserList);
 
                 var progressindicator = new Progress<int>(ReportProgress);
                 cts = new CancellationTokenSource();
@@ -103,7 +103,8 @@ namespace ictProject3
 
                 result = jsoncode.cropString(result);
                 Succes succes = jsoncode.JsonDeCodingSucces(result);
-                if (succes.value)
+
+                if (succes.value == true)
                 {
                     MessageBox.Show("De gebruikers met toegang tot het bestand werden succesvol opgeslagen.", "Bestandsrechten");
                 }
