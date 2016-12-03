@@ -14,10 +14,12 @@ namespace ictProject3
 {
     public partial class DeelVenster : Form
     {
-        public DeelVenster()
+        private string selectedItem;
+        public DeelVenster(string item)
         {
             InitializeComponent();
             getUsers();
+            selectedItem = item;
 
         }
 
@@ -28,6 +30,11 @@ namespace ictProject3
         Base64Code base64code = new Base64Code();
         Data data = new Data();
         public FileHandling fileHandler = new FileHandling();
+
+        private void DeelVenster_Load(object sender, EventArgs e)
+        {
+            checkBoxPubliekDelen.Checked = true;
+        }
 
         private void ReportProgress(int value)
         {
@@ -86,38 +93,72 @@ namespace ictProject3
 
         private async void btnOk_Click(object sender, EventArgs e)
         {
-            try
+            if(checkBoxPubliekDelen.Checked == true)
             {
-                string fileid = Form1.fileId;
-                List<Gebruiker> selectedUserList = new List<Gebruiker>();
-                selectedUserList = lstGeselecteerdeGebruikers.Items.Cast<Gebruiker>().ToList();//nog testen of dit werkt
-
-                JsonCode jsonCode = new JsonCode();
-
-                string json = jsonCode.Serialize(selectedUserList);
-
-                var progressindicator = new Progress<int>(ReportProgress);
-                cts = new CancellationTokenSource();
-                string result = "";
-                result = await servercom.ReceiveDataAsync("SetUsers/" + fileid, json, progressindicator, cts.Token);
-
-                result = jsoncode.cropString(result);
-                Succes succes = jsoncode.JsonDeCodingSucces(result);
-
-                if (succes.value == true)
+                try
                 {
-                    MessageBox.Show("De gebruikers met toegang tot het bestand werden succesvol opgeslagen.", "Bestandsrechten");
-                }
-                else
-                {
-                    MessageBox.Show("De veranderingen konden niet opgeslagen worden!", "Bestandsrechten");
-                }
+                    bool test = checkBoxPubliekDelen.Checked;
+                    if (test == true)
+                    {
+                        var progressindicator = new Progress<int>(ReportProgress);
+                        cts = new CancellationTokenSource();
+                        string result = "";
+                        result = await servercom.ReceiveDataAsync("PublicShare", Convert.ToString(selectedItem), progressindicator, cts.Token);
 
+                        result = jsoncode.cropString(result);
+                        Succes succes = jsoncode.JsonDeCodingSucces(result);
+                        if (succes.value)
+                        {
+                            MessageBox.Show("Het bestand is succesvol gedeeld.", "publiek delen");
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Het bestand kan niet gedeeld worden!", "publiek delen");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("fout bij delen");
+                }
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("system error on function: Share file");
+                try
+                {
+                    string fileid = Form1.fileId;
+                    List<Gebruiker> selectedUserList = new List<Gebruiker>();
+                    selectedUserList = lstGeselecteerdeGebruikers.Items.Cast<Gebruiker>().ToList();//nog testen of dit werkt
+
+                    JsonCode jsonCode = new JsonCode();
+
+                    string json = jsonCode.Serialize(selectedUserList);
+
+                    var progressindicator = new Progress<int>(ReportProgress);
+                    cts = new CancellationTokenSource();
+                    string result = "";
+                    result = await servercom.ReceiveDataAsync("SetUsers/" + fileid, json, progressindicator, cts.Token);
+
+                    result = jsoncode.cropString(result);
+                    Succes succes = jsoncode.JsonDeCodingSucces(result);
+
+                    if (succes.value == true)
+                    {
+                        MessageBox.Show("De gebruikers met toegang tot het bestand werden succesvol opgeslagen.", "Bestandsrechten");
+                    }
+                    else
+                    {
+                        MessageBox.Show("De veranderingen konden niet opgeslagen worden!", "Bestandsrechten");
+                    }
+
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("system error on function: Share file");
+                }
             }
+            
 
             this.Close();
         }
@@ -125,6 +166,17 @@ namespace ictProject3
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void checkBoxPubliekDelen_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBoxPubliekDelen.Checked == true)
+            {
+                lstGebruikers.Visible = false;
+                lstGeselecteerdeGebruikers.Visible = false;
+                btnToevoegen.Visible = false;
+                btnVerwijderen.Visible = false;                   
+            }
         }
     }
 }
