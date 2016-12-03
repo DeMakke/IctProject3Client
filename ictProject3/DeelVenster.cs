@@ -33,7 +33,7 @@ namespace ictProject3
 
         private void DeelVenster_Load(object sender, EventArgs e)
         {
-            checkBoxPubliekDelen.Checked = true;
+            //checkBoxPubliekDelen.Checked = true;
         }
 
         private void ReportProgress(int value)
@@ -44,29 +44,24 @@ namespace ictProject3
         private void btnToevoegen_Click(object sender, EventArgs e)
         {
             List<Gebruiker> templist = new List<Gebruiker>();
-            
+
             foreach (Gebruiker item in lstGebruikers.SelectedItems)
             {
                 templist.Add(item);
 
-                lstGeselecteerdeGebruikers.DataSource = templist;
-                lstGeselecteerdeGebruikers.DisplayMember = "name";
-                lstGeselecteerdeGebruikers.ValueMember = "id";
-                lstGeselecteerdeGebruikers.Refresh();
-                lstGeselecteerdeGebruikers.Update();
-                
-                
             }
-            lstGebruikers.ClearSelected();
+
+            lstGeselecteerdeGebruikers.DataSource = templist;
+            lstGeselecteerdeGebruikers.DisplayMember = "name";
+            lstGeselecteerdeGebruikers.ValueMember = "id";
+            lstGeselecteerdeGebruikers.Refresh();
+            lstGeselecteerdeGebruikers.Update();
+            lstGebruikers.SelectedItems.Clear();
         }
 
         private void btnVerwijderen_Click(object sender, EventArgs e)
         {
-            foreach (Gebruiker item in lstGeselecteerdeGebruikers.SelectedItems)
-            {
-                lstGebruikers.Items.Add(item.name);
-            }
-            lstGeselecteerdeGebruikers.ClearSelected();
+            //kan geen items verwijderen als datasource geset is!
         }
 
         public async void getUsers()
@@ -76,14 +71,10 @@ namespace ictProject3
             string json = "for later implementation of users";
             string result = await servercom.ReceiveDataAsync("GetUsers", json, progressindicator, cts.Token);
             List<Gebruiker> userList = new List<Gebruiker>();
-            //GetUserResult userList = new GetUserResult();
-            //result = result.Replace("\\\"", "");
-            //userList = jsoncode.JsonDeCodingUserList(result);
-
-            Gebruiker test = new Gebruiker();
-            test.id = "4EC5E708-5817-4DE1-B507-98A44301CDC1";
-            test.name = "joris";
-            userList.Add(test);
+            result = jsoncode.cropString(result);
+            result = result.Remove(result.Length - 1);
+            result = result.Remove(0, 18);
+            userList = jsoncode.Deserialize<List<Gebruiker>>(result);
             lstGebruikers.DataSource = userList;
             lstGebruikers.DisplayMember = "name";
             lstGebruikers.ValueMember = "id";
@@ -93,38 +84,38 @@ namespace ictProject3
 
         private async void btnOk_Click(object sender, EventArgs e)
         {
-            if(checkBoxPubliekDelen.Checked == true)
-            {
-                try
-                {
-                    bool test = checkBoxPubliekDelen.Checked;
-                    if (test == true)
-                    {
-                        var progressindicator = new Progress<int>(ReportProgress);
-                        cts = new CancellationTokenSource();
-                        string result = "";
-                        result = await servercom.ReceiveDataAsync("PublicShare", Convert.ToString(selectedItem), progressindicator, cts.Token);
+            //if (checkBoxPubliekDelen.Checked == true)
+            //{
+            //    try
+            //    {
+            //        bool test = checkBoxPubliekDelen.Checked;
+            //        if (test == true)
+            //        {
+            //            var progressindicator = new Progress<int>(ReportProgress);
+            //            cts = new CancellationTokenSource();
+            //            string result = "";
+            //            result = await servercom.ReceiveDataAsync("PublicShare", Convert.ToString(selectedItem), progressindicator, cts.Token);
 
-                        result = jsoncode.cropString(result);
-                        Succes succes = jsoncode.JsonDeCodingSucces(result);
-                        if (succes.value)
-                        {
-                            MessageBox.Show("Het bestand is succesvol gedeeld.", "publiek delen");
+            //            result = jsoncode.cropString(result);
+            //            Succes succes = jsoncode.Deserialize<Succes>(result);
+            //            if (succes.value)
+            //            {
+            //                MessageBox.Show("Het bestand is succesvol gedeeld.", "publiek delen");
 
-                        }
-                        else
-                        {
-                            MessageBox.Show("Het bestand kan niet gedeeld worden!", "publiek delen");
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("fout bij delen");
-                }
-            }
-            else
-            {
+            //            }
+            //            else
+            //            {
+            //                MessageBox.Show("Het bestand kan niet gedeeld worden!", "publiek delen");
+            //            }
+            //        }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show("fout bij delen");
+            //    }
+            //}
+            //else
+            //{
                 try
                 {
                     string fileid = Form1.fileId;
@@ -141,7 +132,13 @@ namespace ictProject3
                     result = await servercom.ReceiveDataAsync("SetUsers/" + fileid, json, progressindicator, cts.Token);
 
                     result = jsoncode.cropString(result);
-                    Succes succes = jsoncode.JsonDeCodingSucces(result);
+                    result = result.Remove(result.Length - 1);
+                    result = result.Remove(0, 18);
+                    Succes succes = new Succes();
+                    succes = jsoncode.JsonDeCodingSucces(result);
+
+                    //result = jsoncode.cropString(result);
+                    //Succes succes2 = jsoncode.Deserialize<Succes>(result);
 
                     if (succes.value == true)
                     {
@@ -157,10 +154,9 @@ namespace ictProject3
                 {
                     MessageBox.Show("system error on function: Share file");
                 }
-            }
-            
+            //}
 
-            this.Close();
+            //this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
