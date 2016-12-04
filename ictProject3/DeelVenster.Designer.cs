@@ -92,7 +92,6 @@
             this.lstGeselecteerdeGebruikers.FormattingEnabled = true;
             this.lstGeselecteerdeGebruikers.Location = new System.Drawing.Point(298, 44);
             this.lstGeselecteerdeGebruikers.Name = "lstGeselecteerdeGebruikers";
-            this.lstGeselecteerdeGebruikers.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstGeselecteerdeGebruikers.Size = new System.Drawing.Size(120, 238);
             this.lstGeselecteerdeGebruikers.TabIndex = 5;
             // 
@@ -100,7 +99,7 @@
             // 
             this.checkBoxPubliekDelen.AutoSize = true;
             this.checkBoxPubliekDelen.Location = new System.Drawing.Point(182, 215);
-            this.checkBoxPubliekDelen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxPubliekDelen.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxPubliekDelen.Name = "checkBoxPubliekDelen";
             this.checkBoxPubliekDelen.Size = new System.Drawing.Size(91, 17);
             this.checkBoxPubliekDelen.TabIndex = 6;

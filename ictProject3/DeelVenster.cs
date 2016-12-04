@@ -15,6 +15,8 @@ namespace ictProject3
     public partial class DeelVenster : Form
     {
         private string selectedItem;
+        private List<Gebruiker> lijstToevoegen = new List<Gebruiker>();
+
         public DeelVenster(string item)
         {
             InitializeComponent();
@@ -43,25 +45,27 @@ namespace ictProject3
 
         private void btnToevoegen_Click(object sender, EventArgs e)
         {
-            List<Gebruiker> templist = new List<Gebruiker>();
 
-            foreach (Gebruiker item in lstGebruikers.SelectedItems)
+            foreach (Gebruiker user in lstGebruikers.SelectedItems)
             {
-                templist.Add(item);
-
+                lijstToevoegen.Add(user);
+                lstGeselecteerdeGebruikers.Items.Add(user.name);
             }
 
-            lstGeselecteerdeGebruikers.DataSource = templist;
-            lstGeselecteerdeGebruikers.DisplayMember = "name";
-            lstGeselecteerdeGebruikers.ValueMember = "id";
-            lstGeselecteerdeGebruikers.Refresh();
-            lstGeselecteerdeGebruikers.Update();
-            lstGebruikers.SelectedItems.Clear();
+
         }
 
         private void btnVerwijderen_Click(object sender, EventArgs e)
         {
-            //kan geen items verwijderen als datasource geset is!
+            if (lstGeselecteerdeGebruikers.Items.Count != 0)
+            {
+                lijstToevoegen.RemoveAt(lstGeselecteerdeGebruikers.SelectedIndex);
+                lstGeselecteerdeGebruikers.Items.Clear();
+                foreach (Gebruiker user in lijstToevoegen)
+                {
+                    lstGeselecteerdeGebruikers.Items.Add(user.name);
+                }
+            }
         }
 
         public async void getUsers()
@@ -116,8 +120,14 @@ namespace ictProject3
             //}
             //else
             //{
-                try
+            lstGeselecteerdeGebruikers.DataSource = lijstToevoegen;
+            lstGeselecteerdeGebruikers.DisplayMember = "name";
+            lstGeselecteerdeGebruikers.ValueMember = "id";
+            lstGeselecteerdeGebruikers.Refresh();
+            lstGeselecteerdeGebruikers.Update();
+            try
                 {
+
                     string fileid = Form1.fileId;
                     List<Gebruiker> selectedUserList = new List<Gebruiker>();
                     selectedUserList = lstGeselecteerdeGebruikers.Items.Cast<Gebruiker>().ToList();//nog testen of dit werkt
