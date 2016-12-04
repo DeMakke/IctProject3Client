@@ -19,6 +19,7 @@ namespace ictProject3
         
         public Form1()
         {
+            logoutButton.Enabled = false;
             InitializeComponent(); //init and init again and again and.. :p
         }
 
@@ -209,6 +210,16 @@ namespace ictProject3
         {
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
+            if ( Properties.Settings.Default.Token != "8500")
+            {
+                loginButton.Enabled = false;
+                logoutButton.Enabled = true;
+            }
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
