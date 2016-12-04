@@ -138,8 +138,8 @@ namespace ictProject3
 
                 data.base64 = tempfilebase64;
 
-                Debug.WriteLine(data.base64.Length / (Convert.ToInt16(splitted[1])- 1));
-                Debug.WriteLine(data.base64.Length % (Convert.ToInt16(splitted[1]) - 1));
+                Debug.WriteLine(data.base64.Length / (Convert.ToInt16(splitted[1])));
+                Debug.WriteLine(data.base64.Length % (Convert.ToInt16(splitted[1])));
 
                 List<string> base64data = base64code.SplitEvery(data.base64, data.base64.Length / Convert.ToInt16(splitted[1]), Convert.ToInt16(splitted[1]));
                 
@@ -201,7 +201,7 @@ namespace ictProject3
             string json = "for later implementation of users";
 
             string result = await servercom.ReceiveDataAsync("GetFileNames", json, progressindicator, cts.Token);
-            MessageBox.Show(result);
+            //MessageBox.Show(result);
 
             return result;
         }
