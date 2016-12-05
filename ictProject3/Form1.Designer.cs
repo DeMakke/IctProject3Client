@@ -127,7 +127,7 @@
             this.logoutButton.TabIndex = 7;
             this.logoutButton.Text = "Logout";
             this.logoutButton.UseVisualStyleBackColor = false;
-<<<<<<< HEAD
+
 
             // btnDelen
             // 
@@ -139,20 +139,20 @@
             this.btnDelen.UseVisualStyleBackColor = true;
             this.btnDelen.Click += new System.EventHandler(this.btnDelen_Click);
 
-=======
+
             this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
->>>>>>> refs/remotes/origin/master
+
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
+
             this.ClientSize = new System.Drawing.Size(453, 385);
 
-=======
+
             this.ClientSize = new System.Drawing.Size(340, 313);
->>>>>>> refs/remotes/origin/master
+
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.loginButton);
 

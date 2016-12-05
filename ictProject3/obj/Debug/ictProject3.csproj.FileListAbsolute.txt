@@ -75,7 +75,6 @@ D:\PROJECT 3\WORKING FOLDER\GitHub\Client\ictProject3\obj\Debug\ictProject3.Prop
 D:\PROJECT 3\WORKING FOLDER\GitHub\Client\ictProject3\obj\Debug\ictProject3.csproj.GenerateResource.Cache
 D:\PROJECT 3\GitHub\Client\ictProject3\obj\Debug\ictProject3.LoginForm.resources
 C:\Users\Dries\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.LoginForm.resources
-<<<<<<< HEAD
 C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\bin\Debug\ictProject3.exe.config
 C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\obj\Debug\ictProject3.exe
 C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\obj\Debug\ictProject3.pdb
@@ -88,7 +87,6 @@ C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\obj\Debug\ictP
 C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\obj\Debug\ictProject3.LoginForm.resources
 C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\obj\Debug\ictProject3.Properties.Resources.resources
 C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\obj\Debug\ictProject3.csproj.GenerateResource.Cache
-=======
 C:\Users\Jan\Documents\IctProject3Client\ictProject3\bin\Debug\ictProject3.exe.config
 C:\Users\Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.exe
 C:\Users\Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.pdb
@@ -114,3 +112,5 @@ E:\ictproject3\IctProject3Client\ictProject3\obj\Debug\ictProject3.Properties.Re
 E:\ictproject3\IctProject3Client\ictProject3\obj\Debug\ictProject3.csproj.GenerateResource.Cache
 C:\Users\Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.LoginForm.resources
 >>>>>>> sotry7mergemaster
+D:\PROJECT 3\WORKING FOLDER\GitHub\Client\ictProject3\obj\Debug\ictProject3.DeelVenster.resources
+D:\PROJECT 3\WORKING FOLDER\GitHub\Client\ictProject3\obj\Debug\ictProject3.LoginForm.resources
