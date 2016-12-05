@@ -79,6 +79,11 @@ namespace ictProject3
             result = result.Remove(result.Length - 1);
             result = result.Remove(0, 18);
             userList = jsoncode.Deserialize<List<Gebruiker>>(result);
+            string username = LoginForm.CurrentUser.name;
+            if ((userList.Find(x => x.name.Contains(username)) != null))
+            {
+                userList.Remove(userList.Find(x => x.name.Contains(username)));
+            }
             lstGebruikers.DataSource = userList;
             lstGebruikers.DisplayMember = "name";
             lstGebruikers.ValueMember = "id";
@@ -145,7 +150,7 @@ namespace ictProject3
                     result = result.Remove(result.Length - 1);
                     result = result.Remove(0, 18);
                     Succes succes = new Succes();
-                    succes = jsoncode.JsonDeCodingSucces(result);
+                    succes = jsoncode.Deserialize<Succes>(result);
 
                     //result = jsoncode.cropString(result);
                     //Succes succes2 = jsoncode.Deserialize<Succes>(result);
