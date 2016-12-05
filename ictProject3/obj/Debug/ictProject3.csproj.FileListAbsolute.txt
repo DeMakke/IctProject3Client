@@ -75,3 +75,15 @@ D:\PROJECT 3\WORKING FOLDER\GitHub\Client\ictProject3\obj\Debug\ictProject3.Prop
 D:\PROJECT 3\WORKING FOLDER\GitHub\Client\ictProject3\obj\Debug\ictProject3.csproj.GenerateResource.Cache
 D:\PROJECT 3\GitHub\Client\ictProject3\obj\Debug\ictProject3.LoginForm.resources
 C:\Users\Dries\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.LoginForm.resources
+C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\bin\Debug\ictProject3.exe.config
+C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\obj\Debug\ictProject3.exe
+C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\obj\Debug\ictProject3.pdb
+C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\bin\Debug\ictProject3.exe
+C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\bin\Debug\ictProject3.pdb
+C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\bin\Debug\Newtonsoft.Json.dll
+C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\bin\Debug\Newtonsoft.Json.xml
+C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\obj\Debug\ictProject3.csprojResolveAssemblyReference.cache
+C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\obj\Debug\ictProject3.Form1.resources
+C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\obj\Debug\ictProject3.LoginForm.resources
+C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\obj\Debug\ictProject3.Properties.Resources.resources
+C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\obj\Debug\ictProject3.csproj.GenerateResource.Cache

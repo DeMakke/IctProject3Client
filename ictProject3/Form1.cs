@@ -19,8 +19,9 @@ namespace ictProject3
         
         public Form1()
         {
-            logoutButton.Enabled = false;
+            
             InitializeComponent(); //init and init again and again and.. :p
+            logoutButton.Enabled = false;
         }
 
         public WebCom servercom = new WebCom();
@@ -214,6 +215,7 @@ namespace ictProject3
             {
                 loginButton.Enabled = false;
                 logoutButton.Enabled = true;
+                getdata();
             }
         }
 
