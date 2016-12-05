@@ -45,14 +45,11 @@ namespace ictProject3
 
         private void btnToevoegen_Click(object sender, EventArgs e)
         {
-
             foreach (Gebruiker user in lstGebruikers.SelectedItems)
             {
                 lijstToevoegen.Add(user);
                 lstGeselecteerdeGebruikers.Items.Add(user.name);
             }
-
-
         }
 
         private void btnVerwijderen_Click(object sender, EventArgs e)
