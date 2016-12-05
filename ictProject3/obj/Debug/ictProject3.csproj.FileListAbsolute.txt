@@ -75,6 +75,7 @@ D:\PROJECT 3\WORKING FOLDER\GitHub\Client\ictProject3\obj\Debug\ictProject3.Prop
 D:\PROJECT 3\WORKING FOLDER\GitHub\Client\ictProject3\obj\Debug\ictProject3.csproj.GenerateResource.Cache
 D:\PROJECT 3\GitHub\Client\ictProject3\obj\Debug\ictProject3.LoginForm.resources
 C:\Users\Dries\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.LoginForm.resources
+<<<<<<< HEAD
 C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\bin\Debug\ictProject3.exe.config
 C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\obj\Debug\ictProject3.exe
 C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\obj\Debug\ictProject3.pdb
@@ -87,3 +88,29 @@ C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\obj\Debug\ictP
 C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\obj\Debug\ictProject3.LoginForm.resources
 C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\obj\Debug\ictProject3.Properties.Resources.resources
 C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\obj\Debug\ictProject3.csproj.GenerateResource.Cache
+=======
+C:\Users\Jan\Documents\IctProject3Client\ictProject3\bin\Debug\ictProject3.exe.config
+C:\Users\Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.exe
+C:\Users\Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.pdb
+C:\Users\Jan\Documents\IctProject3Client\ictProject3\bin\Debug\ictProject3.exe
+C:\Users\Jan\Documents\IctProject3Client\ictProject3\bin\Debug\ictProject3.pdb
+C:\Users\Jan\Documents\IctProject3Client\ictProject3\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Jan\Documents\IctProject3Client\ictProject3\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.csprojResolveAssemblyReference.cache
+C:\Users\Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.DeelVenster.resources
+C:\Users\Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.Form1.resources
+C:\Users\Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.Properties.Resources.resources
+C:\Users\Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.csproj.GenerateResource.Cache
+>>>>>>> refs/remotes/origin/story-7
+E:\ictproject3\IctProject3Client\ictProject3\bin\Debug\ictProject3.exe
+E:\ictproject3\IctProject3Client\ictProject3\bin\Debug\ictProject3.pdb
+E:\ictproject3\IctProject3Client\ictProject3\bin\Debug\Newtonsoft.Json.dll
+E:\ictproject3\IctProject3Client\ictProject3\bin\Debug\Newtonsoft.Json.xml
+E:\ictproject3\IctProject3Client\ictProject3\obj\Debug\ictProject3.csprojResolveAssemblyReference.cache
+E:\ictproject3\IctProject3Client\ictProject3\obj\Debug\ictProject3.DeelVenster.resources
+E:\ictproject3\IctProject3Client\ictProject3\obj\Debug\ictProject3.Form1.resources
+E:\ictproject3\IctProject3Client\ictProject3\obj\Debug\ictProject3.LoginForm.resources
+E:\ictproject3\IctProject3Client\ictProject3\obj\Debug\ictProject3.Properties.Resources.resources
+E:\ictproject3\IctProject3Client\ictProject3\obj\Debug\ictProject3.csproj.GenerateResource.Cache
+C:\Users\Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.LoginForm.resources
+>>>>>>> sotry7mergemaster

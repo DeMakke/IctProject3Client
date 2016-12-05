@@ -35,8 +35,12 @@
             this.lblFilename = new System.Windows.Forms.Label();
             this.OpenFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.btnDeleteItem = new System.Windows.Forms.Button();
+
             this.loginButton = new System.Windows.Forms.Button();
             this.logoutButton = new System.Windows.Forms.Button();
+
+            this.btnDelen = new System.Windows.Forms.Button();
+
             this.SuspendLayout();
             // 
             // btnDownloadFile
@@ -100,6 +104,7 @@
             this.btnDeleteItem.UseVisualStyleBackColor = true;
             this.btnDeleteItem.Click += new System.EventHandler(this.btnDeleteItem_Click);
             // 
+
             // loginButton
             // 
             this.loginButton.BackColor = System.Drawing.SystemColors.Info;
@@ -122,15 +127,37 @@
             this.logoutButton.TabIndex = 7;
             this.logoutButton.Text = "Logout";
             this.logoutButton.UseVisualStyleBackColor = false;
+<<<<<<< HEAD
+
+            // btnDelen
+            // 
+            this.btnDelen.Location = new System.Drawing.Point(305, 146);
+            this.btnDelen.Name = "btnDelen";
+            this.btnDelen.Size = new System.Drawing.Size(131, 48);
+            this.btnDelen.TabIndex = 6;
+            this.btnDelen.Text = "Delen";
+            this.btnDelen.UseVisualStyleBackColor = true;
+            this.btnDelen.Click += new System.EventHandler(this.btnDelen_Click);
+
+=======
             this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
+>>>>>>> refs/remotes/origin/master
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
+            this.ClientSize = new System.Drawing.Size(453, 385);
+
+=======
             this.ClientSize = new System.Drawing.Size(340, 313);
+>>>>>>> refs/remotes/origin/master
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.loginButton);
+
+            this.Controls.Add(this.btnDelen);
+
             this.Controls.Add(this.btnDeleteItem);
             this.Controls.Add(this.lblFilename);
             this.Controls.Add(this.btnUpload);
@@ -154,8 +181,12 @@
         private System.Windows.Forms.Label lblFilename;
         private System.Windows.Forms.OpenFileDialog OpenFileDialog;
         private System.Windows.Forms.Button btnDeleteItem;
+
         private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Button logoutButton;
+
+        private System.Windows.Forms.Button btnDelen;
+
     }
 }
 

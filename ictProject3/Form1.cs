@@ -16,6 +16,8 @@ namespace ictProject3
 {
     public partial class Form1 : Form
     {
+
+
         
         public Form1()
         {
@@ -64,7 +66,6 @@ namespace ictProject3
                 lstFiles.DataSource = itemList;
                 lstFiles.DisplayMember = "name";
                 lstFiles.ValueMember = "id";
-
                 lstFiles.Refresh();
                 lstFiles.Update();
             }
@@ -109,8 +110,6 @@ namespace ictProject3
                 data = fileHandler.UploadFile(name, filePath);
                 lblFilename.Text += name;
 
-
-                
                 var progressindicator = new Progress<int>(ReportProgress);
                 cts = new CancellationTokenSource();
                 string json = "";
@@ -207,6 +206,7 @@ namespace ictProject3
             return result;
         }
 
+
         private void loginButton_Click(object sender, EventArgs e)
         {
             LoginForm loginForm = new LoginForm();
@@ -221,6 +221,28 @@ namespace ictProject3
 
         private void logoutButton_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private static string _fileId;
+        public static string fileId
+        {
+            get // this makes you to access value in form2
+            {
+                return _fileId;
+            }
+            set // this makes you to change value in form2
+            {
+                _fileId = value;
+            }
+        }
+
+        private void btnDelen_Click(object sender, EventArgs e)
+        {
+            string item = Convert.ToString(lstFiles.SelectedValue);
+            DeelVenster delen = new DeelVenster(item);
+            fileId = Convert.ToString(lstFiles.SelectedValue);
+            delen.ShowDialog();
 
         }
     }

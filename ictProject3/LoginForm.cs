@@ -38,14 +38,15 @@ namespace ictProject3
             try
             {
                 JsonCode JSONData = new JsonCode();
-                User user = new User();
-                user.name = userNameTextBox.Text;
+                //User user = new User();
+                _user = new User();
+                CurrentUser.name = userNameTextBox.Text;
                 string password = passwordTextBox.Text;
                 using (MD5 md5Hash = MD5.Create())
                 {
-                    user.hash = hashing.GetMd5Hash(md5Hash, password);
+                    CurrentUser.hash = hashing.GetMd5Hash(md5Hash, password);
                 }
-                string json = JSONData.JsonCoding(user);
+                string json = JSONData.JsonCoding(CurrentUser);
 
                 var progressindicator = new Progress<int>(ReportProgress);
                 cts = new CancellationTokenSource();
@@ -78,7 +79,18 @@ namespace ictProject3
             this.Close();
         }
 
- 
+        private static User _user;
+        public static User CurrentUser
+        {
+            get // this makes you to access value in form2
+            {
+                return _user;
+            }
+            set // this makes you to change value in form2
+            {
+                _user = value;
+            }
+        }
 
 
 
