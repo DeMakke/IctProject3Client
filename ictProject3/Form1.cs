@@ -21,6 +21,7 @@ namespace ictProject3
         
         public Form1()
         {
+            logoutButton.Enabled = false;
             InitializeComponent(); //init and init again and again and.. :p
         }
 
@@ -136,8 +137,13 @@ namespace ictProject3
 
                 data.base64 = tempfilebase64;
 
+<<<<<<< HEAD
                 //Debug.WriteLine(data.base64.Length / (Convert.ToInt16(splitted[1])- 1));
                 //Debug.WriteLine(data.base64.Length % (Convert.ToInt16(splitted[1]) - 1));
+=======
+                Debug.WriteLine(data.base64.Length / (Convert.ToInt16(splitted[1])));
+                Debug.WriteLine(data.base64.Length % (Convert.ToInt16(splitted[1])));
+>>>>>>> refs/remotes/origin/master
 
                 List<string> base64data = base64code.SplitEvery(data.base64, data.base64.Length / Convert.ToInt16(splitted[1]), Convert.ToInt16(splitted[1]));
                 
@@ -209,6 +215,16 @@ namespace ictProject3
         {
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
+            if ( Properties.Settings.Default.Token != "8500")
+            {
+                loginButton.Enabled = false;
+                logoutButton.Enabled = true;
+            }
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+
         }
 
         private static string _fileId;
