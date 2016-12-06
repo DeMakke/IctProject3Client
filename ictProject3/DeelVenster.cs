@@ -90,44 +90,46 @@ namespace ictProject3
 
         private async void btnOk_Click(object sender, EventArgs e)
         {
-            //if (checkBoxPubliekDelen.Checked == true)
-            //{
-            //    try
-            //    {
-            //        bool test = checkBoxPubliekDelen.Checked;
-            //        if (test == true)
-            //        {
-            //            var progressindicator = new Progress<int>(ReportProgress);
-            //            cts = new CancellationTokenSource();
-            //            string result = "";
-            //            result = await servercom.ReceiveDataAsync("PublicShare", Convert.ToString(selectedItem), progressindicator, cts.Token);
+            if (checkBoxPubliekDelen.Checked == true)
+            {
+                try
+                {
+                    string fileid = Form1.fileId;
 
-            //            result = jsoncode.cropString(result);
-            //            Succes succes = jsoncode.Deserialize<Succes>(result);
-            //            if (succes.value)
-            //            {
-            //                MessageBox.Show("Het bestand is succesvol gedeeld.", "publiek delen");
+                    var progressindicator = new Progress<int>(ReportProgress);
+                    cts = new CancellationTokenSource();
+                    string result = "";
+                    string json = "";
+                    result = await servercom.ReceiveDataAsync("PublicShare/" + fileid, json, progressindicator, cts.Token);
 
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show("Het bestand kan niet gedeeld worden!", "publiek delen");
-            //            }
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show("fout bij delen");
-            //    }
-            //}
-            //else
-            //{
-            lstGeselecteerdeGebruikers.DataSource = lijstToevoegen;
-            lstGeselecteerdeGebruikers.DisplayMember = "name";
-            lstGeselecteerdeGebruikers.ValueMember = "id";
-            lstGeselecteerdeGebruikers.Refresh();
-            lstGeselecteerdeGebruikers.Update();
-            try
+                    result = jsoncode.cropStringMore(result);
+                    result = result.Remove(0, 21);
+                    result = result.Remove(result.Length - 1);
+                    Succes succes = jsoncode.JsonDeCodingSucces(result);
+                    if (succes.value)
+                    {
+                        MessageBox.Show("Het bestand is succesvol gedeeld.", "publiek delen");
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Het bestand kan niet gedeeld worden!", "publiek delen");
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("fout bij delen", "database");
+                }
+            }
+            else
+            {
+                lstGeselecteerdeGebruikers.DataSource = lijstToevoegen;
+                lstGeselecteerdeGebruikers.DisplayMember = "name";
+                lstGeselecteerdeGebruikers.ValueMember = "id";
+                lstGeselecteerdeGebruikers.Refresh();
+                lstGeselecteerdeGebruikers.Update();
+                try
                 {
                     string fileid = Form1.fileId;
                     List<Gebruiker> selectedUserList = new List<Gebruiker>();
@@ -162,9 +164,9 @@ namespace ictProject3
                 {
                     MessageBox.Show("system error on function: Share file");
                 }
-            //}
+            }
 
-            //this.Close();
+            this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -174,12 +176,19 @@ namespace ictProject3
 
         private void checkBoxPubliekDelen_CheckedChanged(object sender, EventArgs e)
         {
-            if(checkBoxPubliekDelen.Checked == true)
+            if (checkBoxPubliekDelen.Checked == true)
             {
-                lstGebruikers.Visible = false;
-                lstGeselecteerdeGebruikers.Visible = false;
-                btnToevoegen.Visible = false;
-                btnVerwijderen.Visible = false;                   
+                lstGebruikers.Enabled = false;
+                lstGeselecteerdeGebruikers.Enabled = false;
+                btnToevoegen.Enabled = false;
+                btnVerwijderen.Enabled = false;
+            }
+            else
+            {
+                lstGebruikers.Enabled = true;
+                lstGeselecteerdeGebruikers.Enabled = true;
+                btnToevoegen.Enabled = true;
+                btnVerwijderen.Enabled = true;
             }
         }
     }
