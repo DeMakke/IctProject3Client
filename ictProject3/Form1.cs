@@ -258,7 +258,7 @@ namespace ictProject3
 
         private void btnDelen_Click(object sender, EventArgs e)
         {
-            string item = Convert.ToString(lstFiles.SelectedValue);
+            var item = Convert.ToString(lstFiles.SelectedValue);
             DeelVenster delen = new DeelVenster(item);
             fileId = Convert.ToString(lstFiles.SelectedValue);
             delen.ShowDialog();
