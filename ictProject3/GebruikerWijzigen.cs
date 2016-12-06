@@ -46,8 +46,8 @@ namespace ictProject3
                 result = await servercom.ReceiveDataAsync("ChangeUserData", json, progressindicator, cts.Token);
 
                 result = jsonCode.cropString(result);
-                //result = result.Remove(result.Length);
-                //result = result.Remove(0, 18);
+                result = result.Remove(result.Length-1);
+                result = result.Remove(0, 24);
                 Succes succes = new Succes();
                 succes = jsonCode.Deserialize<Succes>(result);
 
