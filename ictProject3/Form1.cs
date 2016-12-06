@@ -24,6 +24,7 @@ namespace ictProject3
             
             InitializeComponent(); //init and init again and again and.. :p
             logoutButton.Enabled = false;
+            //btnDelen.Enabled = false;
         }
 
         public WebCom servercom = new WebCom();
@@ -184,7 +185,7 @@ namespace ictProject3
                 {
                     MessageBox.Show("Het bestand kan niet verwijderd worden!", "Bestand verwijderen");
                 }
-                
+                lstFiles.ClearSelected();
             }
             catch (Exception ex)
             {
@@ -244,6 +245,17 @@ namespace ictProject3
             fileId = Convert.ToString(lstFiles.SelectedValue);
             delen.ShowDialog();
 
+        }
+
+        private void lstFiles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //btnDelen.Enabled = false;
+        }
+
+        private void btnWijzigen_Click(object sender, EventArgs e)
+        {
+            GebruikerWijzigen wijzigen = new GebruikerWijzigen();
+            wijzigen.ShowDialog();
         }
     }
 }

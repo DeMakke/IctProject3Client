@@ -35,12 +35,10 @@
             this.lblFilename = new System.Windows.Forms.Label();
             this.OpenFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.btnDeleteItem = new System.Windows.Forms.Button();
-
             this.loginButton = new System.Windows.Forms.Button();
             this.logoutButton = new System.Windows.Forms.Button();
-
             this.btnDelen = new System.Windows.Forms.Button();
-
+            this.btnWijzigen = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnDownloadFile
@@ -60,6 +58,7 @@
             this.lstFiles.Name = "lstFiles";
             this.lstFiles.Size = new System.Drawing.Size(210, 147);
             this.lstFiles.TabIndex = 1;
+            this.lstFiles.SelectedIndexChanged += new System.EventHandler(this.lstFiles_SelectedIndexChanged);
             // 
             // btnUpdateList
             // 
@@ -104,12 +103,11 @@
             this.btnDeleteItem.UseVisualStyleBackColor = true;
             this.btnDeleteItem.Click += new System.EventHandler(this.btnDeleteItem_Click);
             // 
-
             // loginButton
             // 
             this.loginButton.BackColor = System.Drawing.SystemColors.Info;
             this.loginButton.Location = new System.Drawing.Point(13, 280);
-            this.loginButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.loginButton.Margin = new System.Windows.Forms.Padding(2);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(56, 24);
             this.loginButton.TabIndex = 6;
@@ -121,43 +119,43 @@
             // 
             this.logoutButton.BackColor = System.Drawing.SystemColors.Info;
             this.logoutButton.Location = new System.Drawing.Point(74, 280);
-            this.logoutButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.logoutButton.Margin = new System.Windows.Forms.Padding(2);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.Size = new System.Drawing.Size(56, 24);
             this.logoutButton.TabIndex = 7;
             this.logoutButton.Text = "Logout";
             this.logoutButton.UseVisualStyleBackColor = false;
-
-
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
+            // 
             // btnDelen
             // 
-            this.btnDelen.Location = new System.Drawing.Point(305, 146);
+            this.btnDelen.Location = new System.Drawing.Point(229, 119);
             this.btnDelen.Name = "btnDelen";
-            this.btnDelen.Size = new System.Drawing.Size(131, 48);
+            this.btnDelen.Size = new System.Drawing.Size(98, 40);
             this.btnDelen.TabIndex = 6;
             this.btnDelen.Text = "Delen";
             this.btnDelen.UseVisualStyleBackColor = true;
             this.btnDelen.Click += new System.EventHandler(this.btnDelen_Click);
-
-
-            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
-
+            // 
+            // btnWijzigen
+            // 
+            this.btnWijzigen.Location = new System.Drawing.Point(264, 280);
+            this.btnWijzigen.Name = "btnWijzigen";
+            this.btnWijzigen.Size = new System.Drawing.Size(117, 21);
+            this.btnWijzigen.TabIndex = 8;
+            this.btnWijzigen.Text = "Gegevens wijzigen";
+            this.btnWijzigen.UseVisualStyleBackColor = true;
+            this.btnWijzigen.Click += new System.EventHandler(this.btnWijzigen_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-
-            this.ClientSize = new System.Drawing.Size(453, 385);
-
-
-            this.ClientSize = new System.Drawing.Size(340, 313);
-
+            this.ClientSize = new System.Drawing.Size(393, 313);
+            this.Controls.Add(this.btnWijzigen);
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.loginButton);
-
             this.Controls.Add(this.btnDelen);
-
             this.Controls.Add(this.btnDeleteItem);
             this.Controls.Add(this.lblFilename);
             this.Controls.Add(this.btnUpload);
@@ -186,7 +184,7 @@
         private System.Windows.Forms.Button logoutButton;
 
         private System.Windows.Forms.Button btnDelen;
-
+        private System.Windows.Forms.Button btnWijzigen;
     }
 }
 

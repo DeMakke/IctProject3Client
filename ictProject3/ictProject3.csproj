@@ -69,6 +69,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Gebruiker.cs" />
+    <Compile Include="GebruikerWijzigen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GebruikerWijzigen.Designer.cs">
+      <DependentUpon>GebruikerWijzigen.cs</DependentUpon>
+    </Compile>
     <Compile Include="JsonCode.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="LoginForm.cs">
@@ -88,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GebruikerWijzigen.resx">
+      <DependentUpon>GebruikerWijzigen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

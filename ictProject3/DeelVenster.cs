@@ -129,7 +129,6 @@ namespace ictProject3
             lstGeselecteerdeGebruikers.Update();
             try
                 {
-
                     string fileid = Form1.fileId;
                     List<Gebruiker> selectedUserList = new List<Gebruiker>();
                     selectedUserList = lstGeselecteerdeGebruikers.Items.Cast<Gebruiker>().ToList();//nog testen of dit werkt
@@ -148,9 +147,6 @@ namespace ictProject3
                     result = result.Remove(0, 18);
                     Succes succes = new Succes();
                     succes = jsoncode.Deserialize<Succes>(result);
-
-                    //result = jsoncode.cropString(result);
-                    //Succes succes2 = jsoncode.Deserialize<Succes>(result);
 
                     if (succes.value == true)
                     {
