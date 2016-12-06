@@ -219,9 +219,28 @@ namespace ictProject3
             }
         }
 
-        private void logoutButton_Click(object sender, EventArgs e)
+        private async void logoutButton_Click(object sender, EventArgs e)
         {
-
+            var progressindicator = new Progress<int>(ReportProgress);
+            cts = new CancellationTokenSource();
+            
+            string result = await servercom.ReceiveDataAsync("Logout", "", progressindicator, cts.Token);
+            result = jsoncode.cropString(result);
+            User userResponse = jsoncode.JsonDeCodingUser(result);
+            Properties.Settings.Default.Token = userResponse.token.ToString();
+            if (Properties.Settings.Default.Token != "8500")
+            {
+                
+                MessageBox.Show("error logging out");
+                
+            }
+            else
+            {
+                MessageBox.Show("logged out succesfully");
+                getdata();
+                loginButton.Enabled = true;
+                logoutButton.Enabled = false;
+            }
         }
 
         private static string _fileId;
