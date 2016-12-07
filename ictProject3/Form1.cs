@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,10 +26,11 @@ namespace ictProject3
             InitializeComponent(); //init and init again and again and.. :p
             logoutButton.Enabled = false;
             btnDelen.Enabled = false;
+            
         }
 
         public WebCom servercom = new WebCom();
-        private CancellationTokenSource cts; 
+        private CancellationTokenSource cts;     
 
         JsonCode jsoncode = new JsonCode();
         Base64Code base64code = new Base64Code();
@@ -191,8 +193,6 @@ namespace ictProject3
             {
                 MessageBox.Show("system error on function: Delete File" + ex.ToString());
             }
-            
-
         }
 
         private async Task<string> GetFiles()
@@ -272,16 +272,21 @@ namespace ictProject3
             wijzigen.ShowDialog();
         }
 
-        private void lstFiles_SelectedValueChanged(object sender, EventArgs e)
+        private void lstFiles_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(lstFiles.Items != null)
-            {
-                btnDelen.Enabled = true;
-            }
-            else
-            {
-                btnDelen.Enabled = false;
-            }
+            //if (lstFiles.Items.Count != 0)
+            //{
+            //    btnDelen.Enabled = true;
+            //}
+            //else
+            //{
+            //    btnDelen.Enabled = false;
+            //}
+            
         }
+
+        private CheckedListBoxEx cle = new CheckedListBoxEx();    
+
+
     }
 }

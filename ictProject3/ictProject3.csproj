@@ -53,6 +53,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base64Code.cs" />
+    <Compile Include="CheckedListBoxEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Data.cs" />
     <Compile Include="DeelVenster.cs">
       <SubType>Form</SubType>
