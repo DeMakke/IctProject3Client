@@ -24,7 +24,7 @@ namespace ictProject3
             
             InitializeComponent(); //init and init again and again and.. :p
             logoutButton.Enabled = false;
-            //btnDelen.Enabled = false;
+            btnDelen.Enabled = false;
         }
 
         public WebCom servercom = new WebCom();
@@ -266,15 +266,22 @@ namespace ictProject3
 
         }
 
-        private void lstFiles_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //btnDelen.Enabled = false;
-        }
-
         private void btnWijzigen_Click(object sender, EventArgs e)
         {
             GebruikerWijzigen wijzigen = new GebruikerWijzigen();
             wijzigen.ShowDialog();
+        }
+
+        private void lstFiles_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if(lstFiles.Items != null)
+            {
+                btnDelen.Enabled = true;
+            }
+            else
+            {
+                btnDelen.Enabled = false;
+            }
         }
     }
 }
