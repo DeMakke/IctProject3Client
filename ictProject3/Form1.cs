@@ -162,7 +162,7 @@ namespace ictProject3
         {
             try
             {
-                Item item = new Item();                     //dit werkt dus wel integenstelling met wat er stond
+                Item item = new Item();
                 var selectedItem = lstFiles.SelectedItem;
                 item.id = (System.Guid)lstFiles.SelectedValue;     
                 item.name = lstFiles.GetItemText(selectedItem);
@@ -276,22 +276,6 @@ namespace ictProject3
             GebruikerWijzigen wijzigen = new GebruikerWijzigen();
             wijzigen.ShowDialog();
         }
-
-        private void lstFiles_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //if (lstFiles.Items.Count != 0)
-            //{
-            //    btnDelen.Enabled = true;
-            //}
-            //else
-            //{
-            //    btnDelen.Enabled = false;
-            //}
-            
-        }
-
-        private CheckedListBoxEx cle = new CheckedListBoxEx();    
-
 
     }
 }
