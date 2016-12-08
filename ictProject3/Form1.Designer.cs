@@ -139,9 +139,9 @@
             // 
             // btnWijzigen
             // 
-            this.btnWijzigen.Location = new System.Drawing.Point(264, 280);
+            this.btnWijzigen.Location = new System.Drawing.Point(210, 280);
             this.btnWijzigen.Name = "btnWijzigen";
-            this.btnWijzigen.Size = new System.Drawing.Size(117, 21);
+            this.btnWijzigen.Size = new System.Drawing.Size(117, 24);
             this.btnWijzigen.TabIndex = 8;
             this.btnWijzigen.Text = "Gegevens wijzigen";
             this.btnWijzigen.UseVisualStyleBackColor = true;
@@ -151,7 +151,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(393, 313);
+            this.ClientSize = new System.Drawing.Size(333, 313);
             this.Controls.Add(this.btnWijzigen);
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.loginButton);

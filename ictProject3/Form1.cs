@@ -24,9 +24,7 @@ namespace ictProject3
         {
             
             InitializeComponent(); //init and init again and again and.. :p
-            logoutButton.Enabled = false;
-            btnDelen.Enabled = false;
-            
+            logoutButton.Enabled = false;            
         }
 
         public WebCom servercom = new WebCom();
@@ -259,10 +257,17 @@ namespace ictProject3
 
         private void btnDelen_Click(object sender, EventArgs e)
         {
-            var item = Convert.ToString(lstFiles.SelectedValue);
-            DeelVenster delen = new DeelVenster(item);
-            fileId = Convert.ToString(lstFiles.SelectedValue);
-            delen.ShowDialog();
+            if(lstFiles.SelectedItem != null)
+            {
+                var item = Convert.ToString(lstFiles.SelectedValue);
+                DeelVenster delen = new DeelVenster(item);
+                fileId = Convert.ToString(lstFiles.SelectedValue);
+                delen.ShowDialog();
+            }else
+            {
+                MessageBox.Show("Je moet een bestand selecteren!", "Delen");
+            }
+            
 
         }
 
