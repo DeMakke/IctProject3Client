@@ -38,6 +38,7 @@ namespace ictProject3
                 JsonCode jsonCode = new JsonCode();
                 Gebruiker gebruiker = new Gebruiker();
                 gebruiker.name = userNameTextBox.Text;
+                gebruiker.password = passwordTextBox.Text;
                 string json = jsonCode.Serialize(gebruiker);
 
                 var progressindicator = new Progress<int>(ReportProgress);
