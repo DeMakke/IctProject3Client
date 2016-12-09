@@ -145,10 +145,8 @@ namespace ictProject3
                     result = await servercom.ReceiveDataAsync("SetUsers/" + fileid, json, progressindicator, cts.Token);
 
                     result = jsoncode.cropString(result);
-                    result = result.Remove(result.Length - 1);
-                    result = result.Remove(0, 18);
                     Succes succes = new Succes();
-                    succes = jsoncode.Deserialize<Succes>(result);
+                    succes = jsoncode.JsonDeCodingSucces(result);
 
                     if (succes.value == true)
                     {
