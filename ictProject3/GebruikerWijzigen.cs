@@ -36,7 +36,8 @@ namespace ictProject3
             try
             {
                 JsonCode jsonCode = new JsonCode();
-                Gebruiker gebruiker = new Gebruiker();
+                User gebruiker = new User();
+
                 gebruiker.name = userNameTextBox.Text;
                 gebruiker.password = passwordTextBox.Text;
                 string json = jsonCode.Serialize(gebruiker);
