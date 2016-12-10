@@ -55,7 +55,7 @@ namespace ictProject3
 
                 if (succes.value == true)
                 {
-                    MessageBox.Show("De gebruikersnaam werd succesvol aangepast", "Gegevens wijzigen");
+                    MessageBox.Show("Je gegevens werden succesvol aangepast", "Gegevens wijzigen");
                 }
                 else
                 {
