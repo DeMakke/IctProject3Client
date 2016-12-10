@@ -12,7 +12,5 @@ namespace ictProject3
         [JsonProperty("files")]
         public List<Item> files { get; set; }
 
-        [JsonProperty("users")]
-        public List<Gebruiker> users { get; set; }
     }
 }

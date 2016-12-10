@@ -15,7 +15,7 @@ namespace ictProject3
     public partial class DeelVenster : Form
     {
         private string selectedItem;
-        private List<Gebruiker> lijstToevoegen = new List<Gebruiker>();
+        private List<User> lijstToevoegen = new List<User>();
 
         public DeelVenster(string item)
         {
@@ -45,7 +45,7 @@ namespace ictProject3
 
         private void btnToevoegen_Click(object sender, EventArgs e)
         {
-            foreach (Gebruiker user in lstGebruikers.SelectedItems)
+            foreach (User user in lstGebruikers.SelectedItems)
             {
                 lijstToevoegen.Add(user);
                 lstGeselecteerdeGebruikers.Items.Add(user.name);
@@ -58,7 +58,7 @@ namespace ictProject3
             {
                 lijstToevoegen.RemoveAt(lstGeselecteerdeGebruikers.SelectedIndex);
                 lstGeselecteerdeGebruikers.Items.Clear();
-                foreach (Gebruiker user in lijstToevoegen)
+                foreach (User user in lijstToevoegen)
                 {
                     lstGeselecteerdeGebruikers.Items.Add(user.name);
                 }
@@ -71,11 +71,11 @@ namespace ictProject3
             cts = new CancellationTokenSource();            
             string json = "for later implementation of users";
             string result = await servercom.ReceiveDataAsync("GetUsers", json, progressindicator, cts.Token);
-            List<Gebruiker> userList = new List<Gebruiker>();
+            List<User> userList = new List<User>();
             result = jsoncode.cropString(result);
             result = result.Remove(result.Length - 1);
             result = result.Remove(0, 18);
-            userList = jsoncode.Deserialize<List<Gebruiker>>(result);
+            userList = jsoncode.Deserialize<List<User>>(result);
             string username = LoginForm.CurrentUser.name;
             if ((userList.Find(x => x.name.Contains(username)) != null))
             {
@@ -132,8 +132,8 @@ namespace ictProject3
                 try
                 {
                     string fileid = Form1.fileId;
-                    List<Gebruiker> selectedUserList = new List<Gebruiker>();
-                    selectedUserList = lstGeselecteerdeGebruikers.Items.Cast<Gebruiker>().ToList();//nog testen of dit werkt
+                    List<User> selectedUserList = new List<User>();
+                    selectedUserList = lstGeselecteerdeGebruikers.Items.Cast<User>().ToList();//nog testen of dit werkt
 
                     JsonCode jsonCode = new JsonCode();
 

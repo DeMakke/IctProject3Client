@@ -19,6 +19,9 @@ namespace ictProject3
         [JsonProperty("token")]
         public int token { get; set; }
 
+        [JsonProperty("id")]
+        public string id { get; set; }
+
         [JsonProperty("password")]
         public string password { get; set; }
     }
