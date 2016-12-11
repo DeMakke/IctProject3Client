@@ -117,3 +117,15 @@ D:\PROJECT 3\WORKING FOLDER\GitHub\Client\ictProject3\obj\Debug\ictProject3.Logi
 C:\Users\Pieter-Jan\Documents\IctProject3Client\ictProject3\bin\Debug\ictProject3.exe.config
 C:\Users\Pieter-Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.exe
 C:\Users\Pieter-Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.pdb
+C:\Users\Pieter-Jan\Documents\IctProject3Client\ictProject3\bin\Debug\ictProject3.exe
+C:\Users\Pieter-Jan\Documents\IctProject3Client\ictProject3\bin\Debug\ictProject3.pdb
+C:\Users\Pieter-Jan\Documents\IctProject3Client\ictProject3\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Pieter-Jan\Documents\IctProject3Client\ictProject3\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Pieter-Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.csprojResolveAssemblyReference.cache
+C:\Users\Pieter-Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.AdminPage.resources
+C:\Users\Pieter-Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.DeelVenster.resources
+C:\Users\Pieter-Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.Form1.resources
+C:\Users\Pieter-Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.GebruikerWijzigen.resources
+C:\Users\Pieter-Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.LoginForm.resources
+C:\Users\Pieter-Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.Properties.Resources.resources
+C:\Users\Pieter-Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.csproj.GenerateResource.Cache

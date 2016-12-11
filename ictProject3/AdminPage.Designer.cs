@@ -30,7 +30,7 @@
         {
             this.lstGebruikers = new System.Windows.Forms.ListBox();
             this.btnGebrToevoegen = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,6 +52,7 @@
             this.lstGebruikers.Name = "lstGebruikers";
             this.lstGebruikers.Size = new System.Drawing.Size(198, 238);
             this.lstGebruikers.TabIndex = 0;
+            this.lstGebruikers.SelectedIndexChanged += new System.EventHandler(this.lstGebruikers_SelectedIndexChanged);
             // 
             // btnGebrToevoegen
             // 
@@ -63,13 +64,13 @@
             this.btnGebrToevoegen.UseVisualStyleBackColor = true;
             this.btnGebrToevoegen.Click += new System.EventHandler(this.btnGebrToevoegen_Click);
             // 
-            // textBox1
+            // txtId
             // 
-            this.textBox1.Location = new System.Drawing.Point(219, 80);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(250, 20);
-            this.textBox1.TabIndex = 2;
+            this.txtId.Location = new System.Drawing.Point(219, 80);
+            this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
+            this.txtId.Size = new System.Drawing.Size(250, 20);
+            this.txtId.TabIndex = 10;
             // 
             // label1
             // 
@@ -85,7 +86,7 @@
             this.txtName.Location = new System.Drawing.Point(219, 128);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(250, 20);
-            this.txtName.TabIndex = 2;
+            this.txtName.TabIndex = 1;
             // 
             // label2
             // 
@@ -102,7 +103,7 @@
             this.txtPasswordOld.Name = "txtPasswordOld";
             this.txtPasswordOld.ReadOnly = true;
             this.txtPasswordOld.Size = new System.Drawing.Size(250, 20);
-            this.txtPasswordOld.TabIndex = 2;
+            this.txtPasswordOld.TabIndex = 10;
             // 
             // label3
             // 
@@ -117,6 +118,7 @@
             // 
             this.txtPasswordNew.Location = new System.Drawing.Point(219, 224);
             this.txtPasswordNew.Name = "txtPasswordNew";
+            this.txtPasswordNew.PasswordChar = '*';
             this.txtPasswordNew.Size = new System.Drawing.Size(250, 20);
             this.txtPasswordNew.TabIndex = 2;
             // 
@@ -133,8 +135,9 @@
             // 
             this.txtPasswordConfirm.Location = new System.Drawing.Point(219, 275);
             this.txtPasswordConfirm.Name = "txtPasswordConfirm";
+            this.txtPasswordConfirm.PasswordChar = '*';
             this.txtPasswordConfirm.Size = new System.Drawing.Size(250, 20);
-            this.txtPasswordConfirm.TabIndex = 2;
+            this.txtPasswordConfirm.TabIndex = 3;
             // 
             // label5
             // 
@@ -153,6 +156,7 @@
             this.btnUpdate.TabIndex = 4;
             this.btnUpdate.Text = "Update Gegevens";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
@@ -162,6 +166,7 @@
             this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "Verwijder Gebruiker";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnCancel
             // 
@@ -189,7 +194,7 @@
             this.Controls.Add(this.txtPasswordNew);
             this.Controls.Add(this.txtPasswordOld);
             this.Controls.Add(this.txtName);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.btnGebrToevoegen);
             this.Controls.Add(this.lstGebruikers);
             this.Name = "AdminPage";
@@ -204,7 +209,7 @@
 
         private System.Windows.Forms.ListBox lstGebruikers;
         private System.Windows.Forms.Button btnGebrToevoegen;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label2;

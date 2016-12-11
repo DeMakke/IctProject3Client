@@ -39,6 +39,7 @@
             this.logoutButton = new System.Windows.Forms.Button();
             this.btnDelen = new System.Windows.Forms.Button();
             this.btnWijzigen = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnDownloadFile
@@ -146,11 +147,22 @@
             this.btnWijzigen.UseVisualStyleBackColor = true;
             this.btnWijzigen.Click += new System.EventHandler(this.btnWijzigen_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(249, 215);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(333, 313);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnWijzigen);
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.loginButton);
@@ -184,6 +196,7 @@
 
         private System.Windows.Forms.Button btnDelen;
         private System.Windows.Forms.Button btnWijzigen;
+        private System.Windows.Forms.Button button1;
     }
 }
 
