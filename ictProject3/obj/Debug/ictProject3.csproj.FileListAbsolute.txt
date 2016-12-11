@@ -114,3 +114,6 @@ C:\Users\Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.Login
 >>>>>>> sotry7mergemaster
 D:\PROJECT 3\WORKING FOLDER\GitHub\Client\ictProject3\obj\Debug\ictProject3.DeelVenster.resources
 D:\PROJECT 3\WORKING FOLDER\GitHub\Client\ictProject3\obj\Debug\ictProject3.LoginForm.resources
+C:\Users\Pieter-Jan\Documents\IctProject3Client\ictProject3\bin\Debug\ictProject3.exe.config
+C:\Users\Pieter-Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.exe
+C:\Users\Pieter-Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.pdb
