@@ -29,31 +29,193 @@
         private void InitializeComponent()
         {
             this.lstGebruikers = new System.Windows.Forms.ListBox();
+            this.btnGebrToevoegen = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtPasswordOld = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtPasswordNew = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtPasswordConfirm = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lstGebruikers
             // 
             this.lstGebruikers.FormattingEnabled = true;
-            this.lstGebruikers.Location = new System.Drawing.Point(12, 61);
+            this.lstGebruikers.Location = new System.Drawing.Point(12, 57);
             this.lstGebruikers.Name = "lstGebruikers";
-            this.lstGebruikers.Size = new System.Drawing.Size(198, 459);
+            this.lstGebruikers.Size = new System.Drawing.Size(198, 238);
             this.lstGebruikers.TabIndex = 0;
+            // 
+            // btnGebrToevoegen
+            // 
+            this.btnGebrToevoegen.Location = new System.Drawing.Point(5, 12);
+            this.btnGebrToevoegen.Name = "btnGebrToevoegen";
+            this.btnGebrToevoegen.Size = new System.Drawing.Size(165, 32);
+            this.btnGebrToevoegen.TabIndex = 1;
+            this.btnGebrToevoegen.Text = "Gebruiker Toevoegen";
+            this.btnGebrToevoegen.UseVisualStyleBackColor = true;
+            this.btnGebrToevoegen.Click += new System.EventHandler(this.btnGebrToevoegen_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(219, 80);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(250, 20);
+            this.textBox1.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(216, 64);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Gebruikers ID:";
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(219, 128);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(250, 20);
+            this.txtName.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(216, 112);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Naam:";
+            // 
+            // txtPasswordOld
+            // 
+            this.txtPasswordOld.Location = new System.Drawing.Point(219, 176);
+            this.txtPasswordOld.Name = "txtPasswordOld";
+            this.txtPasswordOld.ReadOnly = true;
+            this.txtPasswordOld.Size = new System.Drawing.Size(250, 20);
+            this.txtPasswordOld.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(216, 160);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(104, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Huidig Wachtwoord:";
+            // 
+            // txtPasswordNew
+            // 
+            this.txtPasswordNew.Location = new System.Drawing.Point(219, 224);
+            this.txtPasswordNew.Name = "txtPasswordNew";
+            this.txtPasswordNew.Size = new System.Drawing.Size(250, 20);
+            this.txtPasswordNew.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(216, 208);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(104, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Nieuw Wachtwoord:";
+            // 
+            // txtPasswordConfirm
+            // 
+            this.txtPasswordConfirm.Location = new System.Drawing.Point(219, 275);
+            this.txtPasswordConfirm.Name = "txtPasswordConfirm";
+            this.txtPasswordConfirm.Size = new System.Drawing.Size(250, 20);
+            this.txtPasswordConfirm.TabIndex = 2;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(216, 259);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(112, 13);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Bevestig wachtwoord:";
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(176, 12);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(165, 32);
+            this.btnUpdate.TabIndex = 4;
+            this.btnUpdate.Text = "Update Gegevens";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(347, 12);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(165, 32);
+            this.btnDelete.TabIndex = 5;
+            this.btnDelete.Text = "Verwijder Gebruiker";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(12, 301);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(89, 23);
+            this.btnCancel.TabIndex = 6;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // AdminPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(666, 552);
+            this.ClientSize = new System.Drawing.Size(524, 331);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtPasswordConfirm);
+            this.Controls.Add(this.txtPasswordNew);
+            this.Controls.Add(this.txtPasswordOld);
+            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnGebrToevoegen);
             this.Controls.Add(this.lstGebruikers);
             this.Name = "AdminPage";
             this.Text = "AdminPage";
             this.Load += new System.EventHandler(this.AdminPage_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.ListBox lstGebruikers;
+        private System.Windows.Forms.Button btnGebrToevoegen;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtPasswordOld;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtPasswordNew;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtPasswordConfirm;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

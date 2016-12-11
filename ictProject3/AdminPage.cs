@@ -47,5 +47,10 @@ namespace ictProject3
             lstGebruikers.Refresh();
             lstGebruikers.Update();
         }
+
+        private void btnGebrToevoegen_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
