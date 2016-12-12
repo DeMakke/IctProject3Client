@@ -18,6 +18,11 @@ namespace ictProject3
             InitializeComponent();
             getUsers();
         }
+    
+        Base64Code base64code = new Base64Code();
+        Data data = new Data();
+        public FileHandling fileHandler = new FileHandling();
+
         public WebCom servercom = new WebCom();
         private CancellationTokenSource cts;
         JsonCode jsoncode = new JsonCode();
@@ -49,33 +54,57 @@ namespace ictProject3
             lstGebruikers.Update();
         }
 
-        private void btnGebrToevoegen_Click(object sender, EventArgs e)
+        private async void btnGebrToevoegen_Click(object sender, EventArgs e)
         {
             bool id = false;
-            string userid = Convert.ToString(new Guid());
-            Gebruiker nieuweGebruiker = new Gebruiker();
+            string userid = Convert.ToString(Guid.NewGuid());
+            User user = new User();
             if ((txtPasswordNew.Text==txtPasswordConfirm.Text) && (txtName.Text != null))
             {
                 while (id == false)
                 {
                     if ((userList.Find(x => x.id.Contains(userid)) != null))
                     {
-                        userid = Convert.ToString(new Guid());
+                        userid = Convert.ToString(Guid.NewGuid());
                         id = false;
                     }
                     else
                     {
                         id = true;
-                        nieuweGebruiker.id = userid;
+                        user.id = userid;
                     }
                 }
                 txtPasswordNew.ForeColor = Color.Black;
                 txtPasswordConfirm.ForeColor = Color.Black;
-                nieuweGebruiker.password = txtPasswordConfirm.Text;
-                nieuweGebruiker.name = txtName.Text;
-                //////////////////////////////////////////////////////////////////
-                //////////HIER CODE VOOR INSERT TE ZENDEN NAAR SERVER/////////////
-                //////////////////////////////////////////////////////////////////
+
+                user.password = txtPasswordConfirm.Text;
+                user.name = txtName.Text;
+
+                JsonCode jsonCode = new JsonCode();
+                var progressindicator = new Progress<int>(ReportProgress);
+                cts = new CancellationTokenSource();
+
+                //string json = jsonCode.JsonCoding(nieuweGebruiker);  
+                string json = jsonCode.JsonCoding(user);
+                string result = "";
+                
+                result = await servercom.ReceiveDataAsync("AddUser", json, progressindicator, cts.Token);
+
+                result = jsoncode.cropStringMore(result);
+                result = result.Remove(0, 17);
+                result = result.Remove(result.Length - 1);
+                Succes succes = jsoncode.JsonDeCodingSucces(result);
+
+                getUsers();
+                if (succes.value)
+                {
+                    MessageBox.Show("De gebruiker is succesvol toegevoegd.", "Gebruiker Toevoegen");
+                }
+                else
+                {
+                    MessageBox.Show("De gebruiker kan niet toegevoegd worden!", "Gebruiker Toevoegen");
+                }
+
             }
             else
             {
@@ -93,23 +122,48 @@ namespace ictProject3
                 {
                     txtName.Text = g.name;
                     txtId.Text = g.id;
-                    //////////////////////////////////////////////////////////////////
-                    //////////HIER CODE VOOR WW OP TEVRAGEN BIJ DE SERVER/////////////
-                    //////////////////////////////////////////////////////////////////
-                    txtPasswordOld.Text = g.password;
                 }
             }
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+               
+        private async void btnUpdate_Click(object sender, EventArgs e)
         {
+            JsonCode jsonCode = new JsonCode();
+            User user = new User();
+
             if ((txtName.Text!=null) || (txtPasswordNew.Text==txtPasswordConfirm.Text))
             {
+
+                user.id = txtId.Text;
+                user.name = txtName.Text;
+                user.password = txtPasswordConfirm.Text;
+
                 txtPasswordNew.ForeColor = Color.Black;
                 txtPasswordConfirm.ForeColor = Color.Black;
-                /////////////////////////////////////////////////////////
-                //////////HIER CODE VOOR UPDATE OP DE SERVER/////////////
-                /////////////////////////////////////////////////////////
+                var progressindicator = new Progress<int>(ReportProgress);
+                cts = new CancellationTokenSource();
+
+                string result = "";
+                string json = jsonCode.JsonCoding(user);
+
+                result = await servercom.ReceiveDataAsync("UpdateUser", json, progressindicator, cts.Token);
+
+                result = jsoncode.cropStringMore(result);
+                result = result.Remove(0, 20);
+                result = result.Remove(result.Length - 1);
+                Succes succes = jsoncode.JsonDeCodingSucces(result);
+
+                getUsers();
+                if (succes.value)
+                {
+                    MessageBox.Show("De gebruiker is succesvol aangepast.", "Gebruiker Toevoegen");
+                }
+                else
+                {
+                    MessageBox.Show("De gebruiker kan niet aangepast worden!", "Gebruiker Toevoegen");
+                }
+
             }
             else
             {
@@ -119,12 +173,34 @@ namespace ictProject3
             }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private async void btnDelete_Click(object sender, EventArgs e)
         {
-            string TeVerwijderenId = txtId.Text;
-            //////////////////////////////////////////////////////////////////
-            //////////HIER CODE VR HET VERWIJDEREN NAAR DE SERVER/////////////
-            //////////////////////////////////////////////////////////////////
+            JsonCode jsonCode = new JsonCode();
+            User user = new User();
+            user.id = txtId.Text;
+            
+            var progressindicator = new Progress<int>(ReportProgress);
+            cts = new CancellationTokenSource();          
+
+            string json = jsonCode.JsonCoding(user);
+            string result = "";
+
+            result = await servercom.ReceiveDataAsync("DeleteUser", json, progressindicator, cts.Token);
+   
+            result = jsoncode.cropStringMore(result);
+            result = result.Remove(0, 20);
+            result = result.Remove(result.Length - 1);
+            Succes succes = jsoncode.JsonDeCodingSucces(result);
+
+            getUsers();
+            if (succes.value)
+            {
+                MessageBox.Show("De gebruiker is succesvol verwijderd.", "Gebruiker Verwijderen");
+            }
+            else
+            {
+                MessageBox.Show("De gebruiker kan niet verwijderd worden!", "Gebruiker Verwijderen");
+            }
         }
     }
 }

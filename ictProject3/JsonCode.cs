@@ -61,6 +61,12 @@ namespace ictProject3
             return json;
         }
 
+        public String JsonCoding(Gebruiker gebruiker)
+        {
+            string json = JsonConvert.SerializeObject(gebruiker);
+            return json;
+        }
+
         public FileList JsonDeCodingFileList(String json)
         {
             FileList fileList = JsonConvert.DeserializeObject<FileList>(json);

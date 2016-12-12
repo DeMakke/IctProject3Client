@@ -285,10 +285,7 @@ namespace ictProject3
             wijzigen.ShowDialog();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            
-        }
+
 
         private void btnAdmin_Click(object sender, EventArgs e)
         {
