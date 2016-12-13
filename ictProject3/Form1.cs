@@ -50,6 +50,8 @@ namespace ictProject3
             //FIRST set the user-token to GUEST login aka 0000
             //ONLY then load the files list for user GUEST (= alle openbare bestanden)
             //getdata(); //loads the files list for the logged in user
+            btnAdmin.Enabled = false;
+            btnAdmin.Visible = false;
 
         }
         private void getdata() //
@@ -215,6 +217,12 @@ namespace ictProject3
                 loginButton.Enabled = false;
                 logoutButton.Enabled = true;
                 getdata();
+
+                if (LoginForm.CurrentUser.name == "Admin")
+                {
+                    btnAdmin.Enabled = true;
+                    btnAdmin.Visible = true;
+                }
             }
         }
 
@@ -239,6 +247,8 @@ namespace ictProject3
                 getdata();
                 loginButton.Enabled = true;
                 logoutButton.Enabled = false;
+                btnAdmin.Enabled = false;
+                btnAdmin.Visible = false;
             }
         }
 
@@ -277,5 +287,10 @@ namespace ictProject3
             wijzigen.ShowDialog();
         }
 
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            AdminPage admin = new AdminPage();
+            admin.ShowDialog();
+        }
     }
 }

@@ -9,6 +9,8 @@ namespace ictProject3
 {
     public class User
     {
+        [JsonProperty("id")]
+        public string id { get; set; }
 
         [JsonProperty("name")]
         public string name { get; set; }
