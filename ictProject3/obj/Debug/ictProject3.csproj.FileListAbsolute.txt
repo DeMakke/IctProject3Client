@@ -114,3 +114,6 @@ C:\Users\Jan\Documents\IctProject3Client\ictProject3\obj\Debug\ictProject3.Login
 >>>>>>> sotry7mergemaster
 D:\PROJECT 3\WORKING FOLDER\GitHub\Client\ictProject3\obj\Debug\ictProject3.DeelVenster.resources
 D:\PROJECT 3\WORKING FOLDER\GitHub\Client\ictProject3\obj\Debug\ictProject3.LoginForm.resources
+C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\obj\Debug\ictProject3.AdminPage.resources
+C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\obj\Debug\ictProject3.DeelVenster.resources
+C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\obj\Debug\ictProject3.GebruikerWijzigen.resources

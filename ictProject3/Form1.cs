@@ -141,8 +141,6 @@ namespace ictProject3
 
                 data.base64 = tempfilebase64;
 
-                Debug.WriteLine(data.base64.Length / (Convert.ToInt16(splitted[1])));
-                Debug.WriteLine(data.base64.Length % (Convert.ToInt16(splitted[1])));
 
                 List<string> base64data = base64code.SplitEvery(data.base64, data.base64.Length / Convert.ToInt16(splitted[1]), Convert.ToInt16(splitted[1]));
                 
