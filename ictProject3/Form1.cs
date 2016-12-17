@@ -24,7 +24,17 @@ namespace ictProject3
         {
             
             InitializeComponent(); //init and init again and again and.. :p
-            logoutButton.Enabled = false;            
+            logoutButton.Enabled = false;
+            btnAdmin.Enabled = false;
+            btnAdmin.Visible = false;
+            btnDelen.Enabled = false;
+            //btnDelen.Visible = false; //maak de delen knop ook onzichtbaar
+            btnDeleteItem.Enabled = false;
+            //btnDeleteItem.Visible = false; //maak de knop ook onzichtbaar
+            btnUpload.Enabled = false;
+            //btnUpload.Visible = false; //maak de knop ook onzichtbaar
+            btnWijzigen.Enabled = false;
+            btnWijzigen.Visible = false; //maak de knop ook onzichtbaar
         }
 
         public WebCom servercom = new WebCom();
@@ -49,9 +59,9 @@ namespace ictProject3
         {
             //FIRST set the user-token to GUEST login aka 0000
             //ONLY then load the files list for user GUEST (= alle openbare bestanden)
-            //getdata(); //loads the files list for the logged in user
-            btnAdmin.Enabled = false;
-            btnAdmin.Visible = false;
+            //Properties.Settings.Default.Token = "8500";
+            getdata(); //loads the files list for the logged in user
+
 
         }
         private void getdata() //
@@ -210,10 +220,20 @@ namespace ictProject3
         {
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
-            if ( Properties.Settings.Default.Token != "8500")
+            if ( Properties.Settings.Default.Token != Convert.ToString(new Guid()))
             {
                 loginButton.Enabled = false;
                 logoutButton.Enabled = true;
+
+                btnDelen.Enabled = true;
+                //btnDelen.Visible = true; //maak de delen knop ook onzichtbaar
+                btnDeleteItem.Enabled = true;
+                //btnDeleteItem.Visible = true; //maak de knop ook onzichtbaar
+                btnUpload.Enabled = true;
+                //btnUpload.Visible = true; //maak de knop ook onzichtbaar
+                btnWijzigen.Enabled = true;
+                btnWijzigen.Visible = true; //maak de knop ook onzichtbaar
+
                 getdata();
 
                 if (LoginForm.CurrentUser.name == "Admin")
@@ -233,7 +253,7 @@ namespace ictProject3
             result = jsoncode.cropString(result);
             User userResponse = jsoncode.JsonDeCodingUser(result);
             Properties.Settings.Default.Token = userResponse.token.ToString();
-            if (Properties.Settings.Default.Token != "8500")
+            if (Properties.Settings.Default.Token != "00000000-0000-0000-0000-000000000000")
             {
                 
                 MessageBox.Show("error logging out");
@@ -247,6 +267,14 @@ namespace ictProject3
                 logoutButton.Enabled = false;
                 btnAdmin.Enabled = false;
                 btnAdmin.Visible = false;
+                btnDelen.Enabled = false;
+                //btnDelen.Visible = false; //maak de delen knop ook onzichtbaar
+                btnDeleteItem.Enabled = false;
+                //btnDeleteItem.Visible = false; //maak de knop ook onzichtbaar
+                btnUpload.Enabled = false;
+                //btnUpload.Visible = false; //maak de knop ook onzichtbaar
+                btnWijzigen.Enabled = false;
+                btnWijzigen.Visible = false; //maak de knop ook onzichtbaar
             }
         }
 

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -20,13 +22,27 @@ namespace ictProject3
         {
             string result = await Task.Run<string>(() =>
             {
-                jsonDataToSend = json;
-                prevresult = "";
-                newresult = "";
-                //Debug.WriteLine(json);
-                Uri defury = new Uri("http://localhost:8000/WebService.svc/Json/" + connectionstring + "/" + Properties.Settings.Default.Token);
+            jsonDataToSend = json;
+            prevresult = "";
+            newresult = "";
+            //Debug.WriteLine(json);
+            Uri defury = new Uri("http://localhost:8000/WebService.svc/Json/" + connectionstring + "/" + Properties.Settings.Default.Token);
+            //HttpClient httpclient = new HttpClient();
+            //httpclient.BaseAddress = defury;
+            //StringContent content = new StringContent("test");
+
+            //    httpclient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/xml"));
+            //    httpclient.DefaultRequestHeaders.Accept.Clear();
+            //httpclient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue();
+            //var x = httpclient.PostAsync("Json / " + connectionstring + " / " + Properties.Settings.Default.Token,content);
+            //    var y = x;  
+            //    while (x == y)
+            //    {
+
+            //    }
                 HttpWebRequest defRequest = (HttpWebRequest)HttpWebRequest.Create(defury);
                 defRequest.Method = "POST";
+                //var task = httpclient.PostAsXmlAsync<DeviceRequest>("api/SaveData", request);
                 IAsyncResult resultOverUsed = (IAsyncResult)defRequest.BeginGetRequestStream(new AsyncCallback(GetRequestStreamCallback), defRequest); // hier json meegeven ?
 
 

@@ -19,7 +19,7 @@ namespace ictProject3
         public string hash { get; set; }
 
         [JsonProperty("token")]
-        public int token { get; set; }
+        public Guid token { get; set; }
 
         [JsonProperty("password")]
         public string password { get; set; }

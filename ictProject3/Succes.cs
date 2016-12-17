@@ -13,5 +13,11 @@ namespace ictProject3
         [JsonProperty("Value")]
         public bool value { get; set; }
 
+        [JsonProperty("Title")]
+        public string title { get; set; }
+
+        [JsonProperty("Message")]
+        public string message { get; set; }
+
     }
 }

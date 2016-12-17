@@ -56,7 +56,7 @@ namespace ictProject3
 
                 result = JSONData.cropString(result);
                 User userResponse = JSONData.JsonDeCodingUser(result);
-                if (userResponse.token != 9999)
+                if (userResponse.token != new Guid("ffffffff-ffff-ffff-ffff-ffffffffffff"))
                 {
                     MessageBox.Show("De gebruiker is met succes ingelogd. ID= " + userResponse.token.ToString(), "Inloggen gebruiker");
                     Properties.Settings.Default.Token = userResponse.token.ToString();
