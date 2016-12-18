@@ -60,6 +60,7 @@ namespace ictProject3
                 {
                     MessageBox.Show("De gebruiker is met succes ingelogd. ID= " + userResponse.token.ToString(), "Inloggen gebruiker");
                     Properties.Settings.Default.Token = userResponse.token.ToString();
+                    Form1.loggedInUserName = userResponse.name;
                 }
                 else
                 {

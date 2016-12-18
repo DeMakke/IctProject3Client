@@ -117,3 +117,6 @@ D:\PROJECT 3\WORKING FOLDER\GitHub\Client\ictProject3\obj\Debug\ictProject3.Logi
 C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\obj\Debug\ictProject3.AdminPage.resources
 C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\obj\Debug\ictProject3.DeelVenster.resources
 C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\obj\Debug\ictProject3.GebruikerWijzigen.resources
+D:\PROJECT 3\GitHub\Client\ictProject3\obj\Debug\ictProject3.AdminPage.resources
+D:\PROJECT 3\GitHub\Client\ictProject3\obj\Debug\ictProject3.DeelVenster.resources
+D:\PROJECT 3\GitHub\Client\ictProject3\obj\Debug\ictProject3.GebruikerWijzigen.resources
