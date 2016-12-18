@@ -35,6 +35,11 @@ namespace ictProject3
             //btnUpload.Visible = false; //maak de knop ook onzichtbaar
             btnWijzigen.Enabled = false;
             btnWijzigen.Visible = false; //maak de knop ook onzichtbaar
+
+            if (Properties.Settings.Default.Token == Convert.ToString(new Guid()))
+            {
+                this.Text = "LAN-FileShare @Guest";
+            }
         }
 
         public WebCom servercom = new WebCom();
@@ -44,6 +49,19 @@ namespace ictProject3
         Base64Code base64code = new Base64Code();
         Data data = new Data();
         public FileHandling fileHandler = new FileHandling();
+
+        private static string _loggedInUserName;
+        public static string loggedInUserName
+        {
+            get // this makes you to access value in form2
+            {
+                return _loggedInUserName;
+            }
+            set // this makes you to change value in form2
+            {
+                _loggedInUserName = value;
+            }
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -61,7 +79,7 @@ namespace ictProject3
             //ONLY then load the files list for user GUEST (= alle openbare bestanden)
             //Properties.Settings.Default.Token = "8500";
             getdata(); //loads the files list for the logged in user
-
+            loggedInUserName = "Guest";
 
         }
         private void getdata() //
@@ -91,7 +109,7 @@ namespace ictProject3
 
         private async void btnDownloadFile_Click(object sender, EventArgs e)
         {
-
+            lblFilename.Text = "";
             var progressindicator = new Progress<int>(ReportProgress);
             cts = new CancellationTokenSource();
 
@@ -109,19 +127,20 @@ namespace ictProject3
 
         private void btnUpdateList_Click(object sender, EventArgs e)
         {
+            lblFilename.Text = "";
             getdata();
         }
 
         private async void btnUpload_Click(object sender, EventArgs e)
         {
-
+            lblFilename.Text = "";
             DialogResult resultaat = OpenFileDialog.ShowDialog();
             if (resultaat != DialogResult.Cancel)
             {
                 string filePath = OpenFileDialog.FileName;
                 string name = OpenFileDialog.SafeFileName;
                 data = fileHandler.UploadFile(name, filePath);
-                lblFilename.Text += name;
+                lblFilename.Text = "Uploaded: " + name;
 
                 var progressindicator = new Progress<int>(ReportProgress);
                 cts = new CancellationTokenSource();
@@ -170,6 +189,7 @@ namespace ictProject3
 
         private async void btnDeleteItem_Click(object sender, EventArgs e)
         {
+            lblFilename.Text = "";
             try
             {
                 Item item = new Item();
@@ -218,6 +238,7 @@ namespace ictProject3
 
         private void loginButton_Click(object sender, EventArgs e)
         {
+            lblFilename.Text = "";
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
             if ( Properties.Settings.Default.Token != Convert.ToString(new Guid()))
@@ -242,10 +263,15 @@ namespace ictProject3
                     btnAdmin.Visible = true;
                 }
             }
+            if (loggedInUserName != null)
+            {
+                this.Text = "LAN-FileShare @" + loggedInUserName;
+            }
         }
 
         private async void logoutButton_Click(object sender, EventArgs e)
         {
+            lblFilename.Text = "";
             var progressindicator = new Progress<int>(ReportProgress);
             cts = new CancellationTokenSource();
             
@@ -275,6 +301,8 @@ namespace ictProject3
                 //btnUpload.Visible = false; //maak de knop ook onzichtbaar
                 btnWijzigen.Enabled = false;
                 btnWijzigen.Visible = false; //maak de knop ook onzichtbaar
+                loggedInUserName = "Guest";
+                this.Text = "LAN-FileShare @" + loggedInUserName;
             }
         }
 
@@ -293,7 +321,8 @@ namespace ictProject3
 
         private void btnDelen_Click(object sender, EventArgs e)
         {
-            if(lstFiles.SelectedItem != null)
+            lblFilename.Text = "";
+            if (lstFiles.SelectedItem != null)
             {
                 var item = Convert.ToString(lstFiles.SelectedValue);
                 DeelVenster delen = new DeelVenster(item);
@@ -309,12 +338,14 @@ namespace ictProject3
 
         private void btnWijzigen_Click(object sender, EventArgs e)
         {
+            lblFilename.Text = "";
             GebruikerWijzigen wijzigen = new GebruikerWijzigen();
             wijzigen.ShowDialog();
         }
 
         private void btnAdmin_Click(object sender, EventArgs e)
         {
+            lblFilename.Text = "";
             AdminPage admin = new AdminPage();
             admin.ShowDialog();
         }

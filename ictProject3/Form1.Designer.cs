@@ -45,7 +45,7 @@
             // btnDownloadFile
             // 
             this.btnDownloadFile.Location = new System.Drawing.Point(304, 15);
-            this.btnDownloadFile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDownloadFile.Margin = new System.Windows.Forms.Padding(4);
             this.btnDownloadFile.Name = "btnDownloadFile";
             this.btnDownloadFile.Size = new System.Drawing.Size(132, 52);
             this.btnDownloadFile.TabIndex = 0;
@@ -58,7 +58,7 @@
             this.lstFiles.FormattingEnabled = true;
             this.lstFiles.ItemHeight = 16;
             this.lstFiles.Location = new System.Drawing.Point(16, 15);
-            this.lstFiles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstFiles.Margin = new System.Windows.Forms.Padding(4);
             this.lstFiles.Name = "lstFiles";
             this.lstFiles.Size = new System.Drawing.Size(279, 180);
             this.lstFiles.TabIndex = 1;
@@ -66,7 +66,7 @@
             // btnUpdateList
             // 
             this.btnUpdateList.Location = new System.Drawing.Point(305, 75);
-            this.btnUpdateList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdateList.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdateList.Name = "btnUpdateList";
             this.btnUpdateList.Size = new System.Drawing.Size(131, 28);
             this.btnUpdateList.TabIndex = 2;
@@ -77,7 +77,7 @@
             // btnUpload
             // 
             this.btnUpload.Location = new System.Drawing.Point(17, 204);
-            this.btnUpload.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpload.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Size = new System.Drawing.Size(100, 28);
             this.btnUpload.TabIndex = 3;
@@ -88,12 +88,11 @@
             // lblFilename
             // 
             this.lblFilename.AutoSize = true;
-            this.lblFilename.Location = new System.Drawing.Point(127, 204);
+            this.lblFilename.Location = new System.Drawing.Point(125, 210);
             this.lblFilename.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFilename.Name = "lblFilename";
-            this.lblFilename.Size = new System.Drawing.Size(73, 17);
+            this.lblFilename.Size = new System.Drawing.Size(0, 17);
             this.lblFilename.TabIndex = 4;
-            this.lblFilename.Text = "Filename: ";
             // 
             // OpenFileDialog
             // 
@@ -102,7 +101,7 @@
             // btnDeleteItem
             // 
             this.btnDeleteItem.Location = new System.Drawing.Point(305, 111);
-            this.btnDeleteItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeleteItem.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteItem.Name = "btnDeleteItem";
             this.btnDeleteItem.Size = new System.Drawing.Size(131, 28);
             this.btnDeleteItem.TabIndex = 5;
@@ -137,7 +136,7 @@
             // btnDelen
             // 
             this.btnDelen.Location = new System.Drawing.Point(305, 146);
-            this.btnDelen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelen.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelen.Name = "btnDelen";
             this.btnDelen.Size = new System.Drawing.Size(131, 49);
             this.btnDelen.TabIndex = 6;
@@ -148,7 +147,7 @@
             // btnWijzigen
             // 
             this.btnWijzigen.Location = new System.Drawing.Point(280, 345);
-            this.btnWijzigen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnWijzigen.Margin = new System.Windows.Forms.Padding(4);
             this.btnWijzigen.Name = "btnWijzigen";
             this.btnWijzigen.Size = new System.Drawing.Size(156, 30);
             this.btnWijzigen.TabIndex = 8;
@@ -182,7 +181,7 @@
             this.Controls.Add(this.btnUpdateList);
             this.Controls.Add(this.lstFiles);
             this.Controls.Add(this.btnDownloadFile);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "ictProject3";
             this.Load += new System.EventHandler(this.Form1_Load);
