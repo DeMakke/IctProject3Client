@@ -109,7 +109,6 @@ namespace ictProject3
 
         private async void btnDownloadFile_Click(object sender, EventArgs e)
         {
-            lblFilename.Text = "";
             var progressindicator = new Progress<int>(ReportProgress);
             cts = new CancellationTokenSource();
 
@@ -118,29 +117,29 @@ namespace ictProject3
 
             result = jsoncode.cropString(result);
             //MessageBox.Show(result); //achteraf hier nog een try catch aan toevoegen zodat het prog nie crashed in geval van foute response;
-
+            //addToSessionHistory("save File:","File saved To", false);
             
             Data response = jsoncode.JsonDeCoding(result); 
             Tuple<byte[], string> file = base64code.DeSerializeBase64(response);
-            base64code.saveFile(file.Item1, file.Item2);
+            string filelocation = base64code.saveFile(file.Item1, file.Item2);
+            addToSessionHistory("save File:", "File saved To " + filelocation, false);
         }
 
         private void btnUpdateList_Click(object sender, EventArgs e)
         {
-            lblFilename.Text = "";
             getdata();
         }
 
         private async void btnUpload_Click(object sender, EventArgs e)
         {
-            lblFilename.Text = "";
+            
             DialogResult resultaat = OpenFileDialog.ShowDialog();
             if (resultaat != DialogResult.Cancel)
             {
                 string filePath = OpenFileDialog.FileName;
                 string name = OpenFileDialog.SafeFileName;
                 data = fileHandler.UploadFile(name, filePath);
-                lblFilename.Text = "Uploaded: " + name;
+                
 
                 var progressindicator = new Progress<int>(ReportProgress);
                 cts = new CancellationTokenSource();
@@ -179,7 +178,7 @@ namespace ictProject3
                         resultb = await servercom.ReceiveDataAsync("SaveFile/" + splitted[0] + "/" + splitted[1] + "/" + Convert.ToString(i), base64data.ElementAt(i - 1) , progressindicator, cts.Token);
 
                 }
-
+                addToSessionHistory("Upload File:", "File succesfully uploaded. Name = " + name, false);
                 //MessageBox.Show(resultb);
                 //Debug.WriteLine(resultb);
                 getdata();
@@ -189,7 +188,6 @@ namespace ictProject3
 
         private async void btnDeleteItem_Click(object sender, EventArgs e)
         {
-            lblFilename.Text = "";
             try
             {
                 Item item = new Item();
@@ -208,18 +206,18 @@ namespace ictProject3
                 Succes succes = jsoncode.JsonDeCodingSucces(result);
                 if (succes.value)
                 {
-                    MessageBox.Show("Het bestand is succesvol verwijderd.", "Bestand verwijderen");
+                    addToSessionHistory("Delete:", "File hes been succesfully deleted", false);
                     getdata();
                 }
                 else
                 {
-                    MessageBox.Show("Het bestand kan niet verwijderd worden!", "Bestand verwijderen");
+                    addToSessionHistory("Delete:", "File could not be deleted", true);
                 }
                 lstFiles.ClearSelected();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("system error on function: Delete File" + ex.ToString());
+                addToSessionHistory("Delete:", "Server Unreachable", true);
             }
         }
 
@@ -238,10 +236,9 @@ namespace ictProject3
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            lblFilename.Text = "";
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
-            if ( Properties.Settings.Default.Token != Convert.ToString(new Guid()))
+            if (Properties.Settings.Default.Token != Convert.ToString(new Guid()))
             {
                 loginButton.Enabled = false;
                 logoutButton.Enabled = true;
@@ -254,7 +251,7 @@ namespace ictProject3
                 //btnUpload.Visible = true; //maak de knop ook onzichtbaar
                 btnWijzigen.Enabled = true;
                 btnWijzigen.Visible = true; //maak de knop ook onzichtbaar
-
+                addToSessionHistory("Login:", "Logged in succesfully.", false);
                 getdata();
 
                 if (LoginForm.CurrentUser.name == "Admin")
@@ -263,15 +260,16 @@ namespace ictProject3
                     btnAdmin.Visible = true;
                 }
             }
+            else { addToSessionHistory("Login:", "Could not login", true); }
             if (loggedInUserName != null)
             {
+
                 this.Text = "LAN-FileShare @" + loggedInUserName;
             }
         }
 
         private async void logoutButton_Click(object sender, EventArgs e)
         {
-            lblFilename.Text = "";
             var progressindicator = new Progress<int>(ReportProgress);
             cts = new CancellationTokenSource();
             
@@ -281,13 +279,13 @@ namespace ictProject3
             Properties.Settings.Default.Token = userResponse.token.ToString();
             if (Properties.Settings.Default.Token != "00000000-0000-0000-0000-000000000000")
             {
-                
-                MessageBox.Show("error logging out");
+
+                addToSessionHistory("Logout:", "Something went wrong while you were trying to log out.", true);
                 
             }
             else
             {
-                MessageBox.Show("logged out succesfully");
+                addToSessionHistory("Logout:", "Logged out succesfully.", false);
                 getdata();
                 loginButton.Enabled = true;
                 logoutButton.Enabled = false;
@@ -321,7 +319,6 @@ namespace ictProject3
 
         private void btnDelen_Click(object sender, EventArgs e)
         {
-            lblFilename.Text = "";
             if (lstFiles.SelectedItem != null)
             {
                 var item = Convert.ToString(lstFiles.SelectedValue);
@@ -336,18 +333,37 @@ namespace ictProject3
 
         }
 
+        private void addToSessionHistory(string action, string description, bool error) {
+            Color titleColor = new Color();
+            if (error == false)
+            {
+                titleColor = Color.Green;
+            }
+            else
+            {
+                titleColor = Color.Red;
+            }
+            rtxtHistory.SelectionStart = 0;
+            rtxtHistory.SelectionLength = 0;
+            rtxtHistory.SelectionColor = titleColor;
+            rtxtHistory.SelectionFont = new Font(rtxtHistory.Font, FontStyle.Bold);
+            rtxtHistory.SelectedText = action + Environment.NewLine;
+            rtxtHistory.SelectionColor = Color.Black;
+            rtxtHistory.SelectionFont = new Font(rtxtHistory.Font, FontStyle.Regular);
+            rtxtHistory.SelectedText = description + Environment.NewLine + Environment.NewLine;
+        }
+
         private void btnWijzigen_Click(object sender, EventArgs e)
         {
-            lblFilename.Text = "";
             GebruikerWijzigen wijzigen = new GebruikerWijzigen();
             wijzigen.ShowDialog();
         }
 
         private void btnAdmin_Click(object sender, EventArgs e)
         {
-            lblFilename.Text = "";
             AdminPage admin = new AdminPage();
             admin.ShowDialog();
         }
+
     }
 }
