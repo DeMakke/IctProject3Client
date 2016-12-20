@@ -42,42 +42,54 @@ namespace ictProject3
                 _user = new User();
                 CurrentUser.name = userNameTextBox.Text;
                 string password = passwordTextBox.Text;
-                using (MD5 md5Hash = MD5.Create())
-                {
-                    CurrentUser.hash = hashing.GetMd5Hash(md5Hash, password);
-                }
-                string json = JSONData.JsonCoding(CurrentUser);
 
-                var progressindicator = new Progress<int>(ReportProgress);
-                cts = new CancellationTokenSource();
-
-                string result = "";
-                result = await servercom.ReceiveDataAsync("ValidateUser", json, progressindicator, cts.Token);
-
-                result = JSONData.cropString(result);
-                User userResponse = JSONData.JsonDeCodingUser(result);
-                if (userResponse.token != new Guid("ffffffff-ffff-ffff-ffff-ffffffffffff"))
+                if (password != "" && password != null && CurrentUser.name != "" && CurrentUser.name != null)
                 {
-                    //MessageBox.Show("De gebruiker is met succes ingelogd. ID= " + userResponse.token.ToString(), "Inloggen gebruiker");
-                    Properties.Settings.Default.Token = userResponse.token.ToString();
-                    Form1.loggedInUserName = userResponse.name;
+                    using (MD5 md5Hash = MD5.Create())
+                    {
+                        CurrentUser.hash = hashing.GetMd5Hash(md5Hash, password);
+                    }
+                    string json = JSONData.JsonCoding(CurrentUser);
+
+                    var progressindicator = new Progress<int>(ReportProgress);
+                    cts = new CancellationTokenSource();
+
+                    string result = "";
+                    result = await servercom.ReceiveDataAsync("ValidateUser", json, progressindicator, cts.Token);
+
+                    result = JSONData.cropString(result);
+                    User userResponse = JSONData.JsonDeCodingUser(result);
+                    if (userResponse.token != new Guid("ffffffff-ffff-ffff-ffff-ffffffffffff"))
+                    {
+                        //MessageBox.Show("De gebruiker is met succes ingelogd. ID= " + userResponse.token.ToString(), "Inloggen gebruiker");
+                        Properties.Settings.Default.Token = userResponse.token.ToString();
+                        Form1.loggedInUserName = userResponse.name;
+                    }
+                    else
+                    {
+                        MessageBox.Show("De gebruiker is niet ingelogd!", "Inloggen gebruiker");
+                        //else save token for authentication processes and close loginForm & append Form1's name with [userName]
+                    }
+
+                    this.Close();
                 }
-                else
-                {
-                    MessageBox.Show("De gebruiker is niet ingelogd!", "Inloggen gebruiker");
-                    //else save token for authentication processes and close loginForm & append Form1's name with [userName]
+                else {
+                    MessageBox.Show("Ongeldige gebruikersnaam en/of paswoord!");
+                    this.Close();
                 }
+                
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show("system error on function: Inloggen gebruiker" + ex.ToString());
+                this.Close();
             }
 
             //make AuthenticateUser function that also sets the Form1's name for 'logged in user' with their name and deletes the token from local system
 
 
-            this.Close();
+            
         }
 
         private static User _user;
