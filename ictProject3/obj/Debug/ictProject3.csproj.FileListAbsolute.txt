@@ -120,3 +120,18 @@ C:\Users\kuuhaku\Documents\Projects\IctProject3Client\ictProject3\obj\Debug\ictP
 D:\PROJECT 3\GitHub\Client\ictProject3\obj\Debug\ictProject3.AdminPage.resources
 D:\PROJECT 3\GitHub\Client\ictProject3\obj\Debug\ictProject3.DeelVenster.resources
 D:\PROJECT 3\GitHub\Client\ictProject3\obj\Debug\ictProject3.GebruikerWijzigen.resources
+C:\Users\bergm_000\Documents\IctProject3Client - kopie\ictProject3\bin\Debug\ictProject3.exe.config
+C:\Users\bergm_000\Documents\IctProject3Client - kopie\ictProject3\obj\Debug\ictProject3.exe
+C:\Users\bergm_000\Documents\IctProject3Client - kopie\ictProject3\obj\Debug\ictProject3.pdb
+C:\Users\bergm_000\Documents\IctProject3Client - kopie\ictProject3\bin\Debug\ictProject3.exe
+C:\Users\bergm_000\Documents\IctProject3Client - kopie\ictProject3\bin\Debug\ictProject3.pdb
+C:\Users\bergm_000\Documents\IctProject3Client - kopie\ictProject3\bin\Debug\Newtonsoft.Json.dll
+C:\Users\bergm_000\Documents\IctProject3Client - kopie\ictProject3\bin\Debug\Newtonsoft.Json.xml
+C:\Users\bergm_000\Documents\IctProject3Client - kopie\ictProject3\obj\Debug\ictProject3.csprojResolveAssemblyReference.cache
+C:\Users\bergm_000\Documents\IctProject3Client - kopie\ictProject3\obj\Debug\ictProject3.AdminPage.resources
+C:\Users\bergm_000\Documents\IctProject3Client - kopie\ictProject3\obj\Debug\ictProject3.DeelVenster.resources
+C:\Users\bergm_000\Documents\IctProject3Client - kopie\ictProject3\obj\Debug\ictProject3.Form1.resources
+C:\Users\bergm_000\Documents\IctProject3Client - kopie\ictProject3\obj\Debug\ictProject3.GebruikerWijzigen.resources
+C:\Users\bergm_000\Documents\IctProject3Client - kopie\ictProject3\obj\Debug\ictProject3.LoginForm.resources
+C:\Users\bergm_000\Documents\IctProject3Client - kopie\ictProject3\obj\Debug\ictProject3.Properties.Resources.resources
+C:\Users\bergm_000\Documents\IctProject3Client - kopie\ictProject3\obj\Debug\ictProject3.csproj.GenerateResource.Cache

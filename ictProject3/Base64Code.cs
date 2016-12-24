@@ -37,7 +37,7 @@ namespace ictProject3
             return Tuple.Create(bitarray, naam);
         }
 
-        public void saveFile(byte[] tempBytes, string fileName)
+        public string saveFile(byte[] tempBytes, string fileName)
         {
             string filePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\" + fileName;
             string fileNameOnly = Path.GetFileNameWithoutExtension(filePath);
@@ -51,8 +51,10 @@ namespace ictProject3
                 newFullPath = Path.Combine(path, tempFileName + extension);
                 
             }
-            MessageBox.Show(newFullPath);
+            //MessageBox.Show(newFullPath);
             File.WriteAllBytes(newFullPath, tempBytes);
+
+            return newFullPath;
         }
         public byte[] GetFile(string path)
         {

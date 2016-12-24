@@ -112,17 +112,7 @@ namespace ictProject3
             }
         }
 
-        private void lstGebruikers_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            foreach (var g in userList)
-            {
-                if (g.id == Convert.ToString(lstGebruikers.SelectedValue))
-                {
-                    txtName.Text = g.name;
-                    txtId.Text = g.id;
-                }
-            }
-        }
+     
 
         private async void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -203,6 +193,18 @@ namespace ictProject3
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void lstGebruikers_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            foreach (var g in userList)
+            {
+                if (g.id == Convert.ToString(lstGebruikers.SelectedValue))
+                {
+                    txtName.Text = g.name;
+                    txtId.Text = g.id;
+                }
+            }
         }
     }
 }

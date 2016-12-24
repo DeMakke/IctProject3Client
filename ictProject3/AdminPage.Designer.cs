@@ -171,6 +171,7 @@
             this.lstGebruikers.Name = "lstGebruikers";
             this.lstGebruikers.Size = new System.Drawing.Size(263, 292);
             this.lstGebruikers.TabIndex = 11;
+            this.lstGebruikers.SelectedIndexChanged += new System.EventHandler(this.lstGebruikers_SelectedIndexChanged_1);
             // 
             // AdminPage
             // 
