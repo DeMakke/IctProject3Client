@@ -139,10 +139,10 @@ namespace ictProject3
                 Form1.loggedInUserName = userNameTextBox.Text;
                 this.Close();
             }
-            else
-            {
-                MessageBox.Show("The changes could not be saved!", "Change Login Data");
-            }
+            //else
+            //{
+            //    MessageBox.Show("The changes could not be saved!", "Change Login Data");
+            //}
         }
 
 
