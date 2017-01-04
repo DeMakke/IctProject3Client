@@ -58,17 +58,26 @@ namespace ictProject3
 
         private void GetRequestStreamCallback(IAsyncResult callbackResult)
         {
-            HttpWebRequest defRequest = (HttpWebRequest)callbackResult.AsyncState;
+            try
+            {
+                HttpWebRequest defRequest = (HttpWebRequest)callbackResult.AsyncState;
 
-            Stream postStream = defRequest.EndGetRequestStream(callbackResult);
+                Stream postStream = defRequest.EndGetRequestStream(callbackResult);
 
-            byte[] byteArray = Encoding.UTF8.GetBytes(jsonDataToSend);
+                byte[] byteArray = Encoding.UTF8.GetBytes(jsonDataToSend);
 
-            postStream.Write(byteArray, 0, byteArray.Length);
-            postStream.Dispose();
+                postStream.Write(byteArray, 0, byteArray.Length);
+                postStream.Dispose();
 
 
-            defRequest.BeginGetResponse(new AsyncCallback(getResponseStreamCallback), defRequest);
+                defRequest.BeginGetResponse(new AsyncCallback(getResponseStreamCallback), defRequest);
+            }
+            catch (Exception)
+            {
+
+                newresult = "An error has occured.";
+            }
+            
 
         }
 

@@ -85,23 +85,36 @@ namespace ictProject3
             string fileString = Task.Run(GetFiles).Result;
 
             List<Item> itemList = new List<Item>();
-            fileString = fileString.Remove(0, 23);
-            fileString = fileString.Remove(fileString.Length - 2);
-            fileString = fileString.Replace("\\\"", "\"");
-            try
+            if (fileString == "An error has occured.")
             {
-                itemList = jsoncode.Deserialize<List<Item>>(fileString);
-
-                lstFiles.DataSource = itemList;
-                lstFiles.DisplayMember = "name";
-                lstFiles.ValueMember = "id";
-                lstFiles.Refresh();
-                lstFiles.Update();
+                MessageBox.Show("The server could not be reached." + Environment.NewLine + "Please try again later",
+                "Fatal Error",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Exclamation,
+                MessageBoxDefaultButton.Button1);
+                Application.Exit();
             }
-            catch (Exception)
+            else
             {
+                fileString = fileString.Remove(0, 23);
+                fileString = fileString.Remove(fileString.Length - 2);
+                fileString = fileString.Replace("\\\"", "\"");
+                try
+                {
+                    itemList = jsoncode.Deserialize<List<Item>>(fileString);
 
+                    lstFiles.DataSource = itemList;
+                    lstFiles.DisplayMember = "name";
+                    lstFiles.ValueMember = "id";
+                    lstFiles.Refresh();
+                    lstFiles.Update();
+                }
+                catch (Exception)
+                {
+
+                }
             }
+            
             
         }
 
@@ -252,7 +265,7 @@ namespace ictProject3
                 addToSessionHistory("Login:", "Logged in succesfully.", false);
                 getdata();
 
-                if (LoginForm.CurrentUser.name == "Admin")
+                if (Properties.Settings.Default.Token.Substring(0, 13) == "eeeeeeee-ffff")
                 {
                     btnAdmin.Enabled = true;
                     btnAdmin.Visible = true;
