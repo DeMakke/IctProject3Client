@@ -60,16 +60,23 @@ namespace ictProject3
                             }
                             string json = jsonCode.JsonCoding(LoginForm.CurrentUser);
                             result = await servercom.ReceiveDataAsync("ValidateUser", json, progressindicator, cts.Token);
-                            result = jsonCode.cropString(result);
-                            User userResponse = jsonCode.JsonDeCodingUser(result);
-
-                            if (userResponse.token != new Guid("ffffffff-ffff-ffff-ffff-ffffffffffff"))//if password is correct
+                            if (result == "An error has occured.")
                             {
-                                passwordChangeSet = true;
+
                             }
                             else
                             {
-                                MessageBox.Show("Please enter the correct password to update", "Warning Password");
+                                result = jsonCode.cropString(result);
+                                User userResponse = jsonCode.JsonDeCodingUser(result);
+
+                                if (userResponse.token != new Guid("ffffffff-ffff-ffff-ffff-ffffffffffff"))//if password is correct
+                                {
+                                    passwordChangeSet = true;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Please enter the correct password to update", "Warning Password");
+                                }
                             }
                         }
                         catch (Exception)
@@ -129,19 +136,25 @@ namespace ictProject3
             string json2 = jsonCode.Serialize(gebruiker);
 
             result = await servercom.ReceiveDataAsync("ChangeUserData", json2, progressindicator, cts.Token);
-
-            result = jsonCode.cropString(result);
-            succes = jsonCode.JsonDeCodingSucces(result);
-
-            if (succes.value == true)
+            if (result == "An error has occured.")
             {
-                MessageBox.Show("Your changes were saved", "Change Login Data");
-                Form1.loggedInUserName = userNameTextBox.Text;
-                this.Close();
+
             }
             else
             {
-                MessageBox.Show("The changes could not be saved!", "Change Login Data");
+                result = jsonCode.cropString(result);
+                succes = jsonCode.JsonDeCodingSucces(result);
+
+                if (succes.value == true)
+                {
+                    MessageBox.Show("Your changes were saved", "Change Login Data");
+                    Form1.loggedInUserName = userNameTextBox.Text;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("The changes could not be saved!", "Change Login Data");
+                }
             }
         }
 

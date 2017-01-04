@@ -76,6 +76,13 @@ namespace ictProject3
             {
 
                 newresult = "An error has occured.";
+
+                MessageBox.Show("The server could not be reached." + Environment.NewLine + "Please try again later",
+                "Fatal Error",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Exclamation,
+                MessageBoxDefaultButton.Button1);
+                Properties.Settings.Default.Token = "00000000-0000-0000-0000-000000000000"; //exploit prevention
             }
             
 

@@ -68,26 +68,33 @@ namespace ictProject3
         public async void getUsers()
         {
             var progressindicator = new Progress<int>(ReportProgress);
-            cts = new CancellationTokenSource();            
+            cts = new CancellationTokenSource();
             string json = "for later implementation of users";
             string result = await servercom.ReceiveDataAsync("GetUsers", json, progressindicator, cts.Token);
-            List<Gebruiker> userList = new List<Gebruiker>();
-            result = jsoncode.cropString(result);
-            result = result.Remove(result.Length - 1);
-            result = result.Remove(0, 18);
-            userList = jsoncode.Deserialize<List<Gebruiker>>(result);
-            string username = LoginForm.CurrentUser.name;
-            if ((userList.Find(x => x.name.Contains(username)) != null))
-            {
-                userList.Remove(userList.Find(x => x.name.Contains(username)));
-            }
-            lstGebruikers.DataSource = userList;
-            lstGebruikers.DisplayMember = "name";
-            lstGebruikers.ValueMember = "id";
-            lstGebruikers.Refresh();
-            lstGebruikers.Update();           
-        }
 
+            if (result == "An error has occured.")
+            {
+
+            }
+            else
+            {
+                List<Gebruiker> userList = new List<Gebruiker>();
+                result = jsoncode.cropString(result);
+                result = result.Remove(result.Length - 1);
+                result = result.Remove(0, 18);
+                userList = jsoncode.Deserialize<List<Gebruiker>>(result);
+                string username = LoginForm.CurrentUser.name;
+                if ((userList.Find(x => x.name.Contains(username)) != null))
+                {
+                    userList.Remove(userList.Find(x => x.name.Contains(username)));
+                }
+                lstGebruikers.DataSource = userList;
+                lstGebruikers.DisplayMember = "name";
+                lstGebruikers.ValueMember = "id";
+                lstGebruikers.Refresh();
+                lstGebruikers.Update();
+            }
+        }
         private async void btnOk_Click(object sender, EventArgs e)
         {
             if (checkBoxPubliekDelen.Checked == true)
@@ -102,20 +109,26 @@ namespace ictProject3
                     string json = "";
                     result = await servercom.ReceiveDataAsync("PublicShare/" + fileid, json, progressindicator, cts.Token);
 
-                    result = jsoncode.cropStringMore(result);
-                    result = result.Remove(0, 21);
-                    result = result.Remove(result.Length - 1);
-                    Succes succes = jsoncode.JsonDeCodingSucces(result);
-                    if (succes.value)
+                    if (result == "An error has occured.")
                     {
-                        MessageBox.Show("Het bestand is succesvol gedeeld.", "publiek delen");
 
                     }
                     else
                     {
-                        MessageBox.Show("Het bestand kan niet gedeeld worden!", "publiek delen");
-                    }
+                        result = jsoncode.cropStringMore(result);
+                        result = result.Remove(0, 21);
+                        result = result.Remove(result.Length - 1);
+                        Succes succes = jsoncode.JsonDeCodingSucces(result);
+                        if (succes.value)
+                        {
+                            MessageBox.Show("Het bestand is succesvol gedeeld.", "publiek delen");
 
+                        }
+                        else
+                        {
+                            MessageBox.Show("Het bestand kan niet gedeeld worden!", "publiek delen");
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -143,20 +156,25 @@ namespace ictProject3
                     cts = new CancellationTokenSource();
                     string result = "";
                     result = await servercom.ReceiveDataAsync("SetUsers/" + fileid, json, progressindicator, cts.Token);
-
-                    result = jsoncode.cropString(result);
-                    Succes succes = new Succes();
-                    succes = jsoncode.JsonDeCodingSucces(result);
-
-                    if (succes.value == true)
+                    if (result == "An error has occured.")
                     {
-                        MessageBox.Show("De gebruikers met toegang tot het bestand werden succesvol opgeslagen.", "Bestandsrechten");
+
                     }
                     else
                     {
-                        MessageBox.Show("De veranderingen konden niet opgeslagen worden!", "Bestandsrechten");
-                    }
+                        result = jsoncode.cropString(result);
+                        Succes succes = new Succes();
+                        succes = jsoncode.JsonDeCodingSucces(result);
 
+                        if (succes.value == true)
+                        {
+                            MessageBox.Show("De gebruikers met toegang tot het bestand werden succesvol opgeslagen.", "Bestandsrechten");
+                        }
+                        else
+                        {
+                            MessageBox.Show("De veranderingen konden niet opgeslagen worden!", "Bestandsrechten");
+                        }
+                    }
                 }
                 catch (Exception)
                 {
