@@ -82,9 +82,9 @@
             this.label5.Location = new System.Drawing.Point(285, 257);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(125, 17);
+            this.label5.Size = new System.Drawing.Size(156, 17);
             this.label5.TabIndex = 15;
-            this.label5.Text = "Confirm Password:";
+            this.label5.Text = "Confirm New Password:";
             // 
             // label4
             // 
@@ -177,7 +177,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(705, 398);
+            this.ClientSize = new System.Drawing.Size(682, 381);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
