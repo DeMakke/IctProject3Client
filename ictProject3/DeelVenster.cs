@@ -47,14 +47,17 @@ namespace ictProject3
         {
             foreach (Gebruiker user in lstGebruikers.SelectedItems)
             {
-                lijstToevoegen.Add(user);
-                lstGeselecteerdeGebruikers.Items.Add(user.name);
+                if (lstGeselecteerdeGebruikers.FindStringExact(user.name) < 0)
+                {
+                    lijstToevoegen.Add(user);
+                    lstGeselecteerdeGebruikers.Items.Add(user.name);
+                }
             }
         }
 
         private void btnVerwijderen_Click(object sender, EventArgs e)
         {
-            if (lstGeselecteerdeGebruikers.Items.Count != 0)
+            if ((lstGeselecteerdeGebruikers.Items.Count != 0)&&(lstGeselecteerdeGebruikers.SelectedIndex >=0))
             {
                 lijstToevoegen.RemoveAt(lstGeselecteerdeGebruikers.SelectedIndex);
                 lstGeselecteerdeGebruikers.Items.Clear();

@@ -74,7 +74,7 @@
             this.loginValidationButton.Location = new System.Drawing.Point(144, 118);
             this.loginValidationButton.Name = "loginValidationButton";
             this.loginValidationButton.Size = new System.Drawing.Size(79, 33);
-            this.loginValidationButton.TabIndex = 4;
+            this.loginValidationButton.TabIndex = 2;
             this.loginValidationButton.Text = "Validate";
             this.loginValidationButton.UseVisualStyleBackColor = true;
             this.loginValidationButton.Click += new System.EventHandler(this.loginValidationButton_Click);
@@ -84,7 +84,7 @@
             this.loginCancelButton.Location = new System.Drawing.Point(278, 118);
             this.loginCancelButton.Name = "loginCancelButton";
             this.loginCancelButton.Size = new System.Drawing.Size(74, 33);
-            this.loginCancelButton.TabIndex = 5;
+            this.loginCancelButton.TabIndex = 3;
             this.loginCancelButton.Text = "Cancel";
             this.loginCancelButton.UseVisualStyleBackColor = true;
             this.loginCancelButton.Click += new System.EventHandler(this.loginCancelButton_Click);
