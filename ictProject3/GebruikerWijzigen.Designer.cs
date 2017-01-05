@@ -42,22 +42,22 @@
             // 
             // btnAnnuleren
             // 
-            this.btnAnnuleren.Location = new System.Drawing.Point(226, 120);
-            this.btnAnnuleren.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAnnuleren.Location = new System.Drawing.Point(301, 148);
+            this.btnAnnuleren.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAnnuleren.Name = "btnAnnuleren";
-            this.btnAnnuleren.Size = new System.Drawing.Size(56, 27);
-            this.btnAnnuleren.TabIndex = 11;
+            this.btnAnnuleren.Size = new System.Drawing.Size(75, 33);
+            this.btnAnnuleren.TabIndex = 5;
             this.btnAnnuleren.Text = "Cancel";
             this.btnAnnuleren.UseVisualStyleBackColor = true;
             this.btnAnnuleren.Click += new System.EventHandler(this.btnAnnuleren_Click);
             // 
             // btnOpslaan
             // 
-            this.btnOpslaan.Location = new System.Drawing.Point(126, 120);
-            this.btnOpslaan.Margin = new System.Windows.Forms.Padding(2);
+            this.btnOpslaan.Location = new System.Drawing.Point(168, 148);
+            this.btnOpslaan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOpslaan.Name = "btnOpslaan";
-            this.btnOpslaan.Size = new System.Drawing.Size(59, 27);
-            this.btnOpslaan.TabIndex = 10;
+            this.btnOpslaan.Size = new System.Drawing.Size(79, 33);
+            this.btnOpslaan.TabIndex = 4;
             this.btnOpslaan.Text = "Save";
             this.btnOpslaan.UseVisualStyleBackColor = true;
             this.btnOpslaan.Click += new System.EventHandler(this.btnOpslaan_Click);
@@ -65,83 +65,79 @@
             // passwordLabel
             // 
             this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Location = new System.Drawing.Point(18, 71);
-            this.passwordLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.passwordLabel.Location = new System.Drawing.Point(24, 87);
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(84, 13);
+            this.passwordLabel.Size = new System.Drawing.Size(108, 17);
             this.passwordLabel.TabIndex = 9;
             this.passwordLabel.Text = "New Password :";
             // 
             // userNameLabel
             // 
             this.userNameLabel.AutoSize = true;
-            this.userNameLabel.Location = new System.Drawing.Point(11, 23);
-            this.userNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.userNameLabel.Location = new System.Drawing.Point(15, 28);
             this.userNameLabel.Name = "userNameLabel";
-            this.userNameLabel.Size = new System.Drawing.Size(91, 13);
+            this.userNameLabel.Size = new System.Drawing.Size(118, 17);
             this.userNameLabel.TabIndex = 8;
             this.userNameLabel.Text = "New User Name :";
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(126, 68);
-            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.passwordTextBox.Location = new System.Drawing.Point(168, 84);
+            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(213, 20);
-            this.passwordTextBox.TabIndex = 7;
+            this.passwordTextBox.Size = new System.Drawing.Size(283, 22);
+            this.passwordTextBox.TabIndex = 2;
             this.passwordTextBox.UseSystemPasswordChar = true;
             // 
             // userNameTextBox
             // 
-            this.userNameTextBox.Location = new System.Drawing.Point(126, 20);
-            this.userNameTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.userNameTextBox.Location = new System.Drawing.Point(168, 25);
+            this.userNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.userNameTextBox.Name = "userNameTextBox";
-            this.userNameTextBox.Size = new System.Drawing.Size(213, 20);
-            this.userNameTextBox.TabIndex = 6;
+            this.userNameTextBox.Size = new System.Drawing.Size(283, 22);
+            this.userNameTextBox.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 95);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(7, 117);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 13);
+            this.label1.Size = new System.Drawing.Size(127, 17);
             this.label1.TabIndex = 13;
             this.label1.Text = "Repeat Password :";
             // 
             // RepeatPasswordTextBox
             // 
-            this.RepeatPasswordTextBox.Location = new System.Drawing.Point(126, 92);
-            this.RepeatPasswordTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.RepeatPasswordTextBox.Location = new System.Drawing.Point(168, 113);
+            this.RepeatPasswordTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RepeatPasswordTextBox.Name = "RepeatPasswordTextBox";
-            this.RepeatPasswordTextBox.Size = new System.Drawing.Size(213, 20);
-            this.RepeatPasswordTextBox.TabIndex = 12;
+            this.RepeatPasswordTextBox.Size = new System.Drawing.Size(283, 22);
+            this.RepeatPasswordTextBox.TabIndex = 3;
             this.RepeatPasswordTextBox.UseSystemPasswordChar = true;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 47);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(24, 58);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 13);
+            this.label2.Size = new System.Drawing.Size(103, 17);
             this.label2.TabIndex = 15;
             this.label2.Text = "Old Password :";
             // 
             // oldPasswordTextBox
             // 
-            this.oldPasswordTextBox.Location = new System.Drawing.Point(126, 44);
-            this.oldPasswordTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.oldPasswordTextBox.Location = new System.Drawing.Point(168, 54);
+            this.oldPasswordTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.oldPasswordTextBox.Name = "oldPasswordTextBox";
-            this.oldPasswordTextBox.Size = new System.Drawing.Size(213, 20);
-            this.oldPasswordTextBox.TabIndex = 14;
+            this.oldPasswordTextBox.Size = new System.Drawing.Size(283, 22);
+            this.oldPasswordTextBox.TabIndex = 1;
             this.oldPasswordTextBox.UseSystemPasswordChar = true;
             // 
             // GebruikerWijzigen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(350, 158);
+            this.ClientSize = new System.Drawing.Size(467, 194);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.oldPasswordTextBox);
             this.Controls.Add(this.label1);
@@ -152,6 +148,7 @@
             this.Controls.Add(this.userNameLabel);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.userNameTextBox);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "GebruikerWijzigen";
             this.Text = "GebruikerWijzigen";
             this.ResumeLayout(false);

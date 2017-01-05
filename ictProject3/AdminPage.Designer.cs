@@ -49,7 +49,7 @@
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(119, 28);
-            this.btnCancel.TabIndex = 22;
+            this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -60,8 +60,8 @@
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(220, 39);
-            this.btnDelete.TabIndex = 21;
-            this.btnDelete.Text = "Verwijder Gebruiker";
+            this.btnDelete.TabIndex = 5;
+            this.btnDelete.Text = "Delete User";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -71,8 +71,8 @@
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(220, 39);
-            this.btnUpdate.TabIndex = 20;
-            this.btnUpdate.Text = "Update Gegevens";
+            this.btnUpdate.TabIndex = 4;
+            this.btnUpdate.Text = "Update User";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -82,9 +82,9 @@
             this.label5.Location = new System.Drawing.Point(285, 257);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(144, 17);
+            this.label5.Size = new System.Drawing.Size(125, 17);
             this.label5.TabIndex = 15;
-            this.label5.Text = "Bevestig wachtwoord:";
+            this.label5.Text = "Confirm Password:";
             // 
             // label4
             // 
@@ -92,9 +92,9 @@
             this.label4.Location = new System.Drawing.Point(285, 194);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(132, 17);
+            this.label4.Size = new System.Drawing.Size(104, 17);
             this.label4.TabIndex = 16;
-            this.label4.Text = "Nieuw Wachtwoord:";
+            this.label4.Text = "New Password:";
             // 
             // label2
             // 
@@ -104,7 +104,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 17);
             this.label2.TabIndex = 17;
-            this.label2.Text = "Naam:";
+            this.label2.Text = "Name:";
             // 
             // label1
             // 
@@ -112,9 +112,9 @@
             this.label1.Location = new System.Drawing.Point(285, 75);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 17);
+            this.label1.Size = new System.Drawing.Size(59, 17);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Gebruikers ID:";
+            this.label1.Text = "User ID:";
             // 
             // txtPasswordConfirm
             // 
@@ -123,7 +123,7 @@
             this.txtPasswordConfirm.Name = "txtPasswordConfirm";
             this.txtPasswordConfirm.PasswordChar = '*';
             this.txtPasswordConfirm.Size = new System.Drawing.Size(332, 22);
-            this.txtPasswordConfirm.TabIndex = 19;
+            this.txtPasswordConfirm.TabIndex = 2;
             // 
             // txtPasswordNew
             // 
@@ -132,7 +132,7 @@
             this.txtPasswordNew.Name = "txtPasswordNew";
             this.txtPasswordNew.PasswordChar = '*';
             this.txtPasswordNew.Size = new System.Drawing.Size(332, 22);
-            this.txtPasswordNew.TabIndex = 14;
+            this.txtPasswordNew.TabIndex = 1;
             // 
             // txtName
             // 
@@ -140,7 +140,7 @@
             this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(332, 22);
-            this.txtName.TabIndex = 12;
+            this.txtName.TabIndex = 0;
             // 
             // txtId
             // 
@@ -157,8 +157,8 @@
             this.btnGebrToevoegen.Margin = new System.Windows.Forms.Padding(4);
             this.btnGebrToevoegen.Name = "btnGebrToevoegen";
             this.btnGebrToevoegen.Size = new System.Drawing.Size(220, 39);
-            this.btnGebrToevoegen.TabIndex = 13;
-            this.btnGebrToevoegen.Text = "Gebruiker Toevoegen";
+            this.btnGebrToevoegen.TabIndex = 3;
+            this.btnGebrToevoegen.Text = "Add User";
             this.btnGebrToevoegen.UseVisualStyleBackColor = true;
             this.btnGebrToevoegen.Click += new System.EventHandler(this.btnGebrToevoegen_Click);
             // 
@@ -170,7 +170,7 @@
             this.lstGebruikers.Margin = new System.Windows.Forms.Padding(4);
             this.lstGebruikers.Name = "lstGebruikers";
             this.lstGebruikers.Size = new System.Drawing.Size(263, 292);
-            this.lstGebruikers.TabIndex = 11;
+            this.lstGebruikers.TabIndex = 7;
             this.lstGebruikers.SelectedIndexChanged += new System.EventHandler(this.lstGebruikers_SelectedIndexChanged_1);
             // 
             // AdminPage
