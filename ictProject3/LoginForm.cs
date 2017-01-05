@@ -57,23 +57,31 @@ namespace ictProject3
                     string result = "";
                     result = await servercom.ReceiveDataAsync("ValidateUser", json, progressindicator, cts.Token);
 
-                    result = JSONData.cropString(result);
-                    User userResponse = JSONData.JsonDeCodingUser(result);
-                    if (userResponse.token != new Guid("ffffffff-ffff-ffff-ffff-ffffffffffff"))
+                    if (result == "An error has occured.")
                     {
-                        //MessageBox.Show("De gebruiker is met succes ingelogd. ID= " + userResponse.token.ToString(), "Inloggen gebruiker");
-                        Properties.Settings.Default.Token = userResponse.token.ToString();
-                        Form1.loggedInUserName = userResponse.name;
+
                     }
                     else
                     {
-                        MessageBox.Show("De gebruiker is niet ingelogd!", "Inloggen gebruiker");
-                        //else save token for authentication processes and close loginForm & append Form1's name with [userName]
-                    }
+                        result = JSONData.cropString(result);
+                        User userResponse = JSONData.JsonDeCodingUser(result);
+                        if (userResponse.token != new Guid("ffffffff-ffff-ffff-ffff-ffffffffffff"))
+                        {
+                            //MessageBox.Show("De gebruiker is met succes ingelogd. ID= " + userResponse.token.ToString(), "Inloggen gebruiker");
+                            Properties.Settings.Default.Token = userResponse.token.ToString();
+                            Form1.loggedInUserName = userResponse.name;
+                        }
+                        else
+                        {
+                            MessageBox.Show("De gebruiker is niet ingelogd!", "Inloggen gebruiker");
+                            //else save token for authentication processes and close loginForm & append Form1's name with [userName]
+                        }
 
-                    this.Close();
+                        this.Close();
+                    }
                 }
-                else {
+                else
+                {
                     MessageBox.Show("Ongeldige gebruikersnaam en/of paswoord!");
                     this.Close();
                 }

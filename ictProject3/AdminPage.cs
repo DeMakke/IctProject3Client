@@ -42,15 +42,23 @@ namespace ictProject3
             cts = new CancellationTokenSource();
             string json = "for later implementation of users";
             string result = await servercom.ReceiveDataAsync("GetUsers", json, progressindicator, cts.Token);
-            result = jsoncode.cropString(result);
-            result = result.Remove(result.Length - 1);
-            result = result.Remove(0, 18);
-            userList = jsoncode.Deserialize<List<Gebruiker>>(result);
-            lstGebruikers.DataSource = userList;
-            lstGebruikers.DisplayMember = "name";
-            lstGebruikers.ValueMember = "id";
-            lstGebruikers.Refresh();
-            lstGebruikers.Update();
+
+            if (result == "An error has occured.")
+            {
+
+            }
+            else
+            {
+                result = jsoncode.cropString(result);
+                result = result.Remove(result.Length - 1);
+                result = result.Remove(0, 18);
+                userList = jsoncode.Deserialize<List<Gebruiker>>(result);
+                lstGebruikers.DataSource = userList;
+                lstGebruikers.DisplayMember = "name";
+                lstGebruikers.ValueMember = "id";
+                lstGebruikers.Refresh();
+                lstGebruikers.Update();
+            }
         }
 
         private async void btnGebrToevoegen_Click(object sender, EventArgs e)
@@ -87,22 +95,28 @@ namespace ictProject3
                 string result = "";
 
                 result = await servercom.ReceiveDataAsync("AddUser", json, progressindicator, cts.Token);
-
-                result = jsoncode.cropStringMore(result);
-                result = result.Remove(0, 17);
-                result = result.Remove(result.Length - 1);
-                Succes succes = jsoncode.JsonDeCodingSucces(result);
-
-                getUsers();
-                if (succes.value)
+                if (result == "An error has occured.")
                 {
-                    MessageBox.Show("De gebruiker is succesvol toegevoegd.", "Gebruiker Toevoegen");
+
                 }
                 else
                 {
-                    MessageBox.Show("De gebruiker kan niet toegevoegd worden!", "Gebruiker Toevoegen");
-                }
 
+                    result = jsoncode.cropStringMore(result);
+                    result = result.Remove(0, 17);
+                    result = result.Remove(result.Length - 1);
+                    Succes succes = jsoncode.JsonDeCodingSucces(result);
+
+                    getUsers();
+                    if (succes.value)
+                    {
+                        MessageBox.Show("De gebruiker is succesvol toegevoegd.", "Gebruiker Toevoegen");
+                    }
+                    else
+                    {
+                        MessageBox.Show("De gebruiker kan niet toegevoegd worden!", "Gebruiker Toevoegen");
+                    }
+                }
             }
             else
             {
@@ -136,21 +150,27 @@ namespace ictProject3
 
                 result = await servercom.ReceiveDataAsync("UpdateUser", json, progressindicator, cts.Token);
 
-                result = jsoncode.cropStringMore(result);
-                result = result.Remove(0, 20);
-                result = result.Remove(result.Length - 1);
-                Succes succes = jsoncode.JsonDeCodingSucces(result);
-
-                getUsers();
-                if (succes.value)
+                if (result == "An error has occured.")
                 {
-                    MessageBox.Show("De gebruiker is succesvol aangepast.", "Gebruiker Toevoegen");
+
                 }
                 else
                 {
-                    MessageBox.Show("De gebruiker kan niet aangepast worden!", "Gebruiker Toevoegen");
-                }
+                    result = jsoncode.cropStringMore(result);
+                    result = result.Remove(0, 20);
+                    result = result.Remove(result.Length - 1);
+                    Succes succes = jsoncode.JsonDeCodingSucces(result);
 
+                    getUsers();
+                    if (succes.value)
+                    {
+                        MessageBox.Show("De gebruiker is succesvol aangepast.", "Gebruiker Toevoegen");
+                    }
+                    else
+                    {
+                        MessageBox.Show("De gebruiker kan niet aangepast worden!", "Gebruiker Toevoegen");
+                    }
+                }
             }
             else
             {
@@ -174,19 +194,26 @@ namespace ictProject3
 
             result = await servercom.ReceiveDataAsync("DeleteUser", json, progressindicator, cts.Token);
 
-            result = jsoncode.cropStringMore(result);
-            result = result.Remove(0, 20);
-            result = result.Remove(result.Length - 1);
-            Succes succes = jsoncode.JsonDeCodingSucces(result);
-
-            getUsers();
-            if (succes.value)
+            if (result == "An error has occured.")
             {
-                MessageBox.Show("De gebruiker is succesvol verwijderd.", "Gebruiker Verwijderen");
+
             }
             else
             {
-                MessageBox.Show("De gebruiker kan niet verwijderd worden!", "Gebruiker Verwijderen");
+                result = jsoncode.cropStringMore(result);
+                result = result.Remove(0, 20);
+                result = result.Remove(result.Length - 1);
+                Succes succes = jsoncode.JsonDeCodingSucces(result);
+
+                getUsers();
+                if (succes.value)
+                {
+                    MessageBox.Show("De gebruiker is succesvol verwijderd.", "Gebruiker Verwijderen");
+                }
+                else
+                {
+                    MessageBox.Show("De gebruiker kan niet verwijderd worden!", "Gebruiker Verwijderen");
+                }
             }
         }
 

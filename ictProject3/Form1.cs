@@ -85,23 +85,31 @@ namespace ictProject3
             string fileString = Task.Run(GetFiles).Result;
 
             List<Item> itemList = new List<Item>();
-            fileString = fileString.Remove(0, 23);
-            fileString = fileString.Remove(fileString.Length - 2);
-            fileString = fileString.Replace("\\\"", "\"");
-            try
+            if (fileString == "An error has occured.")
             {
-                itemList = jsoncode.Deserialize<List<Item>>(fileString);
-
-                lstFiles.DataSource = itemList;
-                lstFiles.DisplayMember = "name";
-                lstFiles.ValueMember = "id";
-                lstFiles.Refresh();
-                lstFiles.Update();
+                addToSessionHistory("Fatal:", "Server Could not be reached", true);
             }
-            catch (Exception)
+            else
             {
+                fileString = fileString.Remove(0, 23);
+                fileString = fileString.Remove(fileString.Length - 2);
+                fileString = fileString.Replace("\\\"", "\"");
+                try
+                {
+                    itemList = jsoncode.Deserialize<List<Item>>(fileString);
 
+                    lstFiles.DataSource = itemList;
+                    lstFiles.DisplayMember = "name";
+                    lstFiles.ValueMember = "id";
+                    lstFiles.Refresh();
+                    lstFiles.Update();
+                }
+                catch (Exception)
+                {
+
+                }
             }
+            
             
         }
 
@@ -113,14 +121,21 @@ namespace ictProject3
             string result = "";
             result = await servercom.ReceiveDataAsync("GetFile", Convert.ToString(lstFiles.SelectedValue), progressindicator, cts.Token);
 
-            result = jsoncode.cropString(result);
-            //MessageBox.Show(result); //achteraf hier nog een try catch aan toevoegen zodat het prog nie crashed in geval van foute response;
-            //addToSessionHistory("save File:","File saved To", false);
-            
-            Data response = jsoncode.JsonDeCoding(result); 
-            Tuple<byte[], string> file = base64code.DeSerializeBase64(response);
-            string filelocation = base64code.saveFile(file.Item1, file.Item2);
-            addToSessionHistory("save File:", "File saved To " + filelocation, false);
+            if (result == "An error has occured.")
+            {
+                addToSessionHistory("Fatal:", "Server Could not be reached", true);
+            }
+            else
+            {
+                result = jsoncode.cropString(result);
+                //MessageBox.Show(result); //achteraf hier nog een try catch aan toevoegen zodat het prog nie crashed in geval van foute response;
+                //addToSessionHistory("save File:","File saved To", false);
+
+                Data response = jsoncode.JsonDeCoding(result);
+                Tuple<byte[], string> file = base64code.DeSerializeBase64(response);
+                string filelocation = base64code.saveFile(file.Item1, file.Item2);
+                addToSessionHistory("save File:", "File saved To " + filelocation, false);
+            }
         }
 
         private void btnUpdateList_Click(object sender, EventArgs e)
@@ -137,50 +152,69 @@ namespace ictProject3
                 string filePath = OpenFileDialog.FileName;
                 string name = OpenFileDialog.SafeFileName;
                 data = fileHandler.UploadFile(name, filePath);
-                
+
 
                 var progressindicator = new Progress<int>(ReportProgress);
                 cts = new CancellationTokenSource();
                 string json = "";
                 string resulta = "";
                 string resultb = "";
-                //Get data object from object met base64 coded bestand inclusief.
-                string tempfilebase64 = base64code.SerializeBase64(base64code.GetFile(data.path));
-                int filesize = fileHandler.Filesize(tempfilebase64);
-                data.size = filesize;
-                data.base64 = "";
 
-                
-                json = jsoncode.Serialize<Data>(data);
-                //json = jsoncode.cropString(json);
-                //json = jsoncode.cropString(json);
-                Data datatest = new Data();
-                //datatest = jsoncode.JsonDeCoding(json);
-
-
-                resulta = await servercom.ReceiveDataAsync("Checkdiv", json, progressindicator, cts.Token);
-                //resulta.Replace("\"", "");
-                resulta = jsoncode.cropStringMore(resulta);
-                string[] splitted = resulta.Split(':');
-
-                string jsontosend = "";
-
-                data.base64 = tempfilebase64;
-
-
-                List<string> base64data = base64code.SplitEvery(data.base64, data.base64.Length / Convert.ToInt16(splitted[1]), Convert.ToInt16(splitted[1]));
-                
-                for (int i = 1; i <= Convert.ToInt16(splitted[1]) ; i++)
+                FileInfo f = new FileInfo(data.path);
+                if (f.Length > 100000000)
                 {
-
-                        resultb = await servercom.ReceiveDataAsync("SaveFile/" + splitted[0] + "/" + splitted[1] + "/" + Convert.ToString(i), base64data.ElementAt(i - 1) , progressindicator, cts.Token);
-
+                    addToSessionHistory("Upload:", "File is too large maximum size = 100 Mb", true);
                 }
-                addToSessionHistory("Upload File:", "File succesfully uploaded. Name = " + name, false);
-                //MessageBox.Show(resultb);
-                //Debug.WriteLine(resultb);
-                getdata();
+                else
+                {
+                    //Get data object from object met base64 coded bestand inclusief.
+                    string tempfilebase64 = base64code.SerializeBase64(base64code.GetFile(data.path));
+                    int filesize = fileHandler.Filesize(tempfilebase64);
+                    data.size = filesize;
+                    data.base64 = "";
 
+
+                    json = jsoncode.Serialize<Data>(data);
+                    //json = jsoncode.cropString(json);
+                    //json = jsoncode.cropString(json);
+                    Data datatest = new Data();
+                    //datatest = jsoncode.JsonDeCoding(json);
+
+
+                    resulta = await servercom.ReceiveDataAsync("Checkdiv", json, progressindicator, cts.Token);
+                    //resulta.Replace("\"", "");
+                    if (resulta == "An error has occured.")
+                    {
+                        addToSessionHistory("Fatal:", "Server Could not be reached", true);
+                    }
+                    else
+                    {
+                        resulta = jsoncode.cropStringMore(resulta);
+                        string[] splitted = resulta.Split(':');
+
+                        string jsontosend = "";
+
+                        data.base64 = tempfilebase64;
+
+
+                        List<string> base64data = base64code.SplitEvery(data.base64, data.base64.Length / Convert.ToInt16(splitted[1]), Convert.ToInt16(splitted[1]));
+
+                        for (int i = 1; i <= Convert.ToInt16(splitted[1]); i++)
+                        {
+
+                            resultb = await servercom.ReceiveDataAsync("SaveFile/" + splitted[0] + "/" + splitted[1] + "/" + Convert.ToString(i), base64data.ElementAt(i - 1), progressindicator, cts.Token);
+                            if (resultb == "An error has occured.")
+                            {
+                                addToSessionHistory("Fatal:", "Server Could not be reached", true);
+                                break;
+                            }
+                        }
+                        addToSessionHistory("Upload File:", "File succesfully uploaded. Name = " + name, false);
+                        //MessageBox.Show(resultb);
+                        //Debug.WriteLine(resultb);
+                        getdata();
+                    }
+                }
             }
         }
 
@@ -190,7 +224,7 @@ namespace ictProject3
             {
                 Item item = new Item();
                 var selectedItem = lstFiles.SelectedItem;
-                item.id = (System.Guid)lstFiles.SelectedValue;     
+                item.id = (System.Guid)lstFiles.SelectedValue;
                 item.name = lstFiles.GetItemText(selectedItem);
                 string json = jsoncode.JsonCoding(item);
 
@@ -199,19 +233,25 @@ namespace ictProject3
 
                 string result = "";
                 result = await servercom.ReceiveDataAsync("DeleteFile", json, progressindicator, cts.Token);
-
-                result = jsoncode.cropString(result);
-                Succes succes = jsoncode.JsonDeCodingSucces(result);
-                if (succes.value)
+                if (result == "An error has occured.")
                 {
-                    addToSessionHistory("Delete:", "File hes been succesfully deleted", false);
-                    getdata();
+                    addToSessionHistory("Fatal:", "Server Could not be reached", true);
                 }
                 else
                 {
-                    addToSessionHistory("Delete:", "File could not be deleted", true);
+                    result = jsoncode.cropString(result);
+                    Succes succes = jsoncode.JsonDeCodingSucces(result);
+                    if (succes.value)
+                    {
+                        addToSessionHistory("Delete:", "File hes been succesfully deleted", false);
+                        getdata();
+                    }
+                    else
+                    {
+                        addToSessionHistory("Delete:", "File could not be deleted", true);
+                    }
+                    lstFiles.ClearSelected();
                 }
-                lstFiles.ClearSelected();
             }
             catch (Exception ex)
             {
@@ -252,7 +292,7 @@ namespace ictProject3
                 addToSessionHistory("Login:", "Logged in succesfully.", false);
                 getdata();
 
-                if (LoginForm.CurrentUser.name == "Admin")
+                if (Properties.Settings.Default.Token.Substring(0, 13) == "eeeeeeee-ffff")
                 {
                     btnAdmin.Enabled = true;
                     btnAdmin.Visible = true;
@@ -270,35 +310,42 @@ namespace ictProject3
         {
             var progressindicator = new Progress<int>(ReportProgress);
             cts = new CancellationTokenSource();
-            
-            string result = await servercom.ReceiveDataAsync("Logout", "", progressindicator, cts.Token);
-            result = jsoncode.cropString(result);
-            User userResponse = jsoncode.JsonDeCodingUser(result);
-            Properties.Settings.Default.Token = userResponse.token.ToString();
-            if (Properties.Settings.Default.Token != "00000000-0000-0000-0000-000000000000")
-            {
 
-                addToSessionHistory("Logout:", "Something went wrong while you were trying to log out.", true);
-                
+            string result = await servercom.ReceiveDataAsync("Logout", "", progressindicator, cts.Token);
+            if (result == "An error has occured.")
+            {
+                addToSessionHistory("Fatal:", "Server Could not be reached", true);
             }
             else
             {
-                addToSessionHistory("Logout:", "Logged out succesfully.", false);
-                getdata();
-                loginButton.Enabled = true;
-                logoutButton.Enabled = false;
-                btnAdmin.Enabled = false;
-                btnAdmin.Visible = false;
-                btnDelen.Enabled = false;
-                //btnDelen.Visible = false; //maak de delen knop ook onzichtbaar
-                btnDeleteItem.Enabled = false;
-                //btnDeleteItem.Visible = false; //maak de knop ook onzichtbaar
-                btnUpload.Enabled = false;
-                //btnUpload.Visible = false; //maak de knop ook onzichtbaar
-                btnWijzigen.Enabled = false;
-                btnWijzigen.Visible = false; //maak de knop ook onzichtbaar
-                loggedInUserName = "Guest";
-                this.Text = "LAN-FileShare @" + loggedInUserName;
+                result = jsoncode.cropString(result);
+                User userResponse = jsoncode.JsonDeCodingUser(result);
+                Properties.Settings.Default.Token = userResponse.token.ToString();
+                if (Properties.Settings.Default.Token != "00000000-0000-0000-0000-000000000000")
+                {
+
+                    addToSessionHistory("Logout:", "Something went wrong while you were trying to log out.", true);
+
+                }
+                else
+                {
+                    addToSessionHistory("Logout:", "Logged out succesfully.", false);
+                    getdata();
+                    loginButton.Enabled = true;
+                    logoutButton.Enabled = false;
+                    btnAdmin.Enabled = false;
+                    btnAdmin.Visible = false;
+                    btnDelen.Enabled = false;
+                    //btnDelen.Visible = false; //maak de delen knop ook onzichtbaar
+                    btnDeleteItem.Enabled = false;
+                    //btnDeleteItem.Visible = false; //maak de knop ook onzichtbaar
+                    btnUpload.Enabled = false;
+                    //btnUpload.Visible = false; //maak de knop ook onzichtbaar
+                    btnWijzigen.Enabled = false;
+                    btnWijzigen.Visible = false; //maak de knop ook onzichtbaar
+                    loggedInUserName = "Guest";
+                    this.Text = "LAN-FileShare @" + loggedInUserName;
+                }
             }
         }
 
