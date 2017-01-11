@@ -68,7 +68,7 @@ namespace ictProject3
             bool id = false;
             string userid = Convert.ToString(Guid.NewGuid());
             User user = new User();
-            if ((txtPasswordNew.Text == txtPasswordConfirm.Text) && (txtName.Text != null))
+            if ((txtPasswordNew.Text == txtPasswordConfirm.Text) && (txtName.Text != ""))
             {
                 while (id == false)
                 {
@@ -142,7 +142,7 @@ namespace ictProject3
             JsonCode jsonCode = new JsonCode();
             User user = new User();
 
-            if ((txtName.Text != null) || (txtPasswordNew.Text == txtPasswordConfirm.Text))
+            if ((txtName.Text != "") || (txtPasswordNew.Text == txtPasswordConfirm.Text))
             {
 
                 user.id = txtId.Text;
