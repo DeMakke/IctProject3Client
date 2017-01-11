@@ -155,7 +155,10 @@ namespace ictProject3
                 if (succes.value == true)
                 {
                     MessageBox.Show("Your changes were saved", "Change Login Data");
-                    Form1.loggedInUserName = userNameTextBox.Text;
+                    if(gebruiker.name != "")
+                    {
+                        Form1.loggedInUserName = gebruiker.name;
+                    }
                     this.Close();
                 }
                 else
