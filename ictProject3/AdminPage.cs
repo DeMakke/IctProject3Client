@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -27,6 +28,7 @@ namespace ictProject3
         private CancellationTokenSource cts;
         JsonCode jsoncode = new JsonCode();
         List<Gebruiker> userList = new List<Gebruiker>();
+        public Md5Class hashing = new Md5Class();
 
         private void AdminPage_Load(object sender, EventArgs e)
         {
@@ -84,8 +86,15 @@ namespace ictProject3
                 txtPasswordNew.ForeColor = Color.Black;
                 txtPasswordConfirm.ForeColor = Color.Black;
 
-                user.password = txtPasswordConfirm.Text;
+                 string password = txtPasswordConfirm.Text;
                 user.name = txtName.Text;
+
+
+                using (MD5 md5Hash = MD5.Create())
+                {
+                    user.password = hashing.GetMd5Hash(md5Hash, password);
+                }
+
 
                 JsonCode jsonCode = new JsonCode();
                 var progressindicator = new Progress<int>(ReportProgress);
@@ -138,7 +147,11 @@ namespace ictProject3
 
                 user.id = txtId.Text;
                 user.name = txtName.Text;
-                user.password = txtPasswordConfirm.Text;
+                string password = txtPasswordConfirm.Text;
+                using (MD5 md5Hash = MD5.Create())
+                {
+                    user.password = hashing.GetMd5Hash(md5Hash, password);
+                }
 
                 txtPasswordNew.ForeColor = Color.Black;
                 txtPasswordConfirm.ForeColor = Color.Black;

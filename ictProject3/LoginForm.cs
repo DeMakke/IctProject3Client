@@ -113,9 +113,9 @@ namespace ictProject3
             }
         }
 
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
 
-
-
-
+        }
     }
 }
