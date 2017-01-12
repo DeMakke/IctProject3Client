@@ -132,7 +132,14 @@ namespace ictProject3
         {
             var progressindicator = new Progress<int>(ReportProgress);
             gebruiker.name = userNameTextBox.Text;
-            gebruiker.password = passwordTextBox.Text;
+            string password = passwordTextBox.Text;
+           
+
+            using (MD5 md5Hash = MD5.Create())
+            {
+                gebruiker.password = hashing.GetMd5Hash(md5Hash, password);
+            }
+
             string json2 = jsonCode.Serialize(gebruiker);
 
             result = await servercom.ReceiveDataAsync("ChangeUserData", json2, progressindicator, cts.Token);
@@ -148,7 +155,10 @@ namespace ictProject3
                 if (succes.value == true)
                 {
                     MessageBox.Show("Your changes were saved", "Change Login Data");
-                    Form1.loggedInUserName = userNameTextBox.Text;
+                    if(gebruiker.name != "")
+                    {
+                        Form1.loggedInUserName = gebruiker.name;
+                    }
                     this.Close();
                 }
                 else
@@ -158,6 +168,9 @@ namespace ictProject3
             }
         }
 
+        private void GebruikerWijzigen_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }
