@@ -86,10 +86,10 @@ namespace ictProject3
                 result = result.Remove(result.Length - 1);
                 result = result.Remove(0, 18);
                 userList = jsoncode.Deserialize<List<Gebruiker>>(result);
-                string username = LoginForm.CurrentUser.name;
-                if ((userList.Find(x => x.name.Contains(username)) != null))
+                string username = Form1.loggedInUserName;
+                if ((userList.Find(x => x.name == username) != null))
                 {
-                    userList.Remove(userList.Find(x => x.name.Contains(username)));
+                    userList.Remove(userList.Find(x => x.name == username));
                 }
                 lstGebruikers.DataSource = userList;
                 lstGebruikers.DisplayMember = "name";
